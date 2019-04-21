@@ -14,6 +14,7 @@ import spark.Request;
 import spark.Response;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
+import sparkHandlers.MovieHandler;
 
 /**
  * The Main class of our project. This is where execution begins.
@@ -75,6 +76,7 @@ public final class Main {
     FreeMarkerEngine freeMarker = createEngine();
 
     // Setup Spark Routes here
+    Spark.get("m/:movieID", new MovieHandler(), freeMarker);
   }
 
   /**
