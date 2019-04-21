@@ -128,4 +128,17 @@ public final class DatabaseQuery {
       System.out.println("ERROR: Something wrong with inserting user.");
     }
   }
+
+  public static void insertGenre(Connection conn, String genre) {
+    String query = "INSERT INTO genres VALUES(NULL, ?);";
+
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setString(1, genre);
+      prep.execute();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Something wrong with inserting genre.");
+    }
+  }
 }
