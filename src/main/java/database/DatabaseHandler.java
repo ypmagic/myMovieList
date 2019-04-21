@@ -54,31 +54,10 @@ public final class DatabaseHandler {
         + " imdbVotes TEXT,"
         + " PRIMARY KEY(\"imdbId\")"
         + ");";
-    String usersTable = "CREATE TABLE IF NOT EXISTS users ("
-        + " userId INTEGER,"
-        + " username TEXT,"
-        + " pw TEXT,"
-        + " PRIMARY KEY(\"userId\")"
-        + ");";
-    String query = "CREATE TABLE IF NOT EXISTS movies ("
-            + " imdbId TEXT,"
-            + " title TEXT,"
-            + " year INTEGER,"
-            + " rated TEXT,"
-            + " runTime TEXT,"
-            + " plot TEXT,"
-            + " awards TEXT,"
-            + " imdbRating REAL,"
-            + " imdbVotes TEXT,"
-            + " PRIMARY KEY(\"imdbId\")"
-            + ");";
     try {
       PreparedStatement moviePrep = conn.prepareStatement(movieTable);
       moviePrep.execute();
       moviePrep.close();
-      PreparedStatement userPrep = conn.prepareStatement(usersTable);
-      userPrep.execute();
-      userPrep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Creating movie table failed.");
     }
