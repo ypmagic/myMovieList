@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import movie.Movie;
+import user.User;
 
 public final class DatabaseQuery {
   
@@ -88,4 +89,43 @@ public final class DatabaseQuery {
     }
   }
 
+  public static Boolean validLogin(Connection conn, String login) {
+    Boolean ret = false;
+    String query = "SELECT COUNT(*) FROM users WHERE login = ?;";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setString(1, login);
+
+      ResultSet rs = prep.executeQuery();
+
+      while(rs.next()) {
+        int num = rs.getInt(1);
+        if (num == 0) {
+          ret = true;
+        }
+      }
+      rs.close();
+      prep.close();
+
+    } catch (SQLException e) {
+      System.out.println("ERROR: Finding login failed.");
+    }
+    return ret;
+  }
+
+  public static void insertNewUser(Connection conn, User u) {
+    String login = u.getLogin();
+    String password = u.getPassword();
+
+    String query = "INSERT INTO users VALUES (?, ?);";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setString(1, login);
+      prep.setString(2, password);
+      prep.execute();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Something wrong with inserting user.");
+    }
+  }
 }

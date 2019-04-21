@@ -1,14 +1,11 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import movie.Movie;
+import user.User;
 
 /**
  * Handles queries into the movie database and inserts retrieved movies
@@ -109,14 +106,4 @@ public final class DatabaseHandler {
     }
     return DatabaseHandler.movie;
   }
-  
-  /**
-   * This query method adds a new movie into the database.
-   * @return List of street names
-   */
-  public static List<String> insertNewMovie(Movie m) {
-    // stuff here
-    return new ArrayList<String>();
-  }
-
 }
