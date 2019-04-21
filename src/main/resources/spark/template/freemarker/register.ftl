@@ -1,11 +1,11 @@
 <#assign content>
 
 <div class="container">
-  <form id="form">
+  <form id="register">
   	Username:<br>
-  	<input type="text" id="username"><br>
+  	<input type="text" name="username"><br>
   	Password:<br>
-  	<input type="text" id="password">
+  	<input type="text" name="password">
   	<input type="submit">
   </form>
 </div>

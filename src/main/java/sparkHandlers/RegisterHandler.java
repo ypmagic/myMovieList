@@ -12,6 +12,7 @@ import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+import user.User;
 
 /**
  * Handler for user registration
@@ -28,9 +29,10 @@ public class RegisterHandler implements Route {
     QueryParamsMap qm = req.queryMap();
     String userName = qm.value("username");
     String password = qm.value("password");
+    User u = new User(userName, password);
     // insert user into the database TODO: if not already in
     Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
-    DatabaseQuery.insertUser(conn, userName, password);
+    DatabaseQuery.insertNewUser(conn, u);
     // TODO: if already in database, switch success off.
     Map<String, Object> variables = ImmutableMap.of("success", success);
     return GSON.toJson(variables);

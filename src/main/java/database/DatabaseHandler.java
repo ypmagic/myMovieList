@@ -31,6 +31,16 @@ public final class DatabaseHandler {
       System.out.println("ERROR: Found no such database.");
       return;
     }
+    this.makeMoviesTable();
+    this.makeUserTable();
+    this.makeUserMoviesTable();
+    this.makeGenreTable();
+  }
+
+  /**
+   * Creates a table for movies.
+   */
+  private void makeMoviesTable() {
     // if the movies table does not exist, create a movies table
     String movieTable = "CREATE TABLE IF NOT EXISTS movies ("
         + " imdbId TEXT,"
@@ -50,6 +60,18 @@ public final class DatabaseHandler {
         + " pw TEXT,"
         + " PRIMARY KEY(\"userId\")"
         + ");";
+    String query = "CREATE TABLE IF NOT EXISTS movies ("
+            + " imdbId TEXT,"
+            + " title TEXT,"
+            + " year INTEGER,"
+            + " rated TEXT,"
+            + " runTime TEXT,"
+            + " plot TEXT,"
+            + " awards TEXT,"
+            + " imdbRating REAL,"
+            + " imdbVotes TEXT,"
+            + " PRIMARY KEY(\"imdbId\")"
+            + ");";
     try {
       PreparedStatement moviePrep = conn.prepareStatement(movieTable);
       moviePrep.execute();
@@ -59,6 +81,56 @@ public final class DatabaseHandler {
       userPrep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Creating movie table failed.");
+    }
+  }
+
+  /**
+   * Creates a table for users.
+   */
+  private void makeUserTable() {
+    String query = "CREATE TABLE IF NOT EXISTS users ("
+            + " login TEXT,"
+            + " password TEXT,"
+            + " PRIMARY KEY(\"login\"));";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.execute();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Creating user table failed.");
+    }
+  }
+
+  /**
+   * Creates a table for movies users have seen.
+   */
+  private void makeUserMoviesTable() {
+    String query = "CREATE TABLE IF NOT EXISTS userMovies ("
+            + " login TEXT,"
+            + " imdbId TEXT);";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.execute();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Creating user table failed.");
+    }
+  }
+
+  /**
+   * Creates a table for genres.
+   */
+  private void makeGenreTable() {
+    String query = "CREATE TABLE IF NOT EXISTS genres ("
+            + " genreId INTEGER,"
+            + " genre TEXT,"
+            + " PRIMARY KEY(\"genreId\"));";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.execute();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Creating genre table failed.");
     }
   }
 
