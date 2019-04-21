@@ -1,11 +1,11 @@
 <#assign content>
 
 <div class="container">
-  <h3>Film: ${title}</h3>
-  <h4>Genre: ${genre}</h4>
-  <h4>Rating: ${imdbRating}</h4>
-  <p><strong>Plot: </strong> ${plot}</p>
+  <h3>Film: ${movie.title}</h3>
+  <h4>Rating: ${movie.imdbRating}</h4>
+  <p>${movie.rated}
+  <p><strong>Plot: </strong> ${movie.plot}</p>
   </br>
 </div>
 </#assign>
-<#include "main-bacon.ftl">
+<#include "main.ftl">

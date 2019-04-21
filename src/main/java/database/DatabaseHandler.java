@@ -3,14 +3,8 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
-import edu.brown.cs.wzeng3ypark29.maps.singleton.MapsDatabaseHolder;
-import movie.Movie;
 
 /**
  * Handles queries into the movie database and inserts retrieved movies
@@ -38,7 +32,7 @@ public final class DatabaseHandler {
       return;
     }
     // if the movies table does not exist, create a movies table
-    String query = "CREATE TABLE IF NOT EXISTS movies ("
+    String movieTable = "CREATE TABLE IF NOT EXISTS movies ("
         + " imdbId TEXT,"
         + " title TEXT,"
         + " year INTEGER,"
@@ -50,10 +44,19 @@ public final class DatabaseHandler {
         + " imdbVotes TEXT,"
         + " PRIMARY KEY(\"imdbId\")"
         + ");";
+    String usersTable = "CREATE TABLE IF NOT EXISTS users ("
+        + " userId INTEGER,"
+        + " username TEXT,"
+        + " pw TEXT,"
+        + " PRIMARY KEY(\"userId\")"
+        + ");";
     try {
-      PreparedStatement prep = conn.prepareStatement(query);
-      prep.execute();
-      prep.close();
+      PreparedStatement moviePrep = conn.prepareStatement(movieTable);
+      moviePrep.execute();
+      moviePrep.close();
+      PreparedStatement userPrep = conn.prepareStatement(usersTable);
+      userPrep.execute();
+      userPrep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Creating movie table failed.");
     }
@@ -70,14 +73,7 @@ public final class DatabaseHandler {
     return DatabaseHandler.movie;
   }
   
-  /**
-   * This query method adds a new movie into the database.
-   * @param conn Database SQL connection
-   * @return List of street names
-   */
-  public static List<String> insertNewMovie(Movie m) {
-    // stuff here
-    return new ArrayList<String>();
+  public Connection getConnection() {
+    return conn;
   }
-
 }

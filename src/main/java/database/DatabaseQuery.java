@@ -88,4 +88,17 @@ public final class DatabaseQuery {
     }
   }
 
+  public static void insertUser(Connection conn, String username, String pw) {
+    String query = "INSERT INTO users VALUES (null, ?, ?);";
+    // TODO: do we generate user ID by hashing username? or just go by
+    // the row id in the users table?
+    try {
+      PreparedStatement prep;
+      prep = conn.prepareStatement(query);
+      prep.setString(1, username);
+      prep.setString(2, pw);
+    } catch (SQLException e) {
+      System.out.println("ERROR: Something wrong with inserting user.");
+    }
+  }
 }

@@ -15,6 +15,7 @@ import spark.Response;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
 import sparkHandlers.MovieHandler;
+import sparkHandlers.RegisterHandler;
 
 /**
  * The Main class of our project. This is where execution begins.
@@ -77,6 +78,7 @@ public final class Main {
 
     // Setup Spark Routes here
     Spark.get("m/:movieID", new MovieHandler(), freeMarker);
+    Spark.post("/register", new RegisterHandler());
   }
 
   /**
