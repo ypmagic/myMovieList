@@ -1,4 +1,4 @@
-package sparkHandlers;
+package edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers;
 
 import java.sql.Connection;
 import java.util.Map;
@@ -6,13 +6,13 @@ import java.util.Map;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 
-import database.DatabaseHandler;
-import database.DatabaseQuery;
+import edu.brown.cs.ap99dwang66ekang5ypark29.database.DatabaseHandler;
+import edu.brown.cs.ap99dwang66ekang5ypark29.database.DatabaseQuery;
+import edu.brown.cs.ap99dwang66ekang5ypark29.user.User;
 import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
 import spark.Route;
-import user.User;
 
 /**
  * Handler for user registration

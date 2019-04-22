@@ -1,4 +1,4 @@
-package database;
+package edu.brown.cs.ap99dwang66ekang5ypark29.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

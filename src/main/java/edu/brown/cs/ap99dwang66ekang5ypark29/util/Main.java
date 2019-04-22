@@ -1,11 +1,13 @@
-package util;
+package edu.brown.cs.ap99dwang66ekang5ypark29.util;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import cli.CommandProcessor;
+import edu.brown.cs.ap99dwang66ekang5ypark29.cli.CommandProcessor;
+import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.MovieHandler;
+import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.RegisterHandler;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -14,9 +16,6 @@ import spark.Request;
 import spark.Response;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
-import sparkHandlers.MovieHandler;
-import sparkHandlers.RegisterHandler;
-
 /**
  * The Main class of our project. This is where execution begins.
  *

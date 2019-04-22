@@ -1,4 +1,4 @@
-package database;
+package edu.brown.cs.ap99dwang66ekang5ypark29.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import movie.Movie;
-import user.User;
+import edu.brown.cs.ap99dwang66ekang5ypark29.movie.Movie;
+import edu.brown.cs.ap99dwang66ekang5ypark29.user.User;
 
 public final class DatabaseQuery {
   

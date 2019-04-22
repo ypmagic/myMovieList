@@ -1,8 +1,9 @@
-package user;
+package edu.brown.cs.ap99dwang66ekang5ypark29.user;
 
-import movie.Movie;
 
 import java.util.List;
+
+import edu.brown.cs.ap99dwang66ekang5ypark29.movie.Movie;
 
 public class User {
 
