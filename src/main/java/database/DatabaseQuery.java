@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import movie.Movie;
 import user.User;
@@ -39,17 +41,59 @@ public final class DatabaseQuery {
         String awards = rs.getString(7);
         double imdbRating = rs.getDouble(8);
         String imdbVotes = rs.getString(9);
-        // need to get genre from genres table
-        // later implement this
+        // set the movie temporarily without genres
         m = new Movie(movieId, title, year, rated, runTime, 
-            new ArrayList<String>(),plot, awards, imdbRating, imdbVotes);
+            new ArrayList<String>(), plot, awards, imdbRating, imdbVotes);
       }
       rs.close();
       prep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Something wrong with getting movie.");
     }
+    // get all genres that this movie has
+    List<String> genres = getGenres(conn, m.getImdbID());
+    m.setGenre(genres);
     return m;
+  }
+  
+  public static List<String> getGenres(Connection conn, String movieId) {
+    // first get all the genre id's
+    String query = "SELECT genreId FROM genreMovies WHERE movieId = ?";
+    List<Integer> genreId = new ArrayList<>();
+    try {
+      PreparedStatement prep;
+      prep = conn.prepareStatement(query);
+      prep.setString(1, movieId);
+      ResultSet rs = prep.executeQuery();
+      while (rs.next()) {
+        int genre = rs.getInt(1);
+        genreId.add(genre);
+      }
+      rs.close();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Something wrong with getting genre IDs.");
+    }
+    // now get all the names of genres through genre table
+    String query2 = "SELECT genre FROM genres WHERE genreId = ?;";
+    List<String> genreNames = new ArrayList<>();
+    for (int genre : genreId) {
+      try {
+        PreparedStatement prep;
+        prep = conn.prepareStatement(query2);
+        prep.setInt(1, genre);
+        ResultSet rs = prep.executeQuery();
+        while (rs.next()) {
+          String genreName = rs.getString(1);
+          genreNames.add(genreName);
+        }
+        rs.close();
+        prep.close();
+      } catch (SQLException e) {
+        System.out.println("ERROR: Something wrong with getting genre names");
+      }
+    }
+    return genreNames;
   }
   
   /**
@@ -59,6 +103,8 @@ public final class DatabaseQuery {
    */
   public static void insertMovie(Connection conn, Movie m) {
     String query = "INSERT INTO movies VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    String query2 = "INSERT INTO genreMovies VALUES (?, ?);";
+    String query3 = "INSERT INTO genres VALUES (?, ?);";
     // getting specific movie data
     String imdbId = m.getImdbID();
     String title = m.getTitle();
@@ -70,7 +116,31 @@ public final class DatabaseQuery {
     double imdbRating = m.getImdbRating();
     String imdbVotes = m.getImdbVotes();
     // TODO: EDIT THIS LATER BC WE NEED TO INSERT GENRE INTO GENRE TABLE!!!
+    List<String> genres = m.getGenre();
+    for (String genre : genres) {
+      // unique id for each genre
+      int hash = Objects.hashCode(genre);
+      try {
+        PreparedStatement prep;
+        // insert each genre into the genre table
+        prep = conn.prepareStatement(query3);
+        prep.setInt(1, hash);
+        prep.setString(2, genre);
+        prep.execute();
+        prep.close();
+        // associate each movie with genre in genreMovies table
+        PreparedStatement prep2;
+        prep2 = conn.prepareStatement(query2);
+        prep2.setString(1, imdbId);
+        prep2.setInt(2, hash);
+        prep2.execute();
+        prep2.close();
+      } catch (SQLException e) {
+        System.out.println("ERROR: Something wrong with inserting genres.");
+      }
+    }
     try {
+      // insert each movie into the movies table
       PreparedStatement prep;
       prep = conn.prepareStatement(query);
       prep.setString(1, imdbId);
@@ -129,16 +199,17 @@ public final class DatabaseQuery {
     }
   }
 
-  public static void insertGenre(Connection conn, String genre) {
-    String query = "INSERT INTO genres VALUES(NULL, ?);";
-
-    try {
-      PreparedStatement prep = conn.prepareStatement(query);
-      prep.setString(1, genre);
-      prep.execute();
-      prep.close();
-    } catch (SQLException e) {
-      System.out.println("ERROR: Something wrong with inserting genre.");
-    }
-  }
+//  public static void insertGenre(Connection conn, String genre) {
+//    String query = "INSERT INTO genres VALUES(?, ?);";
+//    try {
+//      PreparedStatement prep = conn.prepareStatement(query);
+//      int hash = Objects.hash(genre);
+//      prep.setInt(1, hash);
+//      prep.setString(2, genre);
+//      prep.execute();
+//      prep.close();
+//    } catch (SQLException e) {
+//      System.out.println("ERROR: Something wrong with inserting genre.");
+//    }
+//  }
 }

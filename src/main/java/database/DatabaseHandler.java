@@ -35,6 +35,7 @@ public final class DatabaseHandler {
     this.makeUserTable();
     this.makeUserMoviesTable();
     this.makeGenreTable();
+    this.makeMovieGenreTable();
   }
 
   /**
@@ -110,6 +111,19 @@ public final class DatabaseHandler {
       prep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Creating genre table failed.");
+    }
+  }
+  
+  private void makeMovieGenreTable() {
+    String query = "CREATE TABLE IF NOT EXISTS genreMovies ("
+        + " movieId TEXT,"
+        + " genreId INTEGER);";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.execute();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Creating movie genre table failed.");
     }
   }
 
