@@ -1,8 +1,9 @@
 package user;
 
-import movie.Movie;
-
 import java.util.List;
+import java.util.Objects;
+
+import movie.Movie;
 
 public class User {
 
@@ -36,5 +37,27 @@ public class User {
 
   public void addMovie(Movie movie) {
     this.movies.add(movie);
+  }
+  
+  @Override
+  public int hashCode() {
+    return Objects.hash(this.login);
+  }
+  
+  @Override
+  public boolean equals(Object o) {
+    User u2 = (User) o;
+    if (o == this) {
+      return true;
+    }
+    if (!(o instanceof User)) {
+      return false;
+    }
+    return this.hashCode() == u2.hashCode();
+  }
+  
+  @Override
+  public String toString() {
+    return "{username: " + this.login + ", password: " + this.password + "}";
   }
 }

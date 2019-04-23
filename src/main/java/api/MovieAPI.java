@@ -34,7 +34,7 @@ public class MovieAPI {
     Movie m1 = MovieAPI.searchById("tt7428594");
     System.out.println(m1.toString());
     // testing search by title
-    Movie m2 = MovieAPI.searchByTitle("Blade Runner: Black Out 2022");
+    Movie m2 = MovieAPI.searchByTitle("Toy Story");
     System.out.println(m2.toString());
     // test equality
     System.out.println(m1.equals(m2)); // true

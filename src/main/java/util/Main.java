@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import cli.CommandProcessor;
+import database.DatabaseHandler;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -16,6 +17,7 @@ import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
 import sparkHandlers.MovieHandler;
 import sparkHandlers.RegisterHandler;
+import sparkHandlers.RegisterPageHandler;
 
 /**
  * The Main class of our project. This is where execution begins.
@@ -44,6 +46,8 @@ public final class Main {
   }
 
   private void run() {
+    // testing database handler
+    DatabaseHandler d = DatabaseHandler.getDatabaseHandler();
     // Parse command line arguments
     OptionParser parser = new OptionParser();
     parser.accepts("gui");
@@ -78,6 +82,7 @@ public final class Main {
 
     // Setup Spark Routes here
     Spark.get("m/:movieID", new MovieHandler(), freeMarker);
+    Spark.get("/register", new RegisterPageHandler(), freeMarker);
     Spark.post("/register", new RegisterHandler());
   }
 

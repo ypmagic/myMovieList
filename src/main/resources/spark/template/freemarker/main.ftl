@@ -8,8 +8,6 @@
          avoid minification for clarity. -->
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/html5bp.css">
-    <link rel="stylesheet" href="/css/maps.css">
-    <link rel="stylesheet" href="/css/input.css">
 
   </head>
   <body>
@@ -18,6 +16,7 @@
 
      <!-- Again, we're serving up the unminified source for clarity. -->
      <script src="/js/jquery-2.1.1.js"></script>
+     <script src="/js/register.js"></script>
   </body>
   <!-- See http://html5boilerplate.com/ for a good place to start
        dealing with real world issues like old browsers.  -->
