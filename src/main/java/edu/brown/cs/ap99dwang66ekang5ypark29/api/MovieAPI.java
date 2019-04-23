@@ -1,4 +1,4 @@
-package api;
+package edu.brown.cs.ap99dwang66ekang5ypark29.api;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import movie.Movie;
+import edu.brown.cs.ap99dwang66ekang5ypark29.movie.Movie;
 
 public class MovieAPI {
   

@@ -1,4 +1,4 @@
-package sparkHandlers;
+package edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -7,9 +7,9 @@ import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
 
-import database.DatabaseHandler;
-import database.DatabaseQuery;
-import movie.Movie;
+import edu.brown.cs.ap99dwang66ekang5ypark29.database.DatabaseHandler;
+import edu.brown.cs.ap99dwang66ekang5ypark29.database.DatabaseQuery;
+import edu.brown.cs.ap99dwang66ekang5ypark29.movie.Movie;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;

@@ -13,8 +13,7 @@ public class RegisterPageHandler implements TemplateViewRoute {
 
   @Override
   public ModelAndView handle(Request req, Response res) {
-    Map<String, Object> variables = ImmutableMap.of("title",
-        "Register");
+    Map<String, Object> variables = ImmutableMap.of("title", "Register");
     return new ModelAndView(variables, "register.ftl");
-  } 
+  }
 }

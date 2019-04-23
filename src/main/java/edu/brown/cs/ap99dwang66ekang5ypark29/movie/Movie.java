@@ -1,4 +1,4 @@
-package movie;
+package edu.brown.cs.ap99dwang66ekang5ypark29.movie;
 
 import java.util.List;
 import java.util.Objects;
