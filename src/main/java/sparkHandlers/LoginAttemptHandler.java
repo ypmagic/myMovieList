@@ -21,6 +21,7 @@ public class LoginAttemptHandler implements Route {
 	    QueryParamsMap qm = request.queryMap();
 	    String userName = qm.value("username");
 	    String password = qm.value("password");
+	    System.out.println(userName + " "+ password);
 	    //TODO: if username/password are invalid, set success false
 	    Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
 	    if (!DatabaseQuery.authenticateUser(conn, userName, password)) {
