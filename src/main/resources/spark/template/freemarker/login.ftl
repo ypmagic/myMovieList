@@ -8,7 +8,7 @@
             <input type="submit">
         </form>
         <br>
-        <form action="/registerPage">
+        <form action="/register">
             <input type = "submit" value="Register New User">
         </form>
     </div>
