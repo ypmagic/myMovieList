@@ -1,6 +1,7 @@
 $("#login").submit(function(e) {
-  let username = $("input[name='username']");
-  let password = $("input[password='password']");
+  e.preventDefault();
+  let username = $("input[name='username']").val();
+  let password = $("input[name='password']").val();
   let postParameters = {
     username: username,
     password: password
