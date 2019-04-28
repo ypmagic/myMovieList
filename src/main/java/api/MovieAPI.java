@@ -1,4 +1,4 @@
-package edu.brown.cs.ap99dwang66ekang5ypark29.api;
+package api;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import edu.brown.cs.ap99dwang66ekang5ypark29.movie.Movie;
+import movie.Movie;
 
 public class MovieAPI {
   
@@ -34,7 +34,7 @@ public class MovieAPI {
     Movie m1 = MovieAPI.searchById("tt7428594");
     System.out.println(m1.toString());
     // testing search by title
-    Movie m2 = MovieAPI.searchByTitle("Blade Runner: Black Out 2022");
+    Movie m2 = MovieAPI.searchByTitle("Toy Story");
     System.out.println(m2.toString());
     // test equality
     System.out.println(m1.equals(m2)); // true

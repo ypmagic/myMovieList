@@ -1,4 +1,4 @@
-package edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers;
+package sparkHandlers;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -7,9 +7,9 @@ import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
 
-import edu.brown.cs.ap99dwang66ekang5ypark29.database.DatabaseHandler;
-import edu.brown.cs.ap99dwang66ekang5ypark29.database.DatabaseQuery;
-import edu.brown.cs.ap99dwang66ekang5ypark29.movie.Movie;
+import database.DatabaseHandler;
+import database.DatabaseQuery;
+import movie.Movie;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -25,16 +25,22 @@ public class MovieHandler implements TemplateViewRoute {
   public ModelAndView handle(Request req, Response res) {
     String codedID = req.params("movieID");
     String movieID = "";
+    System.out.println("before");
+    System.out.println("codedID: " + codedID);
+    System.out.println("movieID: " + movieID);
     try {
       movieID = URLDecoder.decode(codedID.replace("+", "%2B"), "UTF-8")
           .replace("%2B", "+");
     } catch (UnsupportedEncodingException e) {
       System.out.println("ERROR: Encoding for GUI failed.");
     }
+    System.out.println("after");
+    System.out.println("codedID: " + codedID);
+    System.out.println("movieID: " + movieID);
     Movie m = getMovie(movieID);
     // retrieve name of actor and the list of films they were in
     Map<String, Object> variables = ImmutableMap.of("movie",
-        m);
+        m, "title", m.getTitle());
     return new ModelAndView(variables, "movie.ftl");
   }
   

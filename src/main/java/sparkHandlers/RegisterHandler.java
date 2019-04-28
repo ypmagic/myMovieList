@@ -1,4 +1,4 @@
-package edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers;
+package sparkHandlers;
 
 import java.sql.Connection;
 import java.util.Map;
@@ -6,13 +6,13 @@ import java.util.Map;
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.Gson;
 
-import edu.brown.cs.ap99dwang66ekang5ypark29.database.DatabaseHandler;
-import edu.brown.cs.ap99dwang66ekang5ypark29.database.DatabaseQuery;
-import edu.brown.cs.ap99dwang66ekang5ypark29.user.User;
+import database.DatabaseHandler;
+import database.DatabaseQuery;
 import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+import user.User;
 
 /**
  * Handler for user registration
@@ -30,12 +30,17 @@ public class RegisterHandler implements Route {
     String userName = qm.value("username");
     String password = qm.value("password");
     User u = new User(userName, password);
-    // insert user into the database TODO: if not already in
+
     Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
-    DatabaseQuery.insertNewUser(conn, u);
-    // TODO: if already in database, switch success off.
+
+    // checks if user in database
+    if (DatabaseQuery.validLogin(conn, userName)) {
+      success = false;
+    } else {
+      DatabaseQuery.insertNewUser(conn, u);
+    }
+
     Map<String, Object> variables = ImmutableMap.of("success", success);
     return GSON.toJson(variables);
   }
 }
-  

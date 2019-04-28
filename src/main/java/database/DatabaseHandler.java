@@ -1,4 +1,4 @@
-package edu.brown.cs.ap99dwang66ekang5ypark29.database;
+package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -58,7 +58,7 @@ public final class DatabaseHandler {
         + ");";
     try {
       PreparedStatement moviePrep = conn.prepareStatement(movieTable);
-      moviePrep.execute();
+      moviePrep.executeUpdate();
       moviePrep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Creating movie table failed.");
@@ -75,11 +75,11 @@ public final class DatabaseHandler {
             + " PRIMARY KEY(\"login\"));";
     try {
       PreparedStatement prep = conn.prepareStatement(query);
-      prep.execute();
+      prep.executeUpdate();
       prep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Creating user table failed.");
-    }
+    } 
   }
 
   /**
@@ -91,10 +91,10 @@ public final class DatabaseHandler {
             + " imdbId TEXT);";
     try {
       PreparedStatement prep = conn.prepareStatement(query);
-      prep.execute();
+      prep.executeUpdate();
       prep.close();
     } catch (SQLException e) {
-      System.out.println("ERROR: Creating user table failed.");
+      System.out.println("ERROR: Creating user movie table failed.");
     }
   }
 
@@ -108,7 +108,7 @@ public final class DatabaseHandler {
             + " PRIMARY KEY(\"genreId\"));";
     try {
       PreparedStatement prep = conn.prepareStatement(query);
-      prep.execute();
+      prep.executeUpdate();
       prep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Creating genre table failed.");
@@ -121,7 +121,7 @@ public final class DatabaseHandler {
         + " genreId INTEGER);";
     try {
       PreparedStatement prep = conn.prepareStatement(query);
-      prep.execute();
+      prep.executeUpdate();
       prep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Creating movie genre table failed.");

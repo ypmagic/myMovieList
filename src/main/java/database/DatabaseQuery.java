@@ -1,4 +1,4 @@
-package edu.brown.cs.ap99dwang66ekang5ypark29.database;
+package database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import edu.brown.cs.ap99dwang66ekang5ypark29.movie.Movie;
-import edu.brown.cs.ap99dwang66ekang5ypark29.user.User;
+import api.MovieAPI;
+import movie.Movie;
+import user.User;
 
 public final class DatabaseQuery {
   
@@ -49,6 +50,11 @@ public final class DatabaseQuery {
       prep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Something wrong with getting movie.");
+    }
+    // if the movie does not exist in the database, use movie api
+    if (m.equals(null)) {
+      m = MovieAPI.searchById(movieId);
+      insertMovie(conn, m);
     }
     // get all genres that this movie has
     List<String> genres = getGenres(conn, m.getImdbID());
@@ -165,9 +171,7 @@ public final class DatabaseQuery {
     try {
       PreparedStatement prep = conn.prepareStatement(query);
       prep.setString(1, login);
-
       ResultSet rs = prep.executeQuery();
-
       while(rs.next()) {
         int num = rs.getInt(1);
         if (num == 0) {
@@ -176,7 +180,6 @@ public final class DatabaseQuery {
       }
       rs.close();
       prep.close();
-
     } catch (SQLException e) {
       System.out.println("ERROR: Finding login failed.");
     }
@@ -213,9 +216,10 @@ public final class DatabaseQuery {
       PreparedStatement prep = conn.prepareStatement(query);
       prep.setString(1, login);
       prep.setString(2, password);
-      prep.execute();
+      prep.executeUpdate();
       prep.close();
     } catch (SQLException e) {
+      e.printStackTrace();
       System.out.println("ERROR: Something wrong with inserting user.");
     }
   }

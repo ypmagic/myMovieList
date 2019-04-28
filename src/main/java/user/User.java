@@ -1,8 +1,9 @@
-package edu.brown.cs.ap99dwang66ekang5ypark29.user;
+package user;
 
 import java.util.List;
+import java.util.Objects;
 
-import edu.brown.cs.ap99dwang66ekang5ypark29.movie.Movie;
+import movie.Movie;
 
 public class User {
 
@@ -36,5 +37,27 @@ public class User {
 
   public void addMovie(Movie movie) {
     this.movies.add(movie);
+  }
+  
+  @Override
+  public int hashCode() {
+    return Objects.hash(this.login);
+  }
+  
+  @Override
+  public boolean equals(Object o) {
+    User u2 = (User) o;
+    if (o == this) {
+      return true;
+    }
+    if (!(o instanceof User)) {
+      return false;
+    }
+    return this.hashCode() == u2.hashCode();
+  }
+  
+  @Override
+  public String toString() {
+    return "{username: " + this.login + ", password: " + this.password + "}";
   }
 }

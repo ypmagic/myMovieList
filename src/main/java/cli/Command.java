@@ -1,4 +1,4 @@
-package edu.brown.cs.ap99dwang66ekang5ypark29.cli;
+package cli;
 
 /**
  * The definition for a command for the command line interface.

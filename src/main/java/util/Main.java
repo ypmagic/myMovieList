@@ -1,16 +1,14 @@
-package edu.brown.cs.ap99dwang66ekang5ypark29.util;
+package util;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import edu.brown.cs.ap99dwang66ekang5ypark29.cli.CommandProcessor;
+import cli.CommandProcessor;
 import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.ListHandler;
 import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.LoginAttemptHandler;
 import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.LoginPageHandler;
-import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.MovieHandler;
-import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.RegisterHandler;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -19,7 +17,12 @@ import spark.Request;
 import spark.Response;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
-/**
+import sparkHandlers.LoginHandler;
+import sparkHandlers.MovieHandler;
+import sparkHandlers.RegisterHandler;
+import sparkHandlers.RegisterPageHandler;
+
+/*
  * The Main class of our project. This is where execution begins.
  *
  * @author ypark29
@@ -84,6 +87,8 @@ public final class Main {
     Spark.post("/register", new RegisterHandler());
     Spark.get("/login", new LoginPageHandler(), freeMarker);
     Spark.post("/loginattempt", new LoginAttemptHandler());
+    Spark.get("/register", new RegisterPageHandler(), freeMarker);
+    Spark.get("/login", new LoginHandler(), freeMarker);
   }
 
   /**
