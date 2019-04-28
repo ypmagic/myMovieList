@@ -12,5 +12,6 @@
         <input type = "submit" value="Register New User">
     </form>
 </div>
+
 </#assign>
 <#include "main.ftl">
