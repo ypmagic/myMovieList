@@ -9,7 +9,7 @@ import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
 
-public class LoginHandler implements TemplateViewRoute {
+public class LoginPageHandler implements TemplateViewRoute {
 	@Override
 	public ModelAndView handle(Request request, Response response) throws Exception {
 	      Map<String, Object> variables = ImmutableMap.of("title",

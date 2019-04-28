@@ -17,8 +17,6 @@ import user.User;
  */
 public class RegisterPageHandler implements TemplateViewRoute {
 
-  private static final Gson GSON = new Gson();
-
   @Override
   public ModelAndView handle(Request req, Response res) {
     Map<String, Object> variables = ImmutableMap.of("title",

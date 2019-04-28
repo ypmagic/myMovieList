@@ -1,4 +1,4 @@
-package edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers;
+package sparkHandlers;
 
 import spark.ModelAndView;
 import spark.Request;
