@@ -183,6 +183,27 @@ public final class DatabaseQuery {
     return ret;
   }
 
+  public static Boolean authenticateUser(Connection conn, String login, String pw) {
+      Boolean toReturn = false;
+	  String query = "SELECT COUNT(*) FROM users WHERE login = ? AND password = ?;";
+	  try {
+	      PreparedStatement prep = conn.prepareStatement(query);
+	      prep.setString(1, login);
+	      prep.setString(2, pw);
+	      ResultSet rs = prep.executeQuery();
+	      while (rs.next()) {
+	    	  if (rs.getInt(1) == 1) {
+	    		  toReturn = true;
+	    	  }
+	      }
+	      rs.close();
+	      prep.close();
+	  } catch (SQLException e) {
+		  System.out.println("invalid credentials");
+	  }
+	  return toReturn;
+  }
+  
   public static void insertNewUser(Connection conn, User u) {
     String login = u.getLogin();
     String password = u.getPassword();
@@ -197,6 +218,22 @@ public final class DatabaseQuery {
     } catch (SQLException e) {
       System.out.println("ERROR: Something wrong with inserting user.");
     }
+  }
+  
+  public static String getListFromId(Connection conn, String id) {
+	  String query = "SELECT movies FROM lists WHERE url = ?;";
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.setString(1, id);
+		  ResultSet rs = prep.executeQuery();
+		  String toReturn = "";
+		  while (rs.next()) {
+			  toReturn = rs.getString(1);
+		  }
+		  return toReturn;
+	  } catch (SQLException e) {
+		  return "No list";
+	  }
   }
 
 //  public static void insertGenre(Connection conn, String genre) {

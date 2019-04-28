@@ -36,6 +36,7 @@ public final class DatabaseHandler {
     this.makeUserMoviesTable();
     this.makeGenreTable();
     this.makeMovieGenreTable();
+    this.makeListTable();
   }
 
   /**
@@ -125,6 +126,20 @@ public final class DatabaseHandler {
     } catch (SQLException e) {
       System.out.println("ERROR: Creating movie genre table failed.");
     }
+  }
+  
+  private void makeListTable() {
+	  String query = "CREATE TABLE IF NOT EXISTS lists ("
+	  		+ " url TEXT,"
+	  		+ " owner TEXT"
+	  		+ " movies TEXT);";
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.execute();
+		  prep.close();
+	  } catch(SQLException e) {
+		  System.out.println("ERROR: Creating lists table failed.");
+	  }
   }
 
   /**

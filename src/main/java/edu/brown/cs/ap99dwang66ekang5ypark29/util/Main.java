@@ -6,7 +6,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import edu.brown.cs.ap99dwang66ekang5ypark29.cli.CommandProcessor;
-import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.LoginHandler;
+import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.ListHandler;
+import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.LoginAttemptHandler;
+import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.LoginPageHandler;
 import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.MovieHandler;
 import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.RegisterHandler;
 import freemarker.template.Configuration;
@@ -78,8 +80,10 @@ public final class Main {
 
     // Setup Spark Routes here
     Spark.get("m/:movieID", new MovieHandler(), freeMarker);
+    Spark.get("l/:listID", new ListHandler(), freeMarker);
     Spark.post("/register", new RegisterHandler());
-    Spark.get("/login", new LoginHandler(), freeMarker);
+    Spark.get("/login", new LoginPageHandler(), freeMarker);
+    Spark.post("/loginattempt", new LoginAttemptHandler());
   }
 
   /**
