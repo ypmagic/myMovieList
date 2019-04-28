@@ -5,15 +5,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-<<<<<<< HEAD:src/main/java/util/Main.java
-import cli.CommandProcessor;
-import database.DatabaseHandler;
-=======
 import edu.brown.cs.ap99dwang66ekang5ypark29.cli.CommandProcessor;
+import edu.brown.cs.ap99dwang66ekang5ypark29.database.DatabaseHandler;
 import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.LoginHandler;
 import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.MovieHandler;
 import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.RegisterHandler;
->>>>>>> 0b6dd37c1493778ea88d43dfe5d437bea67d7114:src/main/java/edu/brown/cs/ap99dwang66ekang5ypark29/util/Main.java
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -22,10 +18,6 @@ import spark.Request;
 import spark.Response;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
-<<<<<<< HEAD:src/main/java/util/Main.java
-import sparkHandlers.MovieHandler;
-import sparkHandlers.RegisterHandler;
-import sparkHandlers.RegisterPageHandler;
 
 /*
  * The Main class of our project. This is where execution begins.
@@ -90,7 +82,6 @@ public final class Main {
 
     // Setup Spark Routes here
     Spark.get("m/:movieID", new MovieHandler(), freeMarker);
-    Spark.get("/register", new RegisterPageHandler(), freeMarker);
     Spark.post("/register", new RegisterHandler());
     Spark.get("/login", new LoginHandler(), freeMarker);
   }
