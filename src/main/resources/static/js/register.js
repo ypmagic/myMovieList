@@ -11,6 +11,7 @@ $("#register").submit(function(e) {
   $.post("/register", postParameters, responseJSON => {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
+      alert("success");
       window.location.replace("/login");
     } else {
       alert("This account already exists.");

@@ -6,9 +6,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import cli.CommandProcessor;
-import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.ListHandler;
-import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.LoginAttemptHandler;
-import edu.brown.cs.ap99dwang66ekang5ypark29.sparkHandlers.LoginPageHandler;
+import sparkHandlers.ListHandler;
+import sparkHandlers.LoginAttemptHandler;
+import sparkHandlers.LoginPageHandler;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -17,7 +17,6 @@ import spark.Request;
 import spark.Response;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
-import sparkHandlers.LoginHandler;
 import sparkHandlers.MovieHandler;
 import sparkHandlers.RegisterHandler;
 import sparkHandlers.RegisterPageHandler;
@@ -88,7 +87,6 @@ public final class Main {
     Spark.get("/login", new LoginPageHandler(), freeMarker);
     Spark.post("/loginattempt", new LoginAttemptHandler());
     Spark.get("/register", new RegisterPageHandler(), freeMarker);
-    Spark.get("/login", new LoginHandler(), freeMarker);
   }
 
   /**

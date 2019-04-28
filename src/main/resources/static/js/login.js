@@ -5,7 +5,7 @@ $("#login").submit(function(e) {
     username: username,
     password: password
   };
-  $.post("/register", postParameters, responseJSON => {
+  $.post("/loginattempt", postParameters, responseJSON => {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
       alert("success!")
