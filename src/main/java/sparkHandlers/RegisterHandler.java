@@ -24,7 +24,7 @@ public class RegisterHandler implements Route {
 
   @Override
   public String handle(Request req, Response res) {
-    boolean success = true;
+    boolean success = false;
     // Parse the request from the Javascript and get the different fields.
     QueryParamsMap qm = req.queryMap();
     String userName = qm.value("username");
@@ -35,11 +35,9 @@ public class RegisterHandler implements Route {
 
     // checks if user in database
     if (DatabaseQuery.validLogin(conn, userName)) {
-      success = false;
-    } else {
+      success = true;
       DatabaseQuery.insertNewUser(conn, u);
     }
-
     Map<String, Object> variables = ImmutableMap.of("success", success);
     return GSON.toJson(variables);
   }
