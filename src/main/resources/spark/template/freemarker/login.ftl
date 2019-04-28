@@ -8,7 +8,7 @@
             <input type="submit">
         </form>
         <br>
-        <form action="/register.ftl">
+        <form action="/registerPage">
             <input type = "submit" value="Register New User">
         </form>
     </div>
