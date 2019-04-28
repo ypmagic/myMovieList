@@ -16,7 +16,7 @@ import spark.Route;
 public class LoginAttemptHandler implements Route {
 	private static final Gson GSON = new Gson();
 	@Override
-	public Object handle(Request request, Response response) throws Exception {
+	public String handle(Request request, Response response) throws Exception {
 	    boolean success = true;
 	    QueryParamsMap qm = request.queryMap();
 	    String userName = qm.value("username");

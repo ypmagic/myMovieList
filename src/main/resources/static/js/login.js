@@ -1,11 +1,12 @@
 $("#login").submit(function(e) {
-  let username = $("input[name='username']");
-  let password = $("input[password='password']");
+  e.preventDefault();
+  let username = $("input[name='username']").val();
+  let password = $("input[password='password']").val();
   let postParameters = {
     username: username,
     password: password
   };
-  $.post("/register", postParameters, responseJSON => {
+  $.post("/loginattempt", postParameters, responseJSON => {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
       alert("success!")

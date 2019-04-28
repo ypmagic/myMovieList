@@ -36,6 +36,7 @@ public class RegisterHandler implements Route {
     // checks if user in database
     if (DatabaseQuery.validLogin(conn, userName)) {
       success = true;
+      System.out.println("register");
       DatabaseQuery.insertNewUser(conn, u);
     }
     Map<String, Object> variables = ImmutableMap.of("success", success);
