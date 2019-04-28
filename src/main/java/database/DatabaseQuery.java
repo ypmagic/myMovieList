@@ -52,7 +52,10 @@ public final class DatabaseQuery {
       System.out.println("ERROR: Something wrong with getting movie.");
     }
     // if the movie does not exist in the database, use movie api
-    m = MovieAPI.searchById(movieId);
+    if (m.equals(null)) {
+      m = MovieAPI.searchById(movieId);
+      insertMovie(conn, m);
+    }
     // get all genres that this movie has
     List<String> genres = getGenres(conn, m.getImdbID());
     m.setGenre(genres);
