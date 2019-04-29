@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 import api.MovieAPI;
+import api.PosterAPI;
 import movie.Movie;
 import user.User;
 
@@ -42,9 +43,12 @@ public final class DatabaseQuery {
         String awards = rs.getString(7);
         double imdbRating = rs.getDouble(8);
         String imdbVotes = rs.getString(9);
+        // get poster url
+        String posterURL = PosterAPI.getImage(movieId);
         // set the movie temporarily without genres
         m = new Movie(movieId, title, year, rated, runTime, 
-            new ArrayList<String>(), plot, awards, imdbRating, imdbVotes);
+            new ArrayList<String>(), plot, awards, imdbRating, imdbVotes,
+            posterURL);
       }
       rs.close();
       prep.close();
@@ -52,7 +56,7 @@ public final class DatabaseQuery {
       System.out.println("ERROR: Something wrong with getting movie.");
     }
     // if the movie does not exist in the database, use movie api
-    if (m.equals(null)) {
+    if (m == null) {
       m = MovieAPI.searchById(movieId);
       insertMovie(conn, m);
     }
@@ -121,7 +125,6 @@ public final class DatabaseQuery {
     String awards = m.getAwards();
     double imdbRating = m.getImdbRating();
     String imdbVotes = m.getImdbVotes();
-    // TODO: EDIT THIS LATER BC WE NEED TO INSERT GENRE INTO GENRE TABLE!!!
     List<String> genres = m.getGenre();
     for (String genre : genres) {
       // unique id for each genre
@@ -129,11 +132,13 @@ public final class DatabaseQuery {
       try {
         PreparedStatement prep;
         // insert each genre into the genre table
-        prep = conn.prepareStatement(query3);
-        prep.setInt(1, hash);
-        prep.setString(2, genre);
-        prep.execute();
-        prep.close();
+        if (!genreExists(conn, hash)) {
+          prep = conn.prepareStatement(query3);
+          prep.setInt(1, hash);
+          prep.setString(2, genre);
+          prep.execute();
+          prep.close();
+        }
         // associate each movie with genre in genreMovies table
         PreparedStatement prep2;
         prep2 = conn.prepareStatement(query2);
@@ -154,15 +159,36 @@ public final class DatabaseQuery {
       prep.setInt(3, year);
       prep.setString(4, rated);
       prep.setString(5, runTime);
-      prep.setString(5, plot);
-      prep.setString(6, awards);
-      prep.setDouble(7, imdbRating);
-      prep.setString(8, imdbVotes);
+      prep.setString(6, plot);
+      prep.setString(7, awards);
+      prep.setDouble(8, imdbRating);
+      prep.setString(9, imdbVotes);
       prep.execute();
       prep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Something wrong with inserting movie.");
     }
+  }
+  
+  public static boolean genreExists(Connection conn, int hash) {
+    boolean ret = true;
+    String query = "SELECT COUNT(*) FROM genres WHERE genreId = ?;";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setInt(1, hash);
+      ResultSet rs = prep.executeQuery();
+      while(rs.next()) {
+        int num = rs.getInt(1);
+        if (num == 0) {
+          ret = false;
+        }
+      }
+      rs.close();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Counting genres failed.");
+    }
+    return ret;
   }
 
   public static Boolean validLogin(Connection conn, String login) {

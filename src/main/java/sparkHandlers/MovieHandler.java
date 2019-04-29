@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
 
+import api.MovieAPI;
 import database.DatabaseHandler;
 import database.DatabaseQuery;
 import movie.Movie;
@@ -20,24 +21,24 @@ import spark.TemplateViewRoute;
  * @author ypark29
  */
 public class MovieHandler implements TemplateViewRoute {
+  
+  Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
 
   @Override
   public ModelAndView handle(Request req, Response res) {
     String codedID = req.params("movieID");
     String movieID = "";
-    System.out.println("before");
-    System.out.println("codedID: " + codedID);
-    System.out.println("movieID: " + movieID);
     try {
       movieID = URLDecoder.decode(codedID.replace("+", "%2B"), "UTF-8")
           .replace("%2B", "+");
     } catch (UnsupportedEncodingException e) {
       System.out.println("ERROR: Encoding for GUI failed.");
     }
-    System.out.println("after");
-    System.out.println("codedID: " + codedID);
-    System.out.println("movieID: " + movieID);
     Movie m = getMovie(movieID);
+    if (m.equals(null)) {
+      m = MovieAPI.searchById(movieID);
+      DatabaseQuery.insertMovie(conn, m);
+    }
     // retrieve name of actor and the list of films they were in
     Map<String, Object> variables = ImmutableMap.of("movie",
         m, "title", m.getTitle());
@@ -45,7 +46,6 @@ public class MovieHandler implements TemplateViewRoute {
   }
   
   private Movie getMovie(String movieId) {
-    Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
     return DatabaseQuery.getMovie(conn, movieId);
   }
 }

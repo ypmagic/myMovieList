@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import cli.CommandProcessor;
+import sparkHandlers.LandingHandler;
 import sparkHandlers.ListHandler;
 import sparkHandlers.LoginAttemptHandler;
 import sparkHandlers.LoginPageHandler;
@@ -87,6 +88,7 @@ public final class Main {
     Spark.get("/login", new LoginPageHandler(), freeMarker);
     Spark.post("/loginattempt", new LoginAttemptHandler());
     Spark.get("/register", new RegisterPageHandler(), freeMarker);
+    Spark.get("/home", new LandingHandler(), freeMarker);
   }
 
   /**

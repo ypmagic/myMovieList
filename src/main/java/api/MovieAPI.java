@@ -147,9 +147,11 @@ public class MovieAPI {
       String awards = resObj.get("Awards").getAsString();
       double imdbRating = resObj.get("imdbRating").getAsDouble();
       String imdbVotes = resObj.get("imdbVotes").getAsString();
+      // get poster url
+      String posterURL = PosterAPI.getImage(imdbId);
       // creating a new movie from this
       m = new Movie(imdbId, title, year, rated, runTime, genreList, plot,
-          awards, imdbRating, imdbVotes);
+          awards, imdbRating, imdbVotes, posterURL);
     }
     return m;
   }
@@ -172,9 +174,11 @@ public class MovieAPI {
       String awards = resObj.get("Awards").getAsString();
       double imdbRating = resObj.get("imdbRating").getAsDouble();
       String imdbVotes = resObj.get("imdbVotes").getAsString();
+      // get poster url
+      String posterURL = PosterAPI.getImage(imdbId);
       // creating a new movie from this
       m = new Movie(imdbId, title, year, rated, runTime, genreList, plot,
-          awards, imdbRating, imdbVotes);
+          awards, imdbRating, imdbVotes, posterURL);
     }
     return m;
   }
