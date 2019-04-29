@@ -35,7 +35,7 @@ public class MovieHandler implements TemplateViewRoute {
       System.out.println("ERROR: Encoding for GUI failed.");
     }
     Movie m = getMovie(movieID);
-    if (m.equals(null)) {
+    if (m == null) {
       m = MovieAPI.searchById(movieID);
       DatabaseQuery.insertMovie(conn, m);
     }

@@ -52,4 +52,4 @@ def recommend(imdbIds,imdbRatings, num) :
 	file.close()
 	return sorted(output, key=output.get, reverse=True)[:num]
 
-recommend([241527],[10], 5)
+recommend([110357],[10], 5)
