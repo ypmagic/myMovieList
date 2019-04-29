@@ -7,6 +7,10 @@
   width: 100%;
 }
 
+.row {
+  margin-left: 0.8em!important;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -55,6 +59,7 @@
   margin: 0 auto;
   z-index: 300;
   overflow: scroll;
+  color: black;
 }
 
 .movie-img {
@@ -121,7 +126,7 @@
     position:absolute;
     width:20px;
     height:2px;
-    background-color:black;
+    background-color:white;
     border-radius:1px;
 }
 
@@ -132,6 +137,11 @@
 .x:after{
     transform:rotate(-45deg);
     left: 2px;
+}
+
+.x-movie:before, .x-movie:after {
+  background-color: #000;
+  display: block;
 }
 
 .exit-member-info {

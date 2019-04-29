@@ -15,7 +15,7 @@ as well as a clickable link to the respective movie link-->
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
           <span class="exit-member-info">
-            <span class="x x-member"></span>
+            <span class="x x-movie"></span>
           </span>
           <div class="flex-col">
             <!-- blown up image of the movie -->
@@ -46,7 +46,7 @@ as well as a clickable link to the respective movie link-->
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
           <span class="exit-member-info">
-            <span class="x x-member"></span>
+            <span class="x x-movie"></span>
           </span>
           <div class="flex-col">
             <!-- blown up image of the movie -->
@@ -77,7 +77,7 @@ as well as a clickable link to the respective movie link-->
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
           <span class="exit-member-info">
-            <span class="x x-member"></span>
+            <span class="x x-movie"></span>
           </span>
           <div class="flex-col">
             <!-- blown up image of the movie -->
@@ -108,7 +108,7 @@ as well as a clickable link to the respective movie link-->
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
           <span class="exit-member-info">
-            <span class="x x-member"></span>
+            <span class="x x-movie"></span>
           </span>
           <div class="flex-col">
             <!-- blown up image of the movie -->
