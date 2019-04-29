@@ -265,19 +265,57 @@ public final class DatabaseQuery {
 	  }
   }
   
-  public static String getListFromId(Connection conn, String id) {
-	  String query = "SELECT movies FROM lists WHERE url = ?;";
+  public static String getCuratorFromId(Connection conn, String id) {
+	  String query = "SELECT curator FROM lists WHERE url = ?;";
+	  String toReturn = "";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.setString(1, id);
 		  ResultSet rs = prep.executeQuery();
-		  String toReturn = "";
 		  while (rs.next()) {
 			  toReturn = rs.getString(1);
 		  }
+		  rs.close();
+		  prep.close();
 		  return toReturn;
 	  } catch (SQLException e) {
-		  return "No list";
+		  return toReturn;
+	  }
+  }
+  
+  public static String getNameFromId(Connection conn, String id) {
+	  String query = "SELECT name FROM lists WHERE url = ?;";
+	  String toReturn = "";
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.setString(1, id);
+		  ResultSet rs = prep.executeQuery();
+		  while (rs.next()) {
+			  toReturn = rs.getString(1);
+		  }
+		  rs.close();
+		  prep.close();
+		  return toReturn;
+	  } catch (SQLException e) {
+		  return toReturn;
+	  } 
+  }
+  
+  public static String getListFromId(Connection conn, String id) {
+	  String query = "SELECT movies FROM lists WHERE url = ?;";
+	  String toReturn = "";
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.setString(1, id);
+		  ResultSet rs = prep.executeQuery();
+		  while (rs.next()) {
+			  toReturn = rs.getString(1);
+		  }
+		  rs.close();
+		  prep.close();
+		  return toReturn;
+	  } catch (SQLException e) {
+		  return toReturn;
 	  }
   }
 

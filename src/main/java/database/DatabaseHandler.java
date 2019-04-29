@@ -131,7 +131,7 @@ public final class DatabaseHandler {
   private void makeListTable() {
 	  String query = "CREATE TABLE IF NOT EXISTS lists ("
 	  		+ " url TEXT,"
-	  		+ " owner TEXT"
+	  		+ " curator TEXT"
 	  		+ " name TEXT"
 	  		+ " movies TEXT);";
 	  try {
