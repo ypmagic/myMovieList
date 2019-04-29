@@ -8,6 +8,8 @@ $("#register").submit(function(e) {
     username: username,
     password: password
   };
+
+  console.log(username);
   $.post("/register", postParameters, responseJSON => {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {

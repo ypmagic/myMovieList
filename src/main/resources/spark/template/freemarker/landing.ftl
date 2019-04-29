@@ -1,12 +1,14 @@
 <#assign content>
 <!-- Each of these flex containers should contain a row of movie poster images,
 as well as a clickable link to the respective movie link-->
-<div class="flex-container" id="top-movie-container">
+<div class="container" id="top-movie-container">
   <!-- change this for category name -->
-  <h2>Top Rated</h2>
-  <div class="flex-row">
+  <div class = "row">
+    <h2>Top Rated</h2>
+  </div>
+  <div class="row">
     <#list moviesTop as movie>
-      <div class="flex-col">
+      <div class="col">
         <!-- image of the movie -->
         <img class="movie-img ${movie.getImdbID()}" src="${movie.getImg()}"/>
       </div>
@@ -30,13 +32,14 @@ as well as a clickable link to the respective movie link-->
       </div>
     </#list>
   </div>
-</div>
-<div class="flex-container" id="top-mid-movie-container">
+
   <!-- change this for category name -->
-  <h2>Top Rated</h2>
-  <div class="flex-row">
+  <div class = "row">
+    <h2>Top Rated</h2>
+  </div>
+  <div class="row">
     <#list moviesTopMid as movie>
-      <div class="flex-col">
+      <div class="col">
         <!-- image of the movie -->
         <img class="movie-img ${movie.getImdbID()}" src="${movie.getImg()}"/>
       </div>
@@ -60,13 +63,14 @@ as well as a clickable link to the respective movie link-->
       </div>
     </#list>
   </div>
-</div>
-<div class="flex-container" id="bot-mid-movie-container">
+
   <!-- change this for category name -->
-  <h2>Top Rated</h2>
-  <div class="flex-row">
+  <div class = "row">
+    <h2>Top Rated</h2>
+  </div>
+  <div class="row">
     <#list moviesBotMid as movie>
-      <div class="flex-col">
+      <div class="col">
         <!-- image of the movie -->
         <img class="movie-img ${movie.getImdbID()}" src="${movie.getImg()}"/>
       </div>
@@ -90,13 +94,14 @@ as well as a clickable link to the respective movie link-->
       </div>
     </#list>
   </div>
-</div>
-<div class="flex-container" id="bot-movie-container">
+
   <!-- change this for category name -->
-  <h2>Top Rated</h2>
-  <div class="flex-row">
+  <div class = "row">
+    <h2>Top Rated</h2>
+  </div>
+  <div class="row">
     <#list moviesBot as movie>
-    <div class="flex-col">
+    <div class="col">
       <!-- image of the movie -->
       <img class="movie-img ${movie.getImdbID()}" src="${movie.getImg()}"/>
     </div>

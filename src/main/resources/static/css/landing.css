@@ -26,6 +26,14 @@
   height: 128px;
 }
 
+.movie-row {
+  background-color : palegreen;
+}
+
+.movie-col {
+  vertical-align:middle;
+}
+
 .movie-popup img {
   width: 296px;
   height: 320px!important;
@@ -48,6 +56,12 @@
   margin: 0 auto;
   z-index: 300;
   overflow: scroll;
+}
+
+.movie-img {
+  width:85%;
+  height:85%;
+  border-radius:5px;
 }
 
 .colored-border {
