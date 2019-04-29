@@ -31,7 +31,7 @@
 
           <br>
 
-          <form>
+          <form action="/register">
             <button type="submit" class="btn btn-dark">Sign Up</button>
           </form>
         </div>
