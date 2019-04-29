@@ -15,7 +15,6 @@
     <div class="tab">
       <form method = "GET" action="/home">
         <button type="GET" value="MyMovieList">MyMovieList</button>
-      </form>
       <form style="float:right" method = "GET" action="/autocorrect">
         <button type="GET" value="Autocorrect">Watch Later</button>
       </form>
@@ -37,12 +36,6 @@
      <script src="/js/login.js"></script>
      <script src="/js/landing.js"></script>
 
-
-     <!-- Again, we're serving up the unminified source for clarity. -->
-     <script src="/js/jquery-2.1.1.js"></script>
-     <script src="/js/jquery-3.1.1.js"></script>
-     <script src="/js/register.js"></script>
-     <script src="/js/login.js"></script>
      <!-- Bootstrap! -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
