@@ -20,6 +20,7 @@
      <script src="/js/jquery-3.1.1.js"></script>
      <script src="/js/register.js"></script>
      <script src="/js/login.js"></script>
+     <script src="/js/landing.js"></script>
 
     <div class="tab">
       <form method = "GET" action="/stars">
