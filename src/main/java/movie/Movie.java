@@ -15,6 +15,7 @@ public class Movie {
   private String awards;
   private double imdbRating;
   private String imdbVotes;
+  private String img;
   
   public Movie(String imdbID, String title, int year) {
     this.imdbID = imdbID;
@@ -24,7 +25,7 @@ public class Movie {
   
   public Movie(String imdbID, String title, int year, String rated,
       String runTime, List<String> genre, String plot, String awards,
-      double imdbRating, String imdbVotes) {
+      double imdbRating, String imdbVotes, String imgLink) {
     this.imdbID = imdbID;
     this.title = title;
     this.year = year;
@@ -35,6 +36,7 @@ public class Movie {
     this.awards = awards;
     this.imdbRating = imdbRating;
     this.imdbVotes = imdbVotes;
+    this.img = imgLink;
   }
 
   public String getImdbID() {
@@ -115,6 +117,14 @@ public class Movie {
 
   public void setImdbVotes(String imdbVotes) {
     this.imdbVotes = imdbVotes;
+  }
+  
+  public String getImg() {
+    return img;
+  }
+  
+  public void setImg(String imgLink) {
+    this.img = imgLink;
   }
   
   @Override

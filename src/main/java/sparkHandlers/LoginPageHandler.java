@@ -10,10 +10,11 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 public class LoginPageHandler implements TemplateViewRoute {
-	@Override
-	public ModelAndView handle(Request request, Response response) throws Exception {
-	      Map<String, Object> variables = ImmutableMap.of("title",
-	              "Login");
-	          return new ModelAndView(variables, "login.ftl");
-	}
+  
+  @Override
+  public ModelAndView handle(Request request, Response response) {
+    Map<String, Object> variables = ImmutableMap.of("title",
+                "Login");
+    return new ModelAndView(variables, "login.ftl");
+  }
 }
