@@ -8,12 +8,8 @@
          avoid minification for clarity. -->
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/html5bp.css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="/css/landing.css">
-=======
     <link rel="stylesheet" href="/css/main.css">
-
->>>>>>> 342b4e402d1b2a653f37d641585399ba4296c160
   </head>
   <body>
 
