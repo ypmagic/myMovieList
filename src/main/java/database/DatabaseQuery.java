@@ -224,6 +224,21 @@ public final class DatabaseQuery {
     }
   }
   
+  public static void insertNewList(Connection conn, String url, String owner, String name, String list) {
+	  String query = "INSERT INTO lists VALUES (?, ?, ?, ?);";
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.setString(1, url);
+		  prep.setString(2, owner);
+		  prep.setString(3, name);
+		  prep.setString(4, list);
+		  prep.executeUpdate();
+		  prep.close();
+	  } catch (SQLException e) {
+		  System.out.println("couldn't insert list for whatever reason");
+	  }
+  }
+  
   public static String getListFromId(Connection conn, String id) {
 	  String query = "SELECT movies FROM lists WHERE url = ?;";
 	  try {

@@ -132,6 +132,7 @@ public final class DatabaseHandler {
 	  String query = "CREATE TABLE IF NOT EXISTS lists ("
 	  		+ " url TEXT,"
 	  		+ " owner TEXT"
+	  		+ " name TEXT"
 	  		+ " movies TEXT);";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
