@@ -21,7 +21,7 @@ def sorting(genre):
 	movie_titles = movie_titles.join(ratings['rating'], on = 'movieId')
 	print(movie_titles.head())
 
-	new = movie_titles[movie_titles['numRatings'] > 50].sort_values(by='rating', ascending=False).head(11)
+	new = movie_titles[movie_titles['numRatings'] > 50].sort_values(by='rating', ascending=False).head(20)
 	print(new.head())
 
 	file = open("sorted.txt","w")
