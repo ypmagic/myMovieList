@@ -12,22 +12,9 @@
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
-              <div class="tab">
+    <div class="tab">
       <form method = "GET" action="/home">
         <button type="GET" value="MyMovieList">MyMovieList</button>
-
-     ${content}
-
-     <!-- Again, we're serving up the unminified source for clarity. -->
-     <script src="/js/jquery-2.1.1.js"></script>
-     <script src="/js/jquery-3.1.1.js"></script>
-     <script src="/js/register.js"></script>
-     <script src="/js/login.js"></script>
-     <script src="/js/landing.js"></script>
-
-    <div class="tab">
-      <form method = "GET" action="/stars">
-        <button type="GET" value="Stars">MyMovieList</button>
       </form>
       <form style="float:right" method = "GET" action="/autocorrect">
         <button type="GET" value="Autocorrect">Watch Later</button>
@@ -40,7 +27,16 @@
       </form>
     </div>
 
+
      ${content}
+
+     <!-- Again, we're serving up the unminified source for clarity. -->
+     <script src="/js/jquery-2.1.1.js"></script>
+     <script src="/js/jquery-3.1.1.js"></script>
+     <script src="/js/register.js"></script>
+     <script src="/js/login.js"></script>
+     <script src="/js/landing.js"></script>
+
 
      <!-- Again, we're serving up the unminified source for clarity. -->
      <script src="/js/jquery-2.1.1.js"></script>
