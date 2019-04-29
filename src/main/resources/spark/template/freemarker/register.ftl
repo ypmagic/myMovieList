@@ -1,6 +1,6 @@
 <#assign content>
 
-<div class="container">
+<div class="container content-align">
 	<div class = "page-header">
 		<h1> Register </h1>
 	</div>

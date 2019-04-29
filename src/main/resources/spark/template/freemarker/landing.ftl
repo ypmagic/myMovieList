@@ -1,16 +1,16 @@
 <#assign content>
 <!-- Each of these flex containers should contain a row of movie poster images,
 as well as a clickable link to the respective movie link-->
-<div class="container" id="top-movie-container">
+<div class="flex-container content-align" id="top-movie-container">
   <!-- change this for category name -->
   <div class = "row">
     <h2>Top Rated</h2>
   </div>
-  <div class="row">
+  <div class="flex-row solid-border">
     <#list moviesTop as movie>
-      <div class="col">
+      <div class="flex-col">
         <!-- image of the movie -->
-        <img class="movie-img ${movie.getImdbID()}" src="${movie.getImg()}"/>
+        <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
       </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
@@ -37,11 +37,11 @@ as well as a clickable link to the respective movie link-->
   <div class = "row">
     <h2>Top Rated</h2>
   </div>
-  <div class="row">
+  <div class="flex-row solid-border">
     <#list moviesTopMid as movie>
-      <div class="col">
+      <div class="flex-col">
         <!-- image of the movie -->
-        <img class="movie-img ${movie.getImdbID()}" src="${movie.getImg()}"/>
+        <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
       </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
@@ -68,11 +68,11 @@ as well as a clickable link to the respective movie link-->
   <div class = "row">
     <h2>Top Rated</h2>
   </div>
-  <div class="row">
+  <div class="flex-row solid-border">
     <#list moviesBotMid as movie>
-      <div class="col">
+      <div class="flex-col">
         <!-- image of the movie -->
-        <img class="movie-img ${movie.getImdbID()}" src="${movie.getImg()}"/>
+        <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
       </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
@@ -99,11 +99,11 @@ as well as a clickable link to the respective movie link-->
   <div class = "row">
     <h2>Top Rated</h2>
   </div>
-  <div class="row">
+  <div class="flex-row solid-border">
     <#list moviesBot as movie>
-    <div class="col">
+    <div class="flex-col">
       <!-- image of the movie -->
-      <img class="movie-img ${movie.getImdbID()}" src="${movie.getImg()}"/>
+      <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
     </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">

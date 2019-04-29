@@ -3,13 +3,19 @@
   padding:5px;
 }
 
+.content-align {
+  width: 100%;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  text-align: center;
+}
+
+.row h2 {
+  color: white;
 }
 
 .flex-col {
@@ -17,21 +23,14 @@
   flex-direction: column;
   flex-basis: 100%;
   justify-content: center;
+  align-items: center;
   flex: 1;
-  margin: 5px;
+  margin: 18px;
 }
 
 .flex-col img {
-  width: 128px;
-  height: 128px;
-}
-
-.movie-row {
-  background-color : palegreen;
-}
-
-.movie-col {
-  vertical-align:middle;
+  width: 150px;
+  height: 200px;
 }
 
 .movie-popup img {
@@ -68,6 +67,18 @@
 	border-style:solid;
 	border-width:12px;
 	border-color:rgb(87, 183, 235);
+}
+
+.colored-border-img {
+	border-style:solid;
+	border-width:5px;
+	border-color:rgb(87, 183, 235);
+}
+
+.solid-border {
+  border-style:solid;
+  border-width:1px;
+  border-color:white;
 }
 
 .mobile-overlay {

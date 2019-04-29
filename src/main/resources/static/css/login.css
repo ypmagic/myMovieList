@@ -4,3 +4,25 @@
 .icon {
     height: 100px;
 }
+
+.jumbotron {
+  background-color: #000!important;
+}
+
+.img-fluid {
+  width: 30em!important;
+}
+
+.content-padding {
+  margin-top: 3em;
+}
+
+.form-width-control {
+  width: 15%!important;
+  margin: 10px;
+}
+
+.form-inline {
+  margin: 0 auto;
+  display: block!important;
+}

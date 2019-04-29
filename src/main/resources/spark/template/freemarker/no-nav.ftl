@@ -9,35 +9,11 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/html5bp.css">
     <link rel="stylesheet" href="/css/landing.css">
-    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
-    <div class="nav">
-        <div class="logo">
-          <span class="toggle-menu toggle-menu-ham">
-            <span class="hamburger hamburger-nav"></span>
-          </span>
-          <span class="toggle-menu toggle-menu-x">
-            <span class="x x-nav"></span>
-          </span>
-          <div class="logo-text-mob">
-            <h3>
-              MyMovieList
-            </h3>
-          </div>
-          <img src="https://i.ibb.co/9Hm8MFy/logo.jpg" alt="Logo" id="logo">
-        </div>
-        <!-- Dropdown or slide in from left? Take up full screen? idk -->
-        <ul class="menu">
-            <li><a href="/home" class="bolded-link">Home</a></li>
-            <li><a href="/profile" class="boldless-link">Profile</a></li>
-            <li><a href="/watchlater" class="boldless-link">Watch Later</a></li>
-          </ul>
-        </ul>
-      </div>
-    </div>
 
 
      ${content}
