@@ -17,32 +17,12 @@ public final class DatabaseHandler {
   private static Connection conn;
 
   private DatabaseHandler() {
-    try {
-      // this line loads the driver manager class, and must be
-      // present for everything else to work properly
-      Class.forName("org.sqlite.JDBC");
-      String urlToDB = "jdbc:sqlite:data/movies.sqlite3";
-      DatabaseHandler.conn = DriverManager.getConnection(urlToDB);
-      // these two lines tell the database to enforce foreign
-      // keys during operations, and should be present
-      Statement stat = conn.createStatement();
-      stat.executeUpdate("PRAGMA foreign_keys = ON;");
-    } catch (SQLException | ClassNotFoundException e) {
-      System.out.println("ERROR: Found no such database.");
-      return;
-    }
-    this.makeMoviesTable();
-    this.makeUserTable();
-    this.makeUserMoviesTable();
-    this.makeGenreTable();
-    this.makeMovieGenreTable();
-    this.makeListTable();
   }
 
   /**
    * Creates a table for movies.
    */
-  private void makeMoviesTable() {
+  private static void makeMoviesTable() {
     // if the movies table does not exist, create a movies table
     String movieTable = "CREATE TABLE IF NOT EXISTS movies ("
         + " imdbId TEXT,"
@@ -68,7 +48,7 @@ public final class DatabaseHandler {
   /**
    * Creates a table for users.
    */
-  private void makeUserTable() {
+  private static void makeUserTable() {
     String query = "CREATE TABLE IF NOT EXISTS users ("
             + " login TEXT,"
             + " password TEXT,"
@@ -85,7 +65,7 @@ public final class DatabaseHandler {
   /**
    * Creates a table for movies users have seen.
    */
-  private void makeUserMoviesTable() {
+  private static void makeUserMoviesTable() {
     String query = "CREATE TABLE IF NOT EXISTS userMovies ("
             + " login TEXT,"
             + " imdbId TEXT);";
@@ -101,7 +81,7 @@ public final class DatabaseHandler {
   /**
    * Creates a table for genres.
    */
-  private void makeGenreTable() {
+  private static void makeGenreTable() {
     String query = "CREATE TABLE IF NOT EXISTS genres ("
             + " genreId INTEGER,"
             + " genre TEXT,"
@@ -115,7 +95,7 @@ public final class DatabaseHandler {
     }
   }
   
-  private void makeMovieGenreTable() {
+  private static void makeMovieGenreTable() {
     String query = "CREATE TABLE IF NOT EXISTS genreMovies ("
         + " movieId TEXT,"
         + " genreId INTEGER);";
@@ -128,7 +108,7 @@ public final class DatabaseHandler {
     }
   }
   
-  private void makeListTable() {
+  private static void makeListTable() {
 	  String query = "CREATE TABLE IF NOT EXISTS lists ("
 	  		+ " url TEXT,"
 	  		+ " curator TEXT"
@@ -150,6 +130,25 @@ public final class DatabaseHandler {
   public static DatabaseHandler getDatabaseHandler() {
     if (DatabaseHandler.movie == null) {
       DatabaseHandler.movie = new DatabaseHandler();
+      try {
+        // this line loads the driver manager class, and must be
+        // present for everything else to work properly
+        Class.forName("org.sqlite.JDBC");
+        String urlToDB = "jdbc:sqlite:data/movies.sqlite3";
+        DatabaseHandler.conn = DriverManager.getConnection(urlToDB);
+        // these two lines tell the database to enforce foreign
+        // keys during operations, and should be present
+        Statement stat = conn.createStatement();
+        stat.executeUpdate("PRAGMA foreign_keys = ON;");
+      } catch (SQLException | ClassNotFoundException e) {
+        System.out.println("ERROR: Found no such database.");
+      }
+      makeMoviesTable();
+      makeUserTable();
+      makeUserMoviesTable();
+      makeGenreTable();
+      makeMovieGenreTable();
+      makeListTable();
     }
     return DatabaseHandler.movie;
   }
