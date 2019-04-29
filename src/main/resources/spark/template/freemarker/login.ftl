@@ -6,17 +6,17 @@
 
     <div class = "jumbotron">
       <div class = "row">
-        <div class = "col">
-          <p>
-            col
-          </p>
+        <div class = "col text-center mx-auto">
+          <img src="https://i.imgur.com/5gKsLLp.png" class = "img-fluid">
+          <h3> Browse Movies </h3>
         </div>
-        <div class = "col">
-          <p>
-            col
-          </p>
+        <div class = "col text-center mx-auto">
+          <img src="https://i.imgur.com/sFUFOyO.png" class = "img-fluid">
+          <h3> Rate and Recommend </h3>
         </div>
+
         <div class = "col">
+          <h3> Join Now!</h3>
           <form id="login">
             <div class = "form-group">
               <label for="usr"> Username: </label>
@@ -26,11 +26,13 @@
               <label for="pwd"> Password: </label>
               <input type="password" class="form-control" name="password">
             </div>
-            <button type="submit" class = "btn btn-default">Login</button>
+            <button type="submit" class = "btn btn-dark">Login</button>
           </form>
-          
-          <form action="/register">
-            <button type="submit" class="btn btn-default">Sign Up</button>
+
+          <br>
+
+          <form>
+            <button type="submit" class="btn btn-dark">Sign Up</button>
           </form>
         </div>
       </div>
