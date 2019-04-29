@@ -8,6 +8,7 @@
          avoid minification for clarity. -->
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/html5bp.css">
+    <link rel="stylesheet" href="/css/main.css">
 
   </head>
   <body>
@@ -19,6 +20,21 @@
      <script src="/js/jquery-3.1.1.js"></script>
      <script src="/js/register.js"></script>
      <script src="/js/login.js"></script>
+
+    <div class="tab">
+      <form method = "GET" action="/stars">
+      <button type="GET" value="Stars">MyMovieList</button>
+      </form>
+      <form style="float:right" method = "GET" action="/autocorrect">
+      <button type="GET" value="Autocorrect">Watch Later</button>
+    </form>
+    <form style="float:right" method = "GET" action="/bacon">
+    <button type="GET" value="Bacon">Settings</button>
+    </form>
+        <form style="float:right" method = "GET" action="/bacon">
+    <button type="GET" value="Bacon">User</button>
+    </form>
+    </div>
      <!-- Bootstrap! -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
