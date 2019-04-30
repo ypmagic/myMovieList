@@ -1,26 +1,47 @@
 package movie;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
 
+import database.DatabaseHandler;
+import database.DatabaseQuery;
 import user.User;
+import util.Bigram;
 
 public class MovieList {
 	private int id;
-	private User curator;
+	private String curator;
 	private String name;
-	private List<Movie> movies;
-	private static final Gson GSON = new Gson();
+	private List<String> movies;
 	
-	public MovieList(User curator, String name) {
+	public MovieList(int id, String curator, String name, List<String> movies) {
+		this.id = id;
 		this.curator = curator;
 		this.name = name;
-		movies = new ArrayList<>();
+		this.movies = movies;
 	}
 	
-	public void addMovie(Movie m) {
-		movies.add(m);
+	public int getId() {
+		return id;
+	}
+	
+	public String getCurator() {
+		return curator;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public List<Bigram<String>> getMovies() {
+		List<Bigram<String>> l = new ArrayList<>();
+		Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
+		for (String movieId : movies) {
+			l.add(new Bigram<String>(movieId, DatabaseQuery.getMovie(conn, movieId).getTitle()));
+		}
+		return l;
 	}
 }
