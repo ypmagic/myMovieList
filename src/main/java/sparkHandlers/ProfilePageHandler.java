@@ -9,7 +9,6 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
-import spark.*;
 
 import java.sql.Connection;
 import java.util.List;
@@ -19,8 +18,6 @@ public class ProfilePageHandler implements TemplateViewRoute {
 
   @Override
   public ModelAndView handle(Request req, Response res) {
-
-
     // for security reasons creates new session on visit to profile
     String username =  req.session().attribute("username");
     req.session().invalidate();
@@ -31,7 +28,7 @@ public class ProfilePageHandler implements TemplateViewRoute {
       res.redirect("/home");
       return null;
     }
-    // TODO: query profile information from database using session username
+    // TODO: query 	profile information from database using session username
     Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
     List<MovieList> lists = DatabaseQuery.getListsFromUser(conn, username);
     
