@@ -10,4 +10,4 @@
 <br>
 
 </#assign>
-<#include "/main.ftl">
+<#include "main.ftl">
