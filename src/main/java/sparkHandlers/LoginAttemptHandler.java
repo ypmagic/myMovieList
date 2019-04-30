@@ -25,9 +25,10 @@ public class LoginAttemptHandler implements Route {
 	    Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
 	    if (!DatabaseQuery.authenticateUser(conn, userName, password)) {
 	    	success = false;
-	    }
-
-	    request.session(true).attribute("username", userName);
+	    } else {
+	    	// creates a session
+				request.session(true).attribute("username", userName);
+			}
 
 	    Map<String, Object> variables = ImmutableMap.of("success", success);
 	    return GSON.toJson(variables);
