@@ -9,6 +9,7 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
+import spark.*;
 
 import java.sql.Connection;
 import java.util.List;
@@ -20,12 +21,16 @@ public class ProfilePageHandler implements TemplateViewRoute {
   public ModelAndView handle(Request req, Response res) {
 
 
+    // for security reasons creates new session on visit to profile
     String username =  req.session().attribute("username");
+    req.session().invalidate();
+    req.session(true).attribute("username", username);
+
     if (username == null) {
       // TODO: process no valid session
+      res.redirect("/home");
+      return null;
     }
-    System.out.println(username);
-
     // TODO: query profile information from database using session username
     Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
     List<MovieList> lists = DatabaseQuery.getListsFromUser(conn, username);

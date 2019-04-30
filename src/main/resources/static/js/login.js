@@ -9,9 +9,9 @@ $("#login").submit(function(e) {
   $.post("/loginattempt", postParameters, responseJSON => {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
-      alert("success!")
+      window.location.replace("/home");
     } else {
-      alert("wrong password, or invalid login")
+      alert("Wrong password, or invalid login.")
     }
   });
 });

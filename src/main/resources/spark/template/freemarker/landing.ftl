@@ -2,6 +2,9 @@
 <!-- Each of these flex containers should contain a row of movie poster images,
 as well as a clickable link to the respective movie link-->
 <div class="flex-container content-align" id="top-movie-container">
+  <div class="user-welcome">
+    <h3>${username}</h3>
+  </div>
   <!-- change this for category name -->
   <div class = "row">
     <h2>Top ${moviesTopGenre}</h2>

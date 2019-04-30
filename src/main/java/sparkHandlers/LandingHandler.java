@@ -13,6 +13,14 @@ public class LandingHandler implements TemplateViewRoute {
   
     @Override
     public ModelAndView handle(Request request, Response response) {
+      String username =  request.session().attribute("username");
+      request.session().invalidate();
+      request.session(true).attribute("username", username);
+      if (username == null) {
+        username = "";
+      } else {
+        username = "Hello, " + username;
+      }
       // use movies by genre
       MoviesByGenre movies1 = Recommender.moviesByGenre();
       MoviesByGenre movies2 = Recommender.moviesByGenre();
@@ -28,6 +36,7 @@ public class LandingHandler implements TemplateViewRoute {
           .put("moviesBotMidGenre", movies3.getGenre() + " Movies")
           .put("moviesBot", movies4.getMovies())
           .put("moviesBotGenre", movies4.getGenre() + " Movies")
+          .put("username", username)
           .build();
       return new ModelAndView(variables, "landing.ftl");
     }

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="122c6881-2afd-4178-83f3-6069eae35b4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sparkHandlers/LoginAttemptHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sparkHandlers/LoginAttemptHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl" afterDir="false" />
-    </list>
+    <list default="true" id="122c6881-2afd-4178-83f3-6069eae35b4a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,46 +12,19 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/RegisterHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/RegisterPageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/util/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="533">
-              <caret line="92" column="66" selection-start-line="92" selection-start-column="66" selection-end-line="92" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/ProfilePageHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="195">
+              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/LoginAttemptHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/ProfilePageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="345">
+              <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -102,10 +71,10 @@
         <option value="$PROJECT_DIR$/src/main/java/sessions/MainServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/profile.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/sparkHandlers/ProfilePageHandler.java" />
         <option value="$PROJECT_DIR$/.mvn-classpath" />
         <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/sparkHandlers/LoginAttemptHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sparkHandlers/ProfilePageHandler.java" />
       </list>
     </option>
   </component>
@@ -145,11 +114,6 @@
             <path>
               <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
               <item name="term-project--ap99-dwang66-ekang5-ypark29" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -164,6 +128,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
+              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
@@ -172,14 +144,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sparkHandlers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
@@ -204,24 +168,6 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
-              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -233,7 +179,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556585109625" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556596954490" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -274,17 +220,18 @@
       <workItem from="1556143854599" duration="14000" />
       <workItem from="1556473292223" duration="4071000" />
       <workItem from="1556517068198" duration="2546000" />
+      <workItem from="1556596978319" duration="652000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20713000" />
+    <option name="totallyTimeSpent" value="21896000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26979" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27382874" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -350,254 +297,64 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/api/MovieAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="59" column="7" lean-forward="true" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/user/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/api/MovieAPI.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/user/User.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/ap99dwang66ekang5ypark29/sparkHandlers/MovieHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/ap99dwang66ekang5ypark29/database/DatabaseQuery.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/ap99dwang66ekang5ypark29/sparkHandlers/RegisterHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/ap99dwang66ekang5ypark29/user/User.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/brown/cs/ap99dwang66ekang5ypark29/util/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/MovieHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/MovieHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/LoginHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/movie.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/ListHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="43" column="15" lean-forward="true" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/movie/Movie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recommend/links.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2726" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recommend/recommend.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/list.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/no-nav.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/login.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/LoginPageHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/register.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/landing.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/movie.ftl" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/ListHandler.java" />
+    <entry file="file://$PROJECT_DIR$/run" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/movie/Movie.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/recommend/links.csv" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/recommend/recommend.py" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/login.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/login.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/list.ftl" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/no-nav.ftl" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/login.ftl" />
+    <entry file="file://$PROJECT_DIR$/pom.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/LoginPageHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/register.ftl" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/landing.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/main.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/register.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/sessions/MainServlet.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/recommend/movies.csv" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/profile.ftl" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl" />
+    <entry file="file://$PROJECT_DIR$/.mvn-classpath" />
+    <entry file="file://$PROJECT_DIR$/.project" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/RegisterHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/landing.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/profile.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/LoginAttemptHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/recommend/Recommender.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/RegisterPageHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="24" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="195">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sessions/MainServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recommend/movies.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5550" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1458">
-          <caret line="199" column="41" lean-forward="true" selection-start-line="199" selection-start-column="41" selection-end-line="199" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/profile.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/profile.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1950">
-          <caret line="130" selection-start-line="130" selection-end-line="131" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.mvn-classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="58" selection-start-column="58" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="64" lean-forward="true" selection-start-line="54" selection-start-column="64" selection-end-line="54" selection-end-column="64" />
+        <state relative-caret-position="-3384">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/ProfilePageHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="92" column="66" selection-start-line="92" selection-start-column="66" selection-end-line="92" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/RegisterHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sparkHandlers/LoginAttemptHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
         </state>
       </provider>
     </entry>
