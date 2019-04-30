@@ -1,16 +1,16 @@
 package util;
 
-public final class Bigram<T> {
+public final class Bigram<T, V> {
 	T left;
-	T right;
-	public Bigram(T l, T r) {
+	V right;
+	public Bigram(T l, V r) {
 		left = l;
 		right = r;
 	}
 	public T getLeft() {
 		return left;
 	}
-	public T getRight() {
+	public V getRight() {
 		return right;
 	}
 }

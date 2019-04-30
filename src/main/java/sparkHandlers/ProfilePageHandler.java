@@ -9,8 +9,10 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
+import util.Bigram;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,11 +32,21 @@ public class ProfilePageHandler implements TemplateViewRoute {
     }
     // TODO: query 	profile information from database using session username
     Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
-    List<MovieList> lists = DatabaseQuery.getListsFromUser(conn, username);
+    List<Bigram<Integer, String>> listIds = DatabaseQuery.getListsFromUser(conn, username);
+
+    List<MovieList> ret = new ArrayList<>();
+
+    for (Bigram<Integer, String> lst : listIds) {
+      int lstId = lst.getLeft();
+      String lstName = lst.getRight();
+      List<String> movieIds = DatabaseQuery.getMoviesForListId(conn, lstId);
+      ret.add(new MovieList(lstId, username, lstName, movieIds));
+
+    }
     
     Map<String, Object> variables = new ImmutableMap.Builder<String, Object>()
             .put("title", "Profile")
-            .put("lists", lists)
+            .put("lists", ret)
             .put("username", username).build();
     return new ModelAndView(variables, "profile.ftl");
   }
