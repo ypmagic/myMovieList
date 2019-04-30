@@ -14,6 +14,7 @@ import api.PosterAPI;
 import movie.Movie;
 import movie.MovieList;
 import user.User;
+import util.Bigram;
 
 public final class DatabaseQuery {
   
@@ -300,8 +301,8 @@ public final class DatabaseQuery {
 	  String query = "INSERT INTO lists VALUES (null, ?, ?);";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(2, owner);
-		  prep.setString(3, name);
+		  prep.setString(1, owner);
+		  prep.setString(2, name);
 		  prep.executeUpdate();
 		  prep.close();
 	  } catch (SQLException e) {
@@ -309,23 +310,16 @@ public final class DatabaseQuery {
 	  }
   }
   
-  public static MovieList getListFromId(Connection conn, String id) {
-	  String query = "SELECT * FROM listMovies WHERE id = ?;";
-	  MovieList toReturn = null;
+  public static List<String> getMoviesForListId(Connection conn, String id) {
+	  String query = "SELECT imdbId FROM listMovies WHERE listId = ?;";
+	  List<String> toReturn = new ArrayList<>();
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.setString(1, id);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
-			  int listId = rs.getInt(1);
-			  String curator = rs.getString(2);
-			  String listName = rs.getString(3);
-			  String moviesString = rs.getString(4);
-			  List<String> movies = new ArrayList<>();
-			  for (String movieId : moviesString.split(" ")) {
-				  movies.add(movieId);
-			  }
-			  toReturn = new MovieList(listId, curator, listName, movies);
+			  String imdbId = rs.getString(1);
+			  toReturn.add(imdbId);
 		  }
 		  rs.close();
 		  prep.close();
@@ -335,23 +329,17 @@ public final class DatabaseQuery {
 	  }
   }
   
-  public static List<MovieList> getListsFromUser(Connection conn, String login) {
+  public static List<Bigram<String>> getListsFromUser(Connection conn, String login) {
 	  String query = "SELECT * FROM lists WHERE curator = ?;";
-	  List<MovieList> toReturn = new ArrayList<>();
+	  List<Bigram<String>> toReturn = new ArrayList<>();
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.setString(1, login);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
-			  int listId = rs.getInt(1);
-			  String curator = rs.getString(2);
+			  String listId = rs.getString(1);
 			  String listName = rs.getString(3);
-			  String moviesString = rs.getString(4);
-			  List<String> movies = new ArrayList<>();
-			  for (String movieId : moviesString.split(" ")) {
-				  movies.add(movieId);
-			  }
-			  toReturn.add(new MovieList(listId, curator, listName, movies));
+			  toReturn.add(new Bigram<>(listId, listName));
 		  }
 		  rs.close();
 		  prep.close();
