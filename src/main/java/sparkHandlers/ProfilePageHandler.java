@@ -1,10 +1,7 @@
 package sparkHandlers;
 
 import com.google.common.collect.ImmutableMap;
-import spark.ModelAndView;
-import spark.Request;
-import spark.Response;
-import spark.TemplateViewRoute;
+import spark.*;
 
 import java.util.Map;
 
@@ -15,11 +12,17 @@ public class ProfilePageHandler implements TemplateViewRoute {
     Map<String, Object> variables = ImmutableMap.of("title",
             "Profile");
 
+    // for security reasons creates new session on visit to profile
     String username =  req.session().attribute("username");
+    req.session().invalidate();
+
+    req.session(true).attribute("username", username);
+
     if (username == null) {
       // TODO: process no valid session
+      res.redirect("/home");
+      return null;
     }
-    System.out.println(username);
 
     // TODO: query profile information from database using session username
 
