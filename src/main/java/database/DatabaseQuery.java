@@ -277,27 +277,8 @@ public final class DatabaseQuery {
     }
   }
   
-  public static String getUsername(Connection conn, int id) {
-	  String query = "SELECT login FROM users WHERE id = ?;";
-	  String toReturn = "";
-	  try {
-		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setInt(1, id);
-		  ResultSet rs = prep.executeQuery();
-		  while (rs.next()) {
-			  toReturn = rs.getString(1);
-		  }
-		  rs.close();
-		  prep.close();
-		  return toReturn;
-	  } catch (SQLException e) {
-		  System.out.println("this userid doesn't exist");
-		  return toReturn;
-	  }
-  }
-  
   public static void insertNewList(Connection conn, String owner, String name) {
-	  String query = "INSERT INTO lists VALUES (null, ?, ?);";
+	  String query = "INSERT INTO lists VALUES (NULL, ?, ?);";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.setString(2, owner);
