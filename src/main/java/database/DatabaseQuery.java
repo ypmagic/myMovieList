@@ -296,7 +296,13 @@ public final class DatabaseQuery {
 		  return toReturn;
 	  }
   }
-  
+
+  /**
+   * inserts a new list into the list table.
+   * @param conn
+   * @param owner
+   * @param name
+   */
   public static void insertNewList(Connection conn, String owner, String name) {
 	  String query = "INSERT INTO lists VALUES (null, ?, ?);";
 	  try {
@@ -309,7 +315,13 @@ public final class DatabaseQuery {
 		  System.out.println("couldn't insert list for whatever reason");
 	  }
   }
-  
+
+  /**
+   * Given a list id returns a list of movie ids associated with that list id.
+   * @param conn
+   * @param id
+   * @return
+   */
   public static List<String> getMoviesForListId(Connection conn, String id) {
 	  String query = "SELECT imdbId FROM listMovies WHERE listId = ?;";
 	  List<String> toReturn = new ArrayList<>();
@@ -328,7 +340,14 @@ public final class DatabaseQuery {
 		  return toReturn;
 	  }
   }
-  
+
+  /**
+   * Given a userid returns all the list ids and list names associated with
+   * that user.
+   * @param conn
+   * @param login
+   * @return
+   */
   public static List<Bigram<String>> getListsFromUser(Connection conn, String login) {
 	  String query = "SELECT * FROM lists WHERE curator = ?;";
 	  List<Bigram<String>> toReturn = new ArrayList<>();
