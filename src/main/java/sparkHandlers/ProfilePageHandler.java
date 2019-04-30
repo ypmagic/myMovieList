@@ -16,7 +16,7 @@ public class ProfilePageHandler implements TemplateViewRoute {
 
     if (username == null) {
       // TODO: process no valid session
-      res.redirect("/home");
+      res.redirect("/login");
       return null;
     }
     // TODO: query profile information from database using session username
