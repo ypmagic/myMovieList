@@ -127,7 +127,7 @@ public final class DatabaseHandler {
 
   private static void makeListMoviesTable() {
     String query = "CREATE TABLE IF NOT EXISTS listMovies ("
-            + " listId TEXT,"
+            + " listId INTEGER,"
             + " imdbId TEXT);"
             + " FOREIGN KEY (\"listId\") REFERENCES lists(id));";
     try {

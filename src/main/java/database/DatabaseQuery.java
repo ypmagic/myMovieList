@@ -322,12 +322,12 @@ public final class DatabaseQuery {
    * @param id
    * @return
    */
-  public static List<String> getMoviesForListId(Connection conn, String id) {
+  public static List<String> getMoviesForListId(Connection conn, int id) {
 	  String query = "SELECT imdbId FROM listMovies WHERE listId = ?;";
 	  List<String> toReturn = new ArrayList<>();
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(1, id);
+		  prep.setInt(1, id);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
 			  String imdbId = rs.getString(1);
@@ -348,15 +348,15 @@ public final class DatabaseQuery {
    * @param login
    * @return
    */
-  public static List<Bigram<String>> getListsFromUser(Connection conn, String login) {
+  public static List<Bigram<Integer, String>> getListsFromUser(Connection conn, String login) {
 	  String query = "SELECT * FROM lists WHERE curator = ?;";
-	  List<Bigram<String>> toReturn = new ArrayList<>();
+	  List<Bigram<Integer, String>> toReturn = new ArrayList<>();
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.setString(1, login);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
-			  String listId = rs.getString(1);
+			  int listId = rs.getInt(1);
 			  String listName = rs.getString(3);
 			  toReturn.add(new Bigram<>(listId, listName));
 		  }
