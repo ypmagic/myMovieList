@@ -130,7 +130,7 @@ public class Movie {
   @Override
   public String toString() {
     return "{imdbID: " + this.getImdbID() + ", title: " + this.getTitle()
-      + "}";
+      + ", img: " + (this.img != null) + "}";
   }
   
   @Override

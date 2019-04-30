@@ -47,7 +47,7 @@ public final class Recommender {
       List<String> data = new ArrayList<>();
       ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python.fr"
           + "amework/Versions/3.6/bin/python3", "src/"
-          + "main/java/recommend/sorting.py", randomGenre);
+          + "main/java/sorter/sorting.py", randomGenre);
       Process p = pr.start();
       p.waitFor();
       InputStream is = p.getInputStream();
@@ -70,6 +70,7 @@ public final class Recommender {
         String id = data.get(i);
         Movie m = DatabaseQuery.getMovie(conn, id);
         movies.add(m);
+        System.out.println(m.toString());
       }
       // finally return the list of movies
       moviesAndGenre = new MoviesByGenre(randomGenre, movies);

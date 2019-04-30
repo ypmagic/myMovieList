@@ -6,6 +6,10 @@ src/main/java/sorter/links.csv
 src/main/java/sorter/movies.csv
 src/main/java/sorter/ratings.csv
 src/main/java/sorter/tags.csv
+data/links.csv
+data/movies.csv
+data/ratings.csv
+data/tags.csv
 
 .DS_Store
 data/.DS_Store

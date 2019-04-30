@@ -13,7 +13,11 @@ as well as a clickable link to the respective movie link-->
     <#list moviesTop as movie>
       <div class="flex-col">
         <!-- image of the movie -->
-        <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
+        <#if movie.getImg()??>
+          <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
+        <#else>
+          <p>${movie.getTitle()}</p>
+        </#if>
       </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
@@ -44,7 +48,11 @@ as well as a clickable link to the respective movie link-->
     <#list moviesTopMid as movie>
       <div class="flex-col">
         <!-- image of the movie -->
-        <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
+        <#if movie.getImg()??>
+          <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
+        <#else>
+          <p>${movie.getTitle()}</p>
+        </#if>
       </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
@@ -75,7 +83,11 @@ as well as a clickable link to the respective movie link-->
     <#list moviesBotMid as movie>
       <div class="flex-col">
         <!-- image of the movie -->
-        <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
+        <#if movie.getImg()??>
+          <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
+        <#else>
+          <p>${movie.getTitle()}</p>
+        </#if>
       </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
@@ -106,7 +118,11 @@ as well as a clickable link to the respective movie link-->
     <#list moviesBot as movie>
     <div class="flex-col">
       <!-- image of the movie -->
-      <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
+      <#if movie.getImg()??>
+        <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
+      <#else>
+        <p>${movie.getTitle()}</p>
+      </#if>
     </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
         <div class="flex-row">
