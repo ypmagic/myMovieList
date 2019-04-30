@@ -1,10 +1,13 @@
 import pandas as pd
 import numpy as np
+import sys
+
+first_arg = sys.argv[1]
 
 print(pd.__file__)
 print(np.__file__)
 
-def sorting(genre): 
+def sorting(genre):
 	df = pd.read_csv('ratings.csv', usecols=['userId','movieId','rating'])
 
 	movie_titles = pd.read_csv('movies.csv', usecols=['movieId','title','genres'])
@@ -21,17 +24,15 @@ def sorting(genre):
 	movie_titles = movie_titles.join(ratings['rating'], on = 'movieId')
 	print(movie_titles.head())
 
-	new = movie_titles[movie_titles['numRatings'] > 50].sort_values(by='rating', ascending=False).head(11)
+	new = movie_titles[movie_titles['numRatings'] > 50].sort_values(by='rating', ascending=False).head(5)
 	print(new.head())
 
 	file = open("sorted.txt","w")
 	for index,row in new.iterrows():
 		file.write(str(row['imdbId']))
-		file.write("\n") 
+		file.write("\n")
 	file.close()
 
 	return
 
-print(sorting('Children'))
-
-
+print(sorting(first_arg))

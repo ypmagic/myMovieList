@@ -31,7 +31,7 @@ public class MovieAPI {
     System.out.println(m.toString());
     System.out.println(m.size());
     // testing search by IMDB id
-    Movie m1 = MovieAPI.searchById("tt7428594");
+    Movie m1 = MovieAPI.searchById("tt0081505");
     System.out.println(m1.toString());
     // testing search by title
     Movie m2 = MovieAPI.searchByTitle("Toy Story");

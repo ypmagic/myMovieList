@@ -4,7 +4,7 @@ as well as a clickable link to the respective movie link-->
 <div class="flex-container content-align" id="top-movie-container">
   <!-- change this for category name -->
   <div class = "row">
-    <h2>Top Rated</h2>
+    <h2>Top ${moviesTopGenre}</h2>
   </div>
   <div class="flex-row solid-border">
     <#list moviesTop as movie>
@@ -35,7 +35,7 @@ as well as a clickable link to the respective movie link-->
 
   <!-- change this for category name -->
   <div class = "row">
-    <h2>Top Rated</h2>
+    <h2>Top ${moviesTopMidGenre}</h2>
   </div>
   <div class="flex-row solid-border">
     <#list moviesTopMid as movie>
@@ -66,7 +66,7 @@ as well as a clickable link to the respective movie link-->
 
   <!-- change this for category name -->
   <div class = "row">
-    <h2>Top Rated</h2>
+    <h2>Top ${moviesBotMidGenre}</h2>
   </div>
   <div class="flex-row solid-border">
     <#list moviesBotMid as movie>
@@ -97,7 +97,7 @@ as well as a clickable link to the respective movie link-->
 
   <!-- change this for category name -->
   <div class = "row">
-    <h2>Top Rated</h2>
+    <h2>Top ${moviesBotGenre}</h2>
   </div>
   <div class="flex-row solid-border">
     <#list moviesBot as movie>
