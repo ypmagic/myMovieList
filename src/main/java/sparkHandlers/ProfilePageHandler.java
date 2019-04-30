@@ -35,7 +35,10 @@ public class ProfilePageHandler implements TemplateViewRoute {
     Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
     List<MovieList> lists = DatabaseQuery.getListsFromUser(conn, username);
     
-    Map<String, Object> variables = new ImmutableMap.Builder<String, Object>().put("title", "Profile").put("lists", lists).build();
+    Map<String, Object> variables = new ImmutableMap.Builder<String, Object>()
+            .put("title", "Profile")
+            .put("lists", lists)
+            .put("username", username).build();
     return new ModelAndView(variables, "profile.ftl");
   }
 }

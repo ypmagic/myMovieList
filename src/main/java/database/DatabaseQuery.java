@@ -296,14 +296,12 @@ public final class DatabaseQuery {
 	  }
   }
   
-  public static void insertNewList(Connection conn, String id, String owner, String name, String list) {
-	  String query = "INSERT INTO lists VALUES (?, ?, ?, ?);";
+  public static void insertNewList(Connection conn, String owner, String name) {
+	  String query = "INSERT INTO lists VALUES (null, ?, ?);";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(1, id);
 		  prep.setString(2, owner);
 		  prep.setString(3, name);
-		  prep.setString(4, list);
 		  prep.executeUpdate();
 		  prep.close();
 	  } catch (SQLException e) {
@@ -312,7 +310,7 @@ public final class DatabaseQuery {
   }
   
   public static MovieList getListFromId(Connection conn, String id) {
-	  String query = "SELECT * FROM lists WHERE id = ?;";
+	  String query = "SELECT * FROM listMovies WHERE id = ?;";
 	  MovieList toReturn = null;
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
