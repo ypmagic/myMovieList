@@ -277,7 +277,7 @@ public final class DatabaseQuery {
       System.out.println("ERROR: Something wrong with inserting user.");
     }
   }
-  
+
   public static String getUsername(Connection conn, int id) {
 	  String query = "SELECT login FROM users WHERE id = ?;";
 	  String toReturn = "";
@@ -304,7 +304,7 @@ public final class DatabaseQuery {
    * @param name
    */
   public static void insertNewList(Connection conn, String owner, String name) {
-	  String query = "INSERT INTO lists VALUES (null, ?, ?);";
+	  String query = "INSERT INTO lists VALUES (NULL, ?, ?);";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.setString(1, owner);

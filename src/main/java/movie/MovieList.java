@@ -4,11 +4,8 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
-
 import database.DatabaseHandler;
 import database.DatabaseQuery;
-import user.User;
 import util.Bigram;
 
 public class MovieList {

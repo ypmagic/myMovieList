@@ -165,6 +165,7 @@ public final class DatabaseHandler {
       makeGenreTable();
       makeMovieGenreTable();
       makeListTable();
+      makeListMoviesTable();
     }
     return DatabaseHandler.movie;
   }
