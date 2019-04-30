@@ -1,6 +1,13 @@
 package sparkHandlers;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+
 import com.google.common.collect.ImmutableMap;
 import recommend.MoviesByGenre;
 import recommend.Recommender;
@@ -22,10 +29,24 @@ public class LandingHandler implements TemplateViewRoute {
         username = "Hello, " + username;
       }
       // use movies by genre
-      MoviesByGenre movies1 = Recommender.moviesByGenre();
-      MoviesByGenre movies2 = Recommender.moviesByGenre();
-      MoviesByGenre movies3 = Recommender.moviesByGenre();
-      MoviesByGenre movies4 = Recommender.moviesByGenre();
+      Set<Integer> randoms = new HashSet<>();
+      while (randoms.size() < 4) {
+        // first get a random genre
+        Random r = new Random();
+        int random = r.nextInt(18);
+        randoms.add(random);
+      }
+      Iterator<Integer> i = randoms.iterator();
+      List<MoviesByGenre> movies = new ArrayList<>();
+      while (i.hasNext()) {
+        int random = i.next();
+        movies.add(Recommender.moviesByGenre(random));
+      }
+      MoviesByGenre movies1 = movies.get(0);
+      MoviesByGenre movies2 = movies.get(1);
+      MoviesByGenre movies3 = movies.get(2);
+      MoviesByGenre movies4 = movies.get(3);
+      
       Map<Object, Object> variables = new ImmutableMap.Builder<>()
           .put("title", "Home")
           .put("moviesTop", movies1.getMovies())

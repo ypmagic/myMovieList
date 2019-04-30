@@ -34,10 +34,7 @@
             <li><a href="/home" class="boldless-link">Home</a></li>
             <li><a href="/profile" class="boldless-link">Profile</a></li>
             <li><a href="/watchlater" class="boldless-link">Watch Later</a></li>
-<<<<<<< HEAD
             <li><a href="/lists" class="boldless-link">My Lists</a></li>
-          </ul>
-=======
             <li>
               <div class="search">
                 <form id="search">
@@ -46,7 +43,7 @@
               </form>
               </div>
             </li>
->>>>>>> a81f12eeeb2a20795fd6b91f094dec70f0c29415
+          </ul>
         </ul>
       </div>
     </div>
