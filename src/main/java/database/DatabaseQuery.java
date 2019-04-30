@@ -12,7 +12,9 @@ import java.util.Objects;
 import api.MovieAPI;
 import api.PosterAPI;
 import movie.Movie;
+import movie.MovieList;
 import user.User;
+import util.Bigram;
 
 public final class DatabaseQuery {
   
@@ -275,31 +277,61 @@ public final class DatabaseQuery {
       System.out.println("ERROR: Something wrong with inserting user.");
     }
   }
-  
-  public static void insertNewList(Connection conn, String url, String owner, String name, String list) {
-	  String query = "INSERT INTO lists VALUES (?, ?, ?, ?);";
+
+  public static String getUsername(Connection conn, int id) {
+	  String query = "SELECT login FROM users WHERE id = ?;";
+	  String toReturn = "";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(1, url);
-		  prep.setString(2, owner);
-		  prep.setString(3, name);
-		  prep.setString(4, list);
+		  prep.setInt(1, id);
+		  ResultSet rs = prep.executeQuery();
+		  while (rs.next()) {
+			  toReturn = rs.getString(1);
+		  }
+		  rs.close();
+		  prep.close();
+		  return toReturn;
+	  } catch (SQLException e) {
+		  System.out.println("this userid doesn't exist");
+		  return toReturn;
+	  }
+  }
+
+  /**
+   * inserts a new list into the list table.
+   * @param conn
+   * @param owner
+   * @param name
+   */
+  public static void insertNewList(Connection conn, String owner, String name) {
+	  String query = "INSERT INTO lists VALUES (NULL, ?, ?);";
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.setString(1, owner);
+		  prep.setString(2, name);
 		  prep.executeUpdate();
 		  prep.close();
 	  } catch (SQLException e) {
 		  System.out.println("couldn't insert list for whatever reason");
 	  }
   }
-  
-  public static String getCuratorFromId(Connection conn, String id) {
-	  String query = "SELECT curator FROM lists WHERE url = ?;";
-	  String toReturn = "";
+
+  /**
+   * Given a list id returns a list of movie ids associated with that list id.
+   * @param conn
+   * @param id
+   * @return
+   */
+  public static List<String> getMoviesForListId(Connection conn, int id) {
+	  String query = "SELECT imdbId FROM listMovies WHERE listId = ?;";
+	  List<String> toReturn = new ArrayList<>();
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(1, id);
+		  prep.setInt(1, id);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
-			  toReturn = rs.getString(1);
+			  String imdbId = rs.getString(1);
+			  toReturn.add(imdbId);
 		  }
 		  rs.close();
 		  prep.close();
@@ -308,34 +340,25 @@ public final class DatabaseQuery {
 		  return toReturn;
 	  }
   }
-  
-  public static String getNameFromId(Connection conn, String id) {
-	  String query = "SELECT name FROM lists WHERE url = ?;";
-	  String toReturn = "";
+
+  /**
+   * Given a userid returns all the list ids and list names associated with
+   * that user.
+   * @param conn
+   * @param login
+   * @return
+   */
+  public static List<Bigram<Integer, String>> getListsFromUser(Connection conn, String login) {
+	  String query = "SELECT * FROM lists WHERE curator = ?;";
+	  List<Bigram<Integer, String>> toReturn = new ArrayList<>();
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(1, id);
+		  prep.setString(1, login);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
-			  toReturn = rs.getString(1);
-		  }
-		  rs.close();
-		  prep.close();
-		  return toReturn;
-	  } catch (SQLException e) {
-		  return toReturn;
-	  } 
-  }
-  
-  public static String getListFromId(Connection conn, String id) {
-	  String query = "SELECT movies FROM lists WHERE url = ?;";
-	  String toReturn = "";
-	  try {
-		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(1, id);
-		  ResultSet rs = prep.executeQuery();
-		  while (rs.next()) {
-			  toReturn = rs.getString(1);
+			  int listId = rs.getInt(1);
+			  String listName = rs.getString(3);
+			  toReturn.add(new Bigram<>(listId, listName));
 		  }
 		  rs.close();
 		  prep.close();
@@ -344,6 +367,7 @@ public final class DatabaseQuery {
 		  return toReturn;
 	  }
   }
+
 
 //  public static void insertGenre(Connection conn, String genre) {
 //    String query = "INSERT INTO genres VALUES(?, ?);";

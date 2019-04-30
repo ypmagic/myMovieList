@@ -59,7 +59,7 @@ public final class DatabaseHandler {
       prep.close();
     } catch (SQLException e) {
       System.out.println("ERROR: Creating user table failed.");
-    } 
+    }
   }
 
   /**
@@ -68,7 +68,8 @@ public final class DatabaseHandler {
   private static void makeUserMoviesTable() {
     String query = "CREATE TABLE IF NOT EXISTS userMovies ("
             + " login TEXT,"
-            + " imdbId TEXT);";
+            + " imdbId TEXT);"
+            + " FOREIGN KEY (\"login\") REFERENCES users(login))";
     try {
       PreparedStatement prep = conn.prepareStatement(query);
       prep.executeUpdate();
@@ -110,10 +111,11 @@ public final class DatabaseHandler {
   
   private static void makeListTable() {
 	  String query = "CREATE TABLE IF NOT EXISTS lists ("
-	  		+ " url TEXT,"
-	  		+ " curator TEXT"
-	  		+ " name TEXT"
-	  		+ " movies TEXT);";
+	  		+ " id INTEGER,"
+	  		+ " curator TEXT,"
+	  		+ " name TEXT,"
+	  		+ " PRIMARY KEY (\"id\"),"
+	  		+ " FOREIGN KEY (\"curator\") REFERENCES users(login));";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.execute();
@@ -121,6 +123,20 @@ public final class DatabaseHandler {
 	  } catch(SQLException e) {
 		  System.out.println("ERROR: Creating lists table failed.");
 	  }
+  }
+
+  private static void makeListMoviesTable() {
+    String query = "CREATE TABLE IF NOT EXISTS listMovies ("
+            + " listId INTEGER,"
+            + " imdbId TEXT);"
+            + " FOREIGN KEY (\"listId\") REFERENCES lists(id));";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.executeUpdate();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Creating user movie table failed.");
+    }
   }
 
   /**
@@ -149,6 +165,7 @@ public final class DatabaseHandler {
       makeGenreTable();
       makeMovieGenreTable();
       makeListTable();
+      makeListMoviesTable();
     }
     return DatabaseHandler.movie;
   }
