@@ -46,8 +46,8 @@ public final class Recommender {
     // get the corresponding genre and run script on command line
     String randomGenre = genres.get(random).toString();
     try {
-      Process p = Runtime.getRuntime().exec("python3 sorting.py \"" 
-          + randomGenre + "\"", null, new File("src/main/java/recommend"));
+      Process p = Runtime.getRuntime().exec("python3 src/main/java/recommend/sorting.py \"" 
+          + randomGenre + "\"");
     } catch (IOException e) {
       System.out.println("ERROR: Something wrong with executing script.");
     }
