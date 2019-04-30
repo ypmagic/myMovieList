@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Objects;
 
 import movie.Movie;
+import movie.MovieList;
 
 public class User {
-
   private String password;
   private String login;
-  private List<Movie> movies;
+  private List<MovieList> movieLists;
 
   public User(String login, String password) {
     this.password = password;
@@ -31,14 +31,6 @@ public class User {
     return this.password;
   }
 
-  public void setMovies(List<Movie> movies) {
-    this.movies = movies;
-  }
-
-  public void addMovie(Movie movie) {
-    this.movies.add(movie);
-  }
-  
   @Override
   public int hashCode() {
     return Objects.hash(this.login);

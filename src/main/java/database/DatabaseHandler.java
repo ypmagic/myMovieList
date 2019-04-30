@@ -110,10 +110,12 @@ public final class DatabaseHandler {
   
   private static void makeListTable() {
 	  String query = "CREATE TABLE IF NOT EXISTS lists ("
-	  		+ " url TEXT,"
-	  		+ " curator TEXT"
-	  		+ " name TEXT"
-	  		+ " movies TEXT);";
+	  		+ " id INTEGER,"
+	  		+ " curator TEXT,"
+	  		+ " name TEXT,"
+	  		+ " movies TEXT,"
+	  		+ " PRIMARY KEY (\"id\"),"
+	  		+ " FOREIGN KEY (\"curator\") REFERENCES users(login));";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.execute();

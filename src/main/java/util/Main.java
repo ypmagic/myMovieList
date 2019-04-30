@@ -79,6 +79,7 @@ public final class Main {
     // Setup Spark Routes here
     Spark.get("m/:movieID", new MovieHandler(), freeMarker);
     Spark.get("l/:listID", new ListHandler(), freeMarker);
+    Spark.get("u/:userID", new UserHandler(), freeMarker);
     Spark.post("/register", new RegisterHandler());
     Spark.get("/login", new LoginPageHandler(), freeMarker);
     Spark.post("/loginattempt", new LoginAttemptHandler());

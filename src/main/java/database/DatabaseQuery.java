@@ -12,6 +12,7 @@ import java.util.Objects;
 import api.MovieAPI;
 import api.PosterAPI;
 import movie.Movie;
+import movie.MovieList;
 import user.User;
 
 public final class DatabaseQuery {
@@ -276,11 +277,30 @@ public final class DatabaseQuery {
     }
   }
   
-  public static void insertNewList(Connection conn, String url, String owner, String name, String list) {
+  public static String getUsername(Connection conn, int id) {
+	  String query = "SELECT login FROM users WHERE id = ?;";
+	  String toReturn = "";
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.setInt(1, id);
+		  ResultSet rs = prep.executeQuery();
+		  while (rs.next()) {
+			  toReturn = rs.getString(1);
+		  }
+		  rs.close();
+		  prep.close();
+		  return toReturn;
+	  } catch (SQLException e) {
+		  System.out.println("this userid doesn't exist");
+		  return toReturn;
+	  }
+  }
+  
+  public static void insertNewList(Connection conn, String id, String owner, String name, String list) {
 	  String query = "INSERT INTO lists VALUES (?, ?, ?, ?);";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(1, url);
+		  prep.setString(1, id);
 		  prep.setString(2, owner);
 		  prep.setString(3, name);
 		  prep.setString(4, list);
@@ -291,15 +311,23 @@ public final class DatabaseQuery {
 	  }
   }
   
-  public static String getCuratorFromId(Connection conn, String id) {
-	  String query = "SELECT curator FROM lists WHERE url = ?;";
-	  String toReturn = "";
+  public static MovieList getListFromId(Connection conn, String id) {
+	  String query = "SELECT * FROM lists WHERE id = ?;";
+	  MovieList toReturn = null;
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.setString(1, id);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
-			  toReturn = rs.getString(1);
+			  int listId = rs.getInt(1);
+			  String curator = rs.getString(2);
+			  String listName = rs.getString(3);
+			  String moviesString = rs.getString(4);
+			  List<String> movies = new ArrayList<>();
+			  for (String movieId : moviesString.split(" ")) {
+				  movies.add(movieId);
+			  }
+			  toReturn = new MovieList(listId, curator, listName, movies);
 		  }
 		  rs.close();
 		  prep.close();
@@ -309,33 +337,23 @@ public final class DatabaseQuery {
 	  }
   }
   
-  public static String getNameFromId(Connection conn, String id) {
-	  String query = "SELECT name FROM lists WHERE url = ?;";
-	  String toReturn = "";
+  public static List<MovieList> getListsFromUser(Connection conn, String login) {
+	  String query = "SELECT * FROM lists WHERE curator = ?;";
+	  List<MovieList> toReturn = new ArrayList<>();
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(1, id);
+		  prep.setString(1, login);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
-			  toReturn = rs.getString(1);
-		  }
-		  rs.close();
-		  prep.close();
-		  return toReturn;
-	  } catch (SQLException e) {
-		  return toReturn;
-	  } 
-  }
-  
-  public static String getListFromId(Connection conn, String id) {
-	  String query = "SELECT movies FROM lists WHERE url = ?;";
-	  String toReturn = "";
-	  try {
-		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(1, id);
-		  ResultSet rs = prep.executeQuery();
-		  while (rs.next()) {
-			  toReturn = rs.getString(1);
+			  int listId = rs.getInt(1);
+			  String curator = rs.getString(2);
+			  String listName = rs.getString(3);
+			  String moviesString = rs.getString(4);
+			  List<String> movies = new ArrayList<>();
+			  for (String movieId : moviesString.split(" ")) {
+				  movies.add(movieId);
+			  }
+			  toReturn.add(new MovieList(listId, curator, listName, movies));
 		  }
 		  rs.close();
 		  prep.close();
@@ -344,6 +362,7 @@ public final class DatabaseQuery {
 		  return toReturn;
 	  }
   }
+
 
 //  public static void insertGenre(Connection conn, String genre) {
 //    String query = "INSERT INTO genres VALUES(?, ?);";
