@@ -93,7 +93,9 @@ public class MovieAPI {
         JsonObject obj = (JsonObject) el;
         String imdbId = obj.get("imdbID").getAsString();
         String title = obj.get("Title").getAsString();
-        int year = obj.get("Year").getAsInt();
+        String yearAsString = obj.get("Year").getAsString();
+        String[] split = yearAsString.split("-");
+        int year = Integer.parseInt(split[0]);
         Movie m = new Movie(imdbId, title, year);
         // adding the movie to the list
         movies.add(m);
@@ -137,7 +139,9 @@ public class MovieAPI {
     if (resObj.get("Response").getAsString().equals("True")) {
       String imdbId = resObj.get("imdbID").getAsString();
       String title = resObj.get("Title").getAsString();
-      int year = resObj.get("Year").getAsInt();
+      String yearAsString = resObj.get("Year").getAsString();
+      String[] split = yearAsString.split("-");
+      int year = Integer.parseInt(split[0]);
       String rated = resObj.get("Rated").getAsString();
       String runTime = resObj.get("Runtime").getAsString();
       String genre = resObj.get("Genre").getAsString();
@@ -164,7 +168,9 @@ public class MovieAPI {
     if (resObj.get("Response").getAsString().equals("True")) {
       String imdbId = resObj.get("imdbID").getAsString();
       String title = resObj.get("Title").getAsString();
-      int year = resObj.get("Year").getAsInt();
+      String yearAsString = resObj.get("Year").getAsString();
+      String[] split = yearAsString.split("–");
+      int year = Integer.parseInt(split[0]);
       String rated = resObj.get("Rated").getAsString();
       String runTime = resObj.get("Runtime").getAsString();
       String genre = resObj.get("Genre").getAsString();

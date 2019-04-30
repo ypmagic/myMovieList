@@ -1,19 +1,18 @@
 package recommend;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
-import java.util.stream.Collectors;
 
 import com.google.common.collect.ImmutableMap;
 
 import database.DatabaseHandler;
 import database.DatabaseQuery;
-import filereader.InputFileReader;
 import movie.Movie;
 
 public final class Recommender {
@@ -39,49 +38,45 @@ public final class Recommender {
       .put(17, "Western")
       .build();
   
-  public static MoviesByGenre moviesByGenre() {
-    // first get a random genre
-    Random r = new Random();
-    int random = r.nextInt(18);
+  public static MoviesByGenre moviesByGenre(int genre) {
+    MoviesByGenre moviesAndGenre = null;
     // get the corresponding genre and run script on command line
-    String randomGenre = genres.get(random).toString();
+    String randomGenre = genres.get(genre).toString();
     try {
-      Process p = Runtime.getRuntime().exec("python3 src/main/java/recommend/sorting.py \"" 
-          + randomGenre + "\"");
-    } catch (IOException e) {
+      // list of data imdb ids
+      List<String> data = new ArrayList<>();
+      ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python.fr"
+          + "amework/Versions/3.6/bin/python3", "src/"
+          + "main/java/sorter/sorting.py", randomGenre);
+      Process p = pr.start();
+      p.waitFor();
+      InputStream is = p.getInputStream();
+      BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+      String imdbId = null;
+      while ((imdbId = reader.readLine()) != null) {
+        int add = 7 - imdbId.length();
+        String finalId = "tt";
+        for (int i = 0; i < add; i++) {
+          finalId += "0";
+        }
+        finalId += imdbId;
+        data.add(finalId);
+      }
+      // go through the new data list and get the relevant movie
+      Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
+      List<Movie> movies = new ArrayList<>();
+      System.out.println(data.size());
+      for (int i = 0; i < 5; i++) {
+        String id = data.get(i);
+        Movie m = DatabaseQuery.getMovie(conn, id);
+        movies.add(m);
+        System.out.println(m.toString());
+      }
+      // finally return the list of movies
+      moviesAndGenre = new MoviesByGenre(randomGenre, movies);
+    } catch (IOException | InterruptedException e) {
       System.out.println("ERROR: Something wrong with executing script.");
     }
-    // now use buffered reader to read in the imdb id's of all
-    // recommended movies by genre
-    InputFileReader reader = new InputFileReader("src/main/java/recommend/"
-        + "sorted.txt");
-    List<List<String>> data = reader.read("\n");
-    List<List<String>> five = data.stream()
-        .limit(5)
-        .collect(Collectors.toList());
-    List<String> newData = new ArrayList<>();
-    // go through data and add the tt0 in the beginning of each id
-    for (List<String> line : five) {
-      // there is only one thing in each line
-      String imdbId = line.get(0);
-      // add an edited id to the new data list
-      int add = 7 - imdbId.length();
-      String finalId = "tt";
-      for (int i = 0; i < add; i++) {
-        finalId += "0";
-      }
-      finalId += imdbId;
-      newData.add(finalId);
-    }
-    // go through the new data list and get the relevant movie
-    Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
-    List<Movie> movies = new ArrayList<>();
-    for (String id : newData) {
-      Movie m = DatabaseQuery.getMovie(conn, id);
-      movies.add(m);
-    }
-    // finally return the list of movies
-    MoviesByGenre moviesAndGenre = new MoviesByGenre(randomGenre, movies);
     return moviesAndGenre;
   }
   
