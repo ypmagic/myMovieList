@@ -14,6 +14,7 @@ import api.PosterAPI;
 import movie.Movie;
 import movie.MovieList;
 import user.User;
+import util.Bigram;
 
 public final class DatabaseQuery {
   
@@ -276,37 +277,61 @@ public final class DatabaseQuery {
       System.out.println("ERROR: Something wrong with inserting user.");
     }
   }
-  
+
+  public static String getUsername(Connection conn, int id) {
+	  String query = "SELECT login FROM users WHERE id = ?;";
+	  String toReturn = "";
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.setInt(1, id);
+		  ResultSet rs = prep.executeQuery();
+		  while (rs.next()) {
+			  toReturn = rs.getString(1);
+		  }
+		  rs.close();
+		  prep.close();
+		  return toReturn;
+	  } catch (SQLException e) {
+		  System.out.println("this userid doesn't exist");
+		  return toReturn;
+	  }
+  }
+
+  /**
+   * inserts a new list into the list table.
+   * @param conn
+   * @param owner
+   * @param name
+   */
   public static void insertNewList(Connection conn, String owner, String name) {
 	  String query = "INSERT INTO lists VALUES (NULL, ?, ?);";
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setString(2, owner);
-		  prep.setString(3, name);
+		  prep.setString(1, owner);
+		  prep.setString(2, name);
 		  prep.executeUpdate();
 		  prep.close();
 	  } catch (SQLException e) {
 		  System.out.println("couldn't insert list for whatever reason");
 	  }
   }
-  
-  public static MovieList getListFromId(Connection conn, String id) {
-	  String query = "SELECT * FROM listMovies WHERE id = ?;";
-	  MovieList toReturn = null;
+
+  /**
+   * Given a list id returns a list of movie ids associated with that list id.
+   * @param conn
+   * @param id
+   * @return
+   */
+  public static List<String> getMoviesForListId(Connection conn, String id) {
+	  String query = "SELECT imdbId FROM listMovies WHERE listId = ?;";
+	  List<String> toReturn = new ArrayList<>();
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.setString(1, id);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
-			  int listId = rs.getInt(1);
-			  String curator = rs.getString(2);
-			  String listName = rs.getString(3);
-			  String moviesString = rs.getString(4);
-			  List<String> movies = new ArrayList<>();
-			  for (String movieId : moviesString.split(" ")) {
-				  movies.add(movieId);
-			  }
-			  toReturn = new MovieList(listId, curator, listName, movies);
+			  String imdbId = rs.getString(1);
+			  toReturn.add(imdbId);
 		  }
 		  rs.close();
 		  prep.close();
@@ -315,24 +340,25 @@ public final class DatabaseQuery {
 		  return toReturn;
 	  }
   }
-  
-  public static List<MovieList> getListsFromUser(Connection conn, String login) {
+
+  /**
+   * Given a userid returns all the list ids and list names associated with
+   * that user.
+   * @param conn
+   * @param login
+   * @return
+   */
+  public static List<Bigram<String>> getListsFromUser(Connection conn, String login) {
 	  String query = "SELECT * FROM lists WHERE curator = ?;";
-	  List<MovieList> toReturn = new ArrayList<>();
+	  List<Bigram<String>> toReturn = new ArrayList<>();
 	  try {
 		  PreparedStatement prep = conn.prepareStatement(query);
 		  prep.setString(1, login);
 		  ResultSet rs = prep.executeQuery();
 		  while (rs.next()) {
-			  int listId = rs.getInt(1);
-			  String curator = rs.getString(2);
+			  String listId = rs.getString(1);
 			  String listName = rs.getString(3);
-			  String moviesString = rs.getString(4);
-			  List<String> movies = new ArrayList<>();
-			  for (String movieId : moviesString.split(" ")) {
-				  movies.add(movieId);
-			  }
-			  toReturn.add(new MovieList(listId, curator, listName, movies));
+			  toReturn.add(new Bigram<>(listId, listName));
 		  }
 		  rs.close();
 		  prep.close();
