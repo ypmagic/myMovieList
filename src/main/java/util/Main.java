@@ -7,10 +7,7 @@ import java.io.StringWriter;
 
 import cli.CommandProcessor;
 import database.DatabaseHandler;
-import sparkHandlers.LandingHandler;
-import sparkHandlers.ListHandler;
-import sparkHandlers.LoginAttemptHandler;
-import sparkHandlers.LoginPageHandler;
+import sparkHandlers.*;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -19,9 +16,6 @@ import spark.Request;
 import spark.Response;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
-import sparkHandlers.MovieHandler;
-import sparkHandlers.RegisterHandler;
-import sparkHandlers.RegisterPageHandler;
 
 /*
  * The Main class of our project. This is where execution begins.
@@ -90,6 +84,7 @@ public final class Main {
     Spark.post("/loginattempt", new LoginAttemptHandler());
     Spark.get("/register", new RegisterPageHandler(), freeMarker);
     Spark.get("/home", new LandingHandler(), freeMarker);
+    Spark.get("/profile", new ProfilePageHandler(), freeMarker);
     // Setup database
     DatabaseHandler.getDatabaseHandler();
   }

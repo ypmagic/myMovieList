@@ -8,10 +8,7 @@ import com.google.gson.Gson;
 
 import database.DatabaseHandler;
 import database.DatabaseQuery;
-import spark.QueryParamsMap;
-import spark.Request;
-import spark.Response;
-import spark.Route;
+import spark.*;
 
 public class LoginAttemptHandler implements Route {
   
@@ -28,7 +25,11 @@ public class LoginAttemptHandler implements Route {
 	    Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
 	    if (!DatabaseQuery.authenticateUser(conn, userName, password)) {
 	    	success = false;
-	    }
+	    } else {
+	    	// creates a session
+				request.session(true).attribute("username", userName);
+			}
+
 	    Map<String, Object> variables = ImmutableMap.of("success", success);
 	    return GSON.toJson(variables);
 	}
