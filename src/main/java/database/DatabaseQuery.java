@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,7 +21,32 @@ public final class DatabaseQuery {
    */
   private DatabaseQuery() {
   }
-
+  
+  /**
+   * Used to return a mapping from imdbId's to the movie titles.
+   * @param conn
+   * @return a hashmap with a mapping from imdbIds to the movie titles
+   */
+  public HashMap<String,String> getMovieToImdb(Connection conn) {
+	  HashMap<String,String> output = new HashMap<String,String>();
+	  String query = "SELECT title,imdbId FROM movies";
+	  try {
+		  PreparedStatement prep;
+		  prep = conn.prepareStatement(query);
+		  ResultSet rs = prep.executeQuery();
+		  while(rs.next()) {
+			  String title = rs.getString(1);
+			  String imdbId = rs.getString(2);
+			  output.put(imdbId, title);
+		  }
+		  rs.close();
+		  prep.close();
+	  } catch (SQLException e) {
+	      System.out.println("ERROR: Something wrong with getting movie.");
+	  }
+	  return output;
+  }
+  
   /**
    * This query method returns the specific movie
    * @param conn Database SQL connection
