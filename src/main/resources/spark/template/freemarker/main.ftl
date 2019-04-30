@@ -31,9 +31,10 @@
         </div>
         <!-- Dropdown or slide in from left? Take up full screen? idk -->
         <ul class="menu">
-            <li><a href="/home" class="bolded-link">Home</a></li>
+            <li><a href="/home" class="boldless-link">Home</a></li>
             <li><a href="/profile" class="boldless-link">Profile</a></li>
             <li><a href="/watchlater" class="boldless-link">Watch Later</a></li>
+            <li><a href="/lists" class="boldless-link">My Lists</a></li>
           </ul>
         </ul>
       </div>

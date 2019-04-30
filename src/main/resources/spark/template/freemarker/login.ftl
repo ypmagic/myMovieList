@@ -20,25 +20,36 @@
         </div>
       </div>
       <br/>
-      <div class="row">
-        <div class="col text-center mx-auto">
-          <h3> Join Now!</h3>
-          <form action="/register">
-            <button type="submit" class="btn btn-dark">Sign Up</button>
-          </form>
+      <#if !exists>
+        <div class="row">
+          <div class="col text-center mx-auto">
+            <h3> Join Now!</h3>
+            <form action="/register">
+              <button type="submit" class="btn btn-dark">Sign Up</button>
+            </form>
+          </div>
         </div>
-      </div>
+      </#if>
     </div>
   </div>
+  <#if !exists>
     <div class="content-align-form" align="center">
       <form class="form-inline" id="login">
         <input type="text" class="form-control form-width-control" name="username" placeholder="username">
         <input type="password" class="form-control form-width-control" name="password" placeholder="password">
         <button type="submit" class = "btn btn-dark">Login</button>
       </form>
-
       <br>
     </div>
+  <#else>
+    <div class="container">
+      <div class = "row">
+        <div class = "col text-center mx-auto">
+          <a href="/home" class="bolded-link"><p>Go Back to Movies</p></a>
+        </div>
+      </div>
+    </div>
+  </#if>
 </#assign>
 
 <#include "no-nav.ftl">

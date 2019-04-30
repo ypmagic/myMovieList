@@ -9,13 +9,9 @@ public class ProfilePageHandler implements TemplateViewRoute {
 
   @Override
   public ModelAndView handle(Request req, Response res) {
-    Map<String, Object> variables = ImmutableMap.of("title",
-            "Profile");
-
     // for security reasons creates new session on visit to profile
     String username =  req.session().attribute("username");
     req.session().invalidate();
-
     req.session(true).attribute("username", username);
 
     if (username == null) {
@@ -23,9 +19,9 @@ public class ProfilePageHandler implements TemplateViewRoute {
       res.redirect("/home");
       return null;
     }
-
     // TODO: query profile information from database using session username
-
+    Map<String, Object> variables = ImmutableMap.of("title",
+        "Profile", "username", username);
     return new ModelAndView(variables, "profile.ftl");
   }
 }

@@ -37,6 +37,10 @@
   height: 200px;
 }
 
+.user-welcome {
+  float: right;
+}
+
 .movie-popup img {
   width: 296px;
   height: 320px!important;

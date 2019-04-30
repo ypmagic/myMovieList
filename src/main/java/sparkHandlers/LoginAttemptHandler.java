@@ -27,9 +27,8 @@ public class LoginAttemptHandler implements Route {
 	    	success = false;
 	    } else {
 	    	// creates a session
-				request.session(true).attribute("username", userName);
-			}
-
+			request.session(true).attribute("username", userName);
+		}
 	    Map<String, Object> variables = ImmutableMap.of("success", success);
 	    return GSON.toJson(variables);
 	}
