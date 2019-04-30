@@ -85,11 +85,8 @@ public final class Main {
     Spark.get("/register", new RegisterPageHandler(), freeMarker);
     Spark.get("/home", new LandingHandler(), freeMarker);
     Spark.get("/profile", new ProfilePageHandler(), freeMarker);
-<<<<<<< HEAD
     Spark.get("/", new LoginPageHandler(), freeMarker);
-=======
     Spark.post("/moviesearch", new SearchHandler());
->>>>>>> a81f12eeeb2a20795fd6b91f094dec70f0c29415
     // Setup database
     DatabaseHandler.getDatabaseHandler();
   }
