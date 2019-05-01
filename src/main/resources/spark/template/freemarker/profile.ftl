@@ -32,7 +32,7 @@
               <#else>
                 <p class="movie-img ${movie}">${movie.getTitle()}</p>
               </#if>
-                <button name="${movieList.getId()}" value="${movie.getImdbID()}" type="submit" class = "btn btn-dark">Remove</button>
+                <button name="${movieList.getId()}" value="${movie.getImdbID()}" type="submit" class = "btn-pad btn btn-dark">Remove</button>
               </form>
             </div>
           </#list>
