@@ -126,17 +126,19 @@ html, body {
 
 .search {
   position: relative;
-  top: .5em;
-  left: 70%;
+  top: 4em;
+  left: 35%;
+  display: inline-block;
 }
 
 .search-box {
+  position: relative;
   background: #000;
   outline: none;
   border: 4px solid white;
   padding: .5em;
   color: white;
-  width: 25%;
+  width: 125%;
 }
 
 @media screen and (min-width: 712px) {
@@ -217,5 +219,14 @@ html, body {
 
   .logo-text-mob {
     display: none;
+  }
+
+  .search {
+    top: .7em;
+    left: 75%;
+  }
+
+  .search-box {
+    width: 125%;
   }
 }
