@@ -3,6 +3,10 @@ html, body {
   color: white!important;
 }
 
+.contrast-color {
+  color: rgb(87, 183, 235)!important;
+}
+
 .content-align {
   margin-top: 3.5em;
 }

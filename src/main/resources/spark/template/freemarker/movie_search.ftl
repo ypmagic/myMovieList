@@ -2,7 +2,7 @@
 
 <div class="container content-align">
   <div class="search-info">
-    <h1 id="num-results">${numResults}</h1> <h2> results found...</h2>
+    <h1 class="contrast-color">${numResults}</h1> <h2> results found...</h2>
   </div>
   <ul class="movie-list">
     <#list movies as movie>

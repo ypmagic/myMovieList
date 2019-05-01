@@ -335,10 +335,10 @@ public final class DatabaseQuery {
 		  }
 		  rs.close();
 		  prep.close();
-		  return toReturn;
 	  } catch (SQLException e) {
 		  return toReturn;
 	  }
+	  return toReturn;
   }
 
   /**
@@ -383,10 +383,10 @@ public final class DatabaseQuery {
         rs.close();
         prep.close();
     } catch (SQLException e) {
-        System.out.println("ERROR: Getting lists fatal.");
+        System.out.println("ERROR: Getting list ID fatal.");
     }
     return listId;
-}
+  }
   
   /**
    * Given a userid returns all the list ids and list names associated with
@@ -408,6 +408,28 @@ public final class DatabaseQuery {
       }
   }
 
+  public static Bigram<String, String> getCuratorNameList(
+      Connection conn, int id) {
+    String query = "SELECT curator, name FROM lists WHERE id = ?";
+    Bigram<String, String> curatorName = null;
+    String curator = null;
+    String name = null;
+    try {
+        PreparedStatement prep = conn.prepareStatement(query);
+        prep.setInt(1, id);
+        ResultSet rs = prep.executeQuery();
+        if (rs.next()) {
+          curator = rs.getString(1);
+          name = rs.getString(2);
+        }
+        rs.close();
+        prep.close();
+    } catch (SQLException e) {
+        System.out.println("ERROR: Getting curator, name fatal.");
+    }
+    curatorName = new Bigram<>(curator, name);
+    return curatorName;
+  }
 
 //  public static void insertGenre(Connection conn, String genre) {
 //    String query = "INSERT INTO genres VALUES(?, ?);";

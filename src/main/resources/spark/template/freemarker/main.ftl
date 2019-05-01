@@ -36,7 +36,6 @@
             <li><a href="/home" class="boldless-link">Home</a></li>
             <li><a href="/profile" class="boldless-link">Profile</a></li>
             <li><a href="/watchlater" class="boldless-link">Watch Later</a></li>
-            <li><a href="/lists" class="boldless-link">My Lists</a></li>
         </ul>
       </div>
     </div>

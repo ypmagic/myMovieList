@@ -80,6 +80,7 @@ public final class Main {
     Spark.get("m/:movieID", new MovieHandler(), freeMarker);
     Spark.post("/list", new ListHandler());
     Spark.get("u/:user", new UserPageHandler(), freeMarker);
+    Spark.get("l/:listID", new ListViewHandler(), freeMarker);
     Spark.post("/register", new RegisterHandler());
     Spark.get("/login", new LoginPageHandler(), freeMarker);
     Spark.post("/loginattempt", new LoginAttemptHandler());
