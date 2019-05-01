@@ -39,7 +39,7 @@ as well as a clickable link to the respective movie link-->
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
               <form class= "formlst">
                 <div class="form-group">
-                  <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
+                  <select class="form-control" name="${movie.getImdbID()}">
                     <#list userLists as lst>
                       <option value=${lst.getLeft()}>${lst.getRight()}</option>
                     </#list>
@@ -88,7 +88,7 @@ as well as a clickable link to the respective movie link-->
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
               <form class="formlst">
                 <div class="form-group">
-                  <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
+                  <select class="form-control" name="${movie.getImdbID()}">
                     <#list userLists as lst>
                       <option value=${lst.getLeft()}>${lst.getRight()}</option>
                     </#list>
@@ -137,7 +137,7 @@ as well as a clickable link to the respective movie link-->
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
               <form class="formlst">
                 <div class="form-group">
-                  <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
+                  <select class="form-control" name="${movie.getImdbID()}">
                     <#list userLists as lst>
                       <option value=${lst.getLeft()}>${lst.getRight()}</option>
                     </#list>
@@ -186,7 +186,7 @@ as well as a clickable link to the respective movie link-->
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
               <form class="formlst">
                 <div class="form-group">
-                  <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
+                  <select class="form-control" name="${movie.getImdbID()}">
                     <#list userLists as lst>
                       <option value=${lst.getLeft()}>${lst.getRight()}</option>
                     </#list>
