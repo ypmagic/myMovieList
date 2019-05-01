@@ -43,7 +43,6 @@
               </form>
               </div>
             </li>
-          </ul>
         </ul>
       </div>
     </div>

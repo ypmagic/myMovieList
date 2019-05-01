@@ -29,7 +29,7 @@ public final class DatabaseQuery {
    * @param conn
    * @return a hashmap with a mapping from imdbIds to the movie titles
    */
-  public HashMap<String,String> getMovieToImdb(Connection conn) {
+  public static HashMap<String,String> getMovieToImdb(Connection conn) {
 	  HashMap<String,String> output = new HashMap<String,String>();
 	  String query = "SELECT title,imdbId FROM movies";
 	  try {
