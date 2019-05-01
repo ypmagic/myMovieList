@@ -35,18 +35,12 @@
             <li><a href="/profile" class="boldless-link">Profile</a></li>
             <li><a href="/watchlater" class="boldless-link">Watch Later</a></li>
             <li><a href="/lists" class="boldless-link">My Lists</a></li>
-            <li>
-              <div class="search">
-                <form id="search">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit">Submit</button>
-              </form>
-              </div>
-            </li>
         </ul>
       </div>
     </div>
-
+    <div class="search">
+      <input class="search-box" type="text" placeholder="Search.." name="search">
+    </div>
 
      ${content}
 

@@ -124,6 +124,10 @@ html, body {
   bottom: -5px;
 }
 
+.search-box {
+  background: #000;
+}
+
 @media screen and (min-width: 712px) {
 
   /* GLOBALS */
