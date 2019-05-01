@@ -45,7 +45,8 @@ public final class Recommender {
     try {
       // list of data imdb ids
       List<String> data = new ArrayList<>();
-      ProcessBuilder pr = new ProcessBuilder("/anaconda3/bin/python", "src/"
+      ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python."
+          + "framework/Versions/3.6/bin/python3", "src/"
           + "main/java/sorter/sorting.py", randomGenre);
       Process p = pr.start();
       p.waitFor();
@@ -65,8 +66,7 @@ public final class Recommender {
       Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
       List<Movie> movies = new ArrayList<>();
       System.out.println(data.size());
-      for (int i = 0; i < 5; i++) {
-        String id = data.get(i);
+      for (String id : data) {
         Movie m = DatabaseQuery.getMovie(conn, id);
         movies.add(m);
         System.out.println(m.toString());
@@ -77,6 +77,5 @@ public final class Recommender {
       System.out.println("ERROR: Something wrong with executing script.");
     }
     return moviesAndGenre;
-  }
-  
+  }  
 }

@@ -6,6 +6,8 @@ src/main/java/sorter/links.csv
 src/main/java/sorter/movies.csv
 src/main/java/sorter/ratings.csv
 src/main/java/sorter/tags.csv
+src/main/java/recommend/Recommender.java
+src/main/java/sorter/sorting.py
 data/links.csv
 data/movies.csv
 data/ratings.csv

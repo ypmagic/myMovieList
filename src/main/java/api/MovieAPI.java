@@ -27,7 +27,7 @@ public class MovieAPI {
   
   public static void main(String[] args) {
     // testing search
-    List<Movie> m = MovieAPI.search("Blade Runner");
+    List<Movie> m = MovieAPI.search("harry");
     System.out.println(m.toString());
     System.out.println(m.size());
     // testing search by IMDB id
@@ -94,8 +94,12 @@ public class MovieAPI {
         String imdbId = obj.get("imdbID").getAsString();
         String title = obj.get("Title").getAsString();
         String yearAsString = obj.get("Year").getAsString();
-        String[] split = yearAsString.split("-");
-        int year = Integer.parseInt(split[0]);
+        String[] split = yearAsString.split("–");
+        String finalYear = split[0];
+        if (finalYear.charAt(finalYear.length() - 1) == '–') {
+          finalYear = finalYear.substring(0, finalYear.length() - 1);
+        }
+        int year = Integer.parseInt(finalYear);
         Movie m = new Movie(imdbId, title, year);
         // adding the movie to the list
         movies.add(m);
@@ -112,7 +116,13 @@ public class MovieAPI {
             JsonObject obj = (JsonObject) el;
             String imdbId = obj.get("imdbID").getAsString();
             String title = obj.get("Title").getAsString();
-            int year = obj.get("Year").getAsInt();
+            String yearAsString = obj.get("Year").getAsString();
+            String[] split = yearAsString.split("–");
+            String finalYear = split[0];
+            if (finalYear.charAt(finalYear.length() - 1) == '–') {
+              finalYear = finalYear.substring(0, finalYear.length() - 1);
+            }
+            int year = Integer.parseInt(finalYear);
             Movie m = new Movie(imdbId, title, year);
             // adding the movie to the list
             movies.add(m);
@@ -140,8 +150,12 @@ public class MovieAPI {
       String imdbId = resObj.get("imdbID").getAsString();
       String title = resObj.get("Title").getAsString();
       String yearAsString = resObj.get("Year").getAsString();
-      String[] split = yearAsString.split("-");
-      int year = Integer.parseInt(split[0]);
+      String[] split = yearAsString.split("–");
+      String finalYear = split[0];
+      if (finalYear.charAt(finalYear.length() - 1) == '–') {
+        finalYear = finalYear.substring(0, finalYear.length() - 1);
+      }
+      int year = Integer.parseInt(finalYear);
       String rated = resObj.get("Rated").getAsString();
       String runTime = resObj.get("Runtime").getAsString();
       String genre = resObj.get("Genre").getAsString();
@@ -170,7 +184,11 @@ public class MovieAPI {
       String title = resObj.get("Title").getAsString();
       String yearAsString = resObj.get("Year").getAsString();
       String[] split = yearAsString.split("–");
-      int year = Integer.parseInt(split[0]);
+      String finalYear = split[0];
+      if (finalYear.charAt(finalYear.length() - 1) == '–') {
+        finalYear = finalYear.substring(0, finalYear.length() - 1);
+      }
+      int year = Integer.parseInt(finalYear);
       String rated = resObj.get("Rated").getAsString();
       String runTime = resObj.get("Runtime").getAsString();
       String genre = resObj.get("Genre").getAsString();

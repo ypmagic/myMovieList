@@ -11,11 +11,17 @@
   margin-left: 0.8em!important;
 }
 
+.flex-row-cont {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   width: 100%;
+  min-height: min-content;
 }
 
 .row h2 {
@@ -28,7 +34,7 @@
   flex-basis: 100%;
   justify-content: center;
   align-items: center;
-  flex: 1;
+  flex: 1 0;
   margin: 18px;
 }
 
@@ -102,6 +108,10 @@
 
 .stop-scrolling {
   overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 @keyframes fadeInBox {
