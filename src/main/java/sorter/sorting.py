@@ -11,7 +11,7 @@ def sorting(genre):
 	movie_titles = movie_titles[movie_titles['genres'].str.contains(genre)]
 
 	imdb_to_id = pd.read_csv('src/main/java/sorter/links.csv', usecols=['movieId','imdbId'])
-
+	
 	ratings = pd.DataFrame(df.groupby('movieId')['rating'].mean())
 	ratings['numRatings'] = pd.DataFrame(df.groupby('movieId')['rating'].count())
 
