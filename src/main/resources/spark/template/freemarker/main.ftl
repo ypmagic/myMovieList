@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="/css/movies.css">
   </head>
   <body>
+    <!-- TO GREY OUT REST OF THE MOBILE SITE -->
+    <div class="mobile-overlay"></div>
     <div class="nav">
         <div class="logo">
           <span class="toggle-menu toggle-menu-ham">

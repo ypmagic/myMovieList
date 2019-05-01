@@ -200,7 +200,5 @@ as well as a clickable link to the respective movie link-->
       </#list>
     </div>
   </div>
-<!-- TO GREY OUT REST OF THE MOBILE SITE -->
-<div class="mobile-overlay"></div>
 </#assign>
 <#include "main.ftl">
