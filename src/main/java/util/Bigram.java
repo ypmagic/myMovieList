@@ -1,6 +1,7 @@
 package util;
 
 public final class Bigram<T, V> {
+  
 	T left;
 	V right;
 	

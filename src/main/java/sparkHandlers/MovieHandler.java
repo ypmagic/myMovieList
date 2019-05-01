@@ -36,9 +36,13 @@ public class MovieHandler implements TemplateViewRoute {
     }
     Movie m = getMovie(movieID);
     if (m == null) {
-      m = MovieAPI.searchById(movieID);
-      DatabaseQuery.insertMovie(conn, m);
+      m = new Movie(null, null, 0);
+      Map<String, Object> variables = ImmutableMap.of("movie",
+          m, "title", "Invalid");
+      return new ModelAndView(variables, "movie.ftl");
     }
+    m = MovieAPI.searchById(movieID);
+    DatabaseQuery.insertMovie(conn, m);
     // retrieve name of actor and the list of films they were in
     Map<String, Object> variables = ImmutableMap.of("movie",
         m, "title", m.getTitle());

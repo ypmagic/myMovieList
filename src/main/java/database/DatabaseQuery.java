@@ -86,7 +86,11 @@ public final class DatabaseQuery {
     // if the movie does not exist in the database, use movie api
     if (m == null) {
       m = MovieAPI.searchById(movieId);
-      insertMovie(conn, m);
+      // if it's still null, don't do anything.
+      if (m != null) {
+        insertMovie(conn, m);
+      }
+      return m;
     }
     // get all genres that this movie has
     List<String> genres = getGenres(conn, m.getImdbID());
