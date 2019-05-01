@@ -9,12 +9,15 @@ import java.util.Random;
 import java.util.Set;
 
 import com.google.common.collect.ImmutableMap;
+import database.DatabaseHandler;
+import database.DatabaseQuery;
 import recommend.MoviesByGenre;
 import recommend.Recommender;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
+import util.Bigram;
 
 public class LandingHandler implements TemplateViewRoute {
   
@@ -23,9 +26,16 @@ public class LandingHandler implements TemplateViewRoute {
       String username =  request.session().attribute("username");
       request.session().invalidate();
       request.session(true).attribute("username", username);
+      List<Bigram<String, String>> userLists = new ArrayList<>();
       if (username == null) {
         username = "";
       } else {
+        List<Bigram<Integer, String>> temp = DatabaseQuery.getListsFromUser(DatabaseHandler
+                .getDatabaseHandler().getConnection(), username);
+        for (Bigram bi : temp) {
+          userLists.add(new Bigram<>(bi.getLeft().toString(),
+                  bi.getRight().toString()));
+        }
         username = "Hello, " + username;
       }
       // use movies by genre
@@ -48,17 +58,17 @@ public class LandingHandler implements TemplateViewRoute {
       MoviesByGenre movies4 = movies.get(3);
       
       Map<Object, Object> variables = new ImmutableMap.Builder<>()
-          .put("title", "Home")
-          .put("moviesTop", movies1.getMovies())
-          .put("moviesTopGenre", movies1.getGenre() + " Movies")
-          .put("moviesTopMid", movies2.getMovies())
-          .put("moviesTopMidGenre", movies2.getGenre() + " Movies")
-          .put("moviesBotMid", movies3.getMovies())
-          .put("moviesBotMidGenre", movies3.getGenre() + " Movies")
-          .put("moviesBot", movies4.getMovies())
-          .put("moviesBotGenre", movies4.getGenre() + " Movies")
-          .put("username", username)
-          .build();
+              .put("title", "Home")
+              .put("moviesTop", movies1.getMovies())
+              .put("moviesTopGenre", movies1.getGenre() + " Movies")
+              .put("moviesTopMid", movies2.getMovies())
+              .put("moviesTopMidGenre", movies2.getGenre() + " Movies")
+              .put("moviesBotMid", movies3.getMovies())
+              .put("moviesBotMidGenre", movies3.getGenre() + " Movies")
+              .put("moviesBot", movies4.getMovies())
+              .put("moviesBotGenre", movies4.getGenre() + " Movies")
+              .put("username", username)
+              .put("userLists", userLists).build();
       return new ModelAndView(variables, "landing.ftl");
     }
 }

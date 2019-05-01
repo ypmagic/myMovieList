@@ -26,7 +26,7 @@ public class UserPageHandler implements TemplateViewRoute {
 	    List<MovieList> ret = new ArrayList<>();
 
 	    for (Bigram<Integer, String> lst : listIds) {
-	      int lstId = lst.getLeft();
+	      Integer lstId = lst.getLeft();
 	      String lstName = lst.getRight();
 	      List<String> movieIds = DatabaseQuery.getMoviesForListId(conn, lstId);
 	      ret.add(new MovieList(lstId, login, lstName, movieIds));
