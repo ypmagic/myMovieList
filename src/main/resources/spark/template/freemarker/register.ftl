@@ -2,7 +2,7 @@
 
 <div class="container content-align">
 	<div class = "page-header">
-		<h1> Register </h1>
+		<h1>Register</h1>
 	</div>
 
 	<form id="register">
@@ -18,4 +18,4 @@
 	</form>
 </div>
 </#assign>
-<#include "main.ftl">
+<#include "no-nav.ftl">
