@@ -4,7 +4,6 @@
     <list default="true" id="122c6881-2afd-4178-83f3-6069eae35b4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/recommend/Recommender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/recommend/Recommender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sorter/sorting.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sorter/sorting.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +18,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/util/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="500">
-              <caret line="90" column="21" lean-forward="true" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+              <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -36,17 +35,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/recommend/Recommender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+            <state relative-caret-position="443">
+              <caret line="72" column="30" lean-forward="true" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseQuery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="150" column="36" lean-forward="true" selection-start-line="150" selection-start-column="36" selection-end-line="150" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sorter/sorting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="345">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -67,6 +75,10 @@
       <find>response</find>
       <find>re</find>
       <find>error</find>
+      <find>system.out</find>
+      <find>system.out.println(m</find>
+      <find>data</find>
+      <find>System.out.p</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -93,7 +105,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/list.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/util/Bigram.java" />
-        <option value="$PROJECT_DIR$/src/main/java/database/DatabaseQuery.java" />
         <option value="$PROJECT_DIR$/src/main/java/database/DatabaseHandler.java" />
         <option value="$PROJECT_DIR$/.mvn-classpath" />
         <option value="$PROJECT_DIR$/src/main/java/sparkHandlers/LandingHandler.java" />
@@ -105,8 +116,9 @@
         <option value="$PROJECT_DIR$/src/main/java/util/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/sparkHandlers/ListHandler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/profile.js" />
-        <option value="$PROJECT_DIR$/src/main/java/recommend/Recommender.java" />
         <option value="$PROJECT_DIR$/src/main/java/sorter/sorting.py" />
+        <option value="$PROJECT_DIR$/src/main/java/recommend/Recommender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/database/DatabaseQuery.java" />
       </list>
     </option>
   </component>
@@ -176,6 +188,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="movie" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
+              <item name="term-project--ap99-dwang66-ekang5-ypark29" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="recommend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="term-project--ap99-dwang66-ekang5-ypark29" type="b2602c69:ProjectViewProjectNode" />
@@ -253,7 +273,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556686740482" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556690895678" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -300,7 +320,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37491000" />
+    <option name="totallyTimeSpent" value="38378000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -405,16 +425,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/movie/Movie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.mvn-classpath">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.mvn-classpath" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -525,17 +536,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="309" column="31" selection-start-line="309" selection-start-column="31" selection-end-line="309" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
-          <caret line="90" column="21" lean-forward="true" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
+          <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -581,17 +585,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/recommend/Recommender.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/movie/Movie.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="47" column="67" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+        <state relative-caret-position="-922">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sorter/sorting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="345">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/recommend/Recommender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="72" column="30" lean-forward="true" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/database/DatabaseQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="150" column="36" lean-forward="true" selection-start-line="150" selection-start-column="36" selection-end-line="150" selection-end-column="36" />
         </state>
       </provider>
     </entry>

@@ -59,7 +59,9 @@ public final class Recommender {
           finalId += "0";
         }
         finalId += imdbId;
-        data.add(finalId);
+        if (!finalId.equals("tt000None")) {
+          data.add(finalId);
+        }
       }
       // go through the new data list and get the relevant movie
       Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
