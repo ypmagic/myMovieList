@@ -16,7 +16,7 @@ as well as a clickable link to the respective movie link-->
         <#if movie.getImg()??>
           <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
         <#else>
-          <p>${movie.getTitle()}</p>
+          <p class="movie-img ${movie.getImdbID()}">${movie.getTitle()}</p>
         </#if>
       </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
@@ -24,10 +24,12 @@ as well as a clickable link to the respective movie link-->
           <span class="exit-member-info">
             <span class="x x-movie"></span>
           </span>
-          <div class="flex-col">
-            <!-- blown up image of the movie -->
-            <img src="${movie.getImg()}"/>
-          </div>
+          <#if movie.getImg()??>
+            <div class="flex-col">
+              <!-- blown up image of the movie -->
+              <img src="${movie.getImg()}"/>
+            </div>
+          </#if>
           <div class="flex-col">
             <!-- movie information like title, rating -->
             <h3>Film: ${movie.title}</h3>
@@ -51,7 +53,7 @@ as well as a clickable link to the respective movie link-->
         <#if movie.getImg()??>
           <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
         <#else>
-          <p>${movie.getTitle()}</p>
+          <p class="movie-img ${movie.getImdbID()}">${movie.getTitle()}</p>
         </#if>
       </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
@@ -59,10 +61,12 @@ as well as a clickable link to the respective movie link-->
           <span class="exit-member-info">
             <span class="x x-movie"></span>
           </span>
-          <div class="flex-col">
-            <!-- blown up image of the movie -->
-            <img src="${movie.getImg()}"/>
-          </div>
+          <#if movie.getImg()??>
+            <div class="flex-col">
+              <!-- blown up image of the movie -->
+              <img src="${movie.getImg()}"/>
+            </div>
+          </#if>
           <div class="flex-col">
             <!-- movie information like title, rating -->
             <h3>Film: ${movie.title}</h3>
@@ -86,7 +90,7 @@ as well as a clickable link to the respective movie link-->
         <#if movie.getImg()??>
           <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
         <#else>
-          <p>${movie.getTitle()}</p>
+          <p class="movie-img ${movie.getImdbID()}">${movie.getTitle()}</p>
         </#if>
       </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
@@ -94,10 +98,12 @@ as well as a clickable link to the respective movie link-->
           <span class="exit-member-info">
             <span class="x x-movie"></span>
           </span>
-          <div class="flex-col">
-            <!-- blown up image of the movie -->
-            <img src="${movie.getImg()}"/>
-          </div>
+          <#if movie.getImg()??>
+            <div class="flex-col">
+              <!-- blown up image of the movie -->
+              <img src="${movie.getImg()}"/>
+            </div>
+          </#if>
           <div class="flex-col">
             <!-- movie information like title, rating -->
             <h3>Film: ${movie.title}</h3>
@@ -121,7 +127,7 @@ as well as a clickable link to the respective movie link-->
       <#if movie.getImg()??>
         <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
       <#else>
-        <p>${movie.getTitle()}</p>
+        <p class="movie-img ${movie.getImdbID()}">${movie.getTitle()}</p>
       </#if>
     </div>
       <div class="movie-popup colored-border" id="${movie.getImdbID()}">
@@ -129,10 +135,12 @@ as well as a clickable link to the respective movie link-->
           <span class="exit-member-info">
             <span class="x x-movie"></span>
           </span>
-          <div class="flex-col">
-            <!-- blown up image of the movie -->
-            <img src="${movie.getImg()}"/>
-          </div>
+          <#if movie.getImg()??>
+            <div class="flex-col">
+              <!-- blown up image of the movie -->
+              <img src="${movie.getImg()}"/>
+            </div>
+          </#if>
           <div class="flex-col">
             <!-- movie information like title, rating -->
             <h3>Film: ${movie.title}</h3>
