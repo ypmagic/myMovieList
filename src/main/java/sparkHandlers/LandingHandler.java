@@ -46,6 +46,9 @@ public class LandingHandler implements TemplateViewRoute {
       MoviesByGenre movies2 = movies.get(1);
       MoviesByGenre movies3 = movies.get(2);
       MoviesByGenre movies4 = movies.get(3);
+
+      System.out.println(movies1);
+      System.out.println(movies1.getMovies());
       
       Map<Object, Object> variables = new ImmutableMap.Builder<>()
           .put("title", "Home")
