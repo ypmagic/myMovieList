@@ -526,6 +526,28 @@ public final class DatabaseQuery {
     return curatorName;
   }
 
+  public static List<String> searchUsers(Connection conn, String login) {
+    List<String> ret = new ArrayList<>();
+    login = login.toLowerCase();
+    String query = "SELECT login FROM users;";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      ResultSet rs = prep.executeQuery();
+      while(rs.next()) {
+
+        String curr = rs.getString(1).toLowerCase();
+        if (curr.contains(login)) {
+          ret.add(rs.getString(1));
+        }
+      }
+      rs.close();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Searching users failed.");
+    }
+    return ret;
+  }
+
 //  public static void insertGenre(Connection conn, String genre) {
 //    String query = "INSERT INTO genres VALUES(?, ?);";
 //    try {

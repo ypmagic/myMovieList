@@ -21,6 +21,10 @@ public class WatchLaterHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request req, Response res) throws Exception {
       String username = req.session().attribute("username");
+      if (username == null) {
+        res.redirect("/login");
+        return null;
+      }
       Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
       List<String> imdbIds = DatabaseQuery.getWatchLaterList(conn, username);
       List<Movie> movies = new ArrayList<>();

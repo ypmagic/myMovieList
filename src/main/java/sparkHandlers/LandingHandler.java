@@ -24,8 +24,9 @@ public class LandingHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request request, Response response) {
       String username =  request.session().attribute("username");
-      request.session().invalidate();
-      request.session(true).attribute("username", username);
+//      request.session().invalidate();
+//      request.session(true).attribute("username", username);
+
       List<Bigram<String, String>> userLists = new ArrayList<>();
 
       if (username == null) {

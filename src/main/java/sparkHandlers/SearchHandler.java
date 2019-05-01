@@ -29,9 +29,14 @@ public class SearchHandler implements TemplateViewRoute {
       List<Movie> movies = MovieAPI.search(sentence);
       // find all titles that contains the search query. 
       // output based on some search criteria
+
+      Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
+      List<String> users = DatabaseQuery.searchUsers(conn, sentence);
+
       Map<String, Object> variables;
       variables = ImmutableMap.of("title", "Search Results", 
-          "movies", movies, "numResults", movies.size());
+          "movies", movies, "numMovResults", movies.size(),
+              "users", users, "numUserResults", users.size());
       return new ModelAndView(variables,"movie_search.ftl");
     }
 }
