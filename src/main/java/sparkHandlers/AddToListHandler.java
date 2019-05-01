@@ -16,12 +16,17 @@ public class AddToListHandler implements Route {
 
     @Override
     public String handle(Request request, Response response) throws Exception {
+        Boolean success = false;
+
         QueryParamsMap qm = request.queryMap();
         int listId = Integer.parseInt(qm.value("listName"));
         String movieId = qm.value("movieId");
         Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
-        DatabaseQuery.insertIntoList(conn, movieId, listId);
-        Map<String, Object> variables = ImmutableMap.of("success", true);
+        if (!DatabaseQuery.listContainsMovie(conn, movieId, listId)) {
+            DatabaseQuery.insertIntoList(conn, movieId, listId);
+            success = true;
+        }
+        Map<String, Object> variables = ImmutableMap.of("success", success);
         return GSON.toJson(variables);
     }
 }

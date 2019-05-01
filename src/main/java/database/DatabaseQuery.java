@@ -392,7 +392,6 @@ public final class DatabaseQuery {
    * Given a userid returns all the list ids and list names associated with
    * that user.
    * @param conn
-   * @param login
    * @return
    */
   public static void insertIntoList(Connection conn, String id, int listId) {
@@ -406,6 +405,41 @@ public final class DatabaseQuery {
       } catch (SQLException e) {
           System.out.println("ERROR: Inserting movie into listMovies error");
       }
+  }
+
+  public static Boolean listContainsMovie(Connection conn, String id, int listId) {
+    String query = "SELECT COUNT(*) FROM listMovies WHERE listId = ? AND imdbId = ?";
+    Boolean ret = true;
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setInt(1, listId);
+      prep.setString(2, id);
+      ResultSet rs = prep.executeQuery();
+      while(rs.next()) {
+        int num = rs.getInt(1);
+        if (num == 0) {
+          ret = false;
+        }
+      }
+      rs.close();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Finding movie in listMovies error");
+    }
+    return ret;
+  }
+
+  public static void removeFromList(Connection conn, String id, int listId) {
+    String query = "DELETE FROM listMovies WHERE listId = ? AND imdbId = ?";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setInt(1, listId);
+      prep.setString(2, id);
+      prep.executeUpdate();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Removing movie from listMovies error");
+    }
   }
 
   public static Bigram<String, String> getCuratorNameList(

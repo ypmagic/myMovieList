@@ -38,6 +38,8 @@ $(".formlst").submit(function(e) {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
       alert("Added this movie to list: " + listName);
+    } else {
+      alert("Movie already in list: " + listName);
     }
   });
 });

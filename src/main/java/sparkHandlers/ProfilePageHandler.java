@@ -22,8 +22,8 @@ public class ProfilePageHandler implements TemplateViewRoute {
   public ModelAndView handle(Request req, Response res) {
     // for security reasons creates new session on visit to profile
     String username =  req.session().attribute("username");
-    req.session().invalidate();
-    req.session(true).attribute("username", username);
+//    req.session().invalidate();
+//    req.session(true).attribute("username", username);
 
     if (username == null) {
       // TODO: process no valid session
