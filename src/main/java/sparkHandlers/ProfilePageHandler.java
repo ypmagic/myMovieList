@@ -41,7 +41,6 @@ public class ProfilePageHandler implements TemplateViewRoute {
       String lstName = lst.getRight();
       List<String> movieIds = DatabaseQuery.getMoviesForListId(conn, lstId);
       ret.add(new MovieList(lstId, username, lstName, movieIds));
-
     }
     
     Map<String, Object> variables = new ImmutableMap.Builder<String, Object>()
