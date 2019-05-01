@@ -13,3 +13,4 @@ data/tags.csv
 
 .DS_Store
 data/.DS_Store
+.mvn-classpath

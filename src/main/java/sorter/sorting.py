@@ -14,12 +14,12 @@ def sorting(genre):
 	ratings['numRatings'] = pd.DataFrame(df.groupby('movieId')['rating'].count())
 
 	movie_titles = pd.merge(movie_titles,imdb_to_id, left_on = 'movieId', right_on = 'movieId')
-	movie_titles = movie_titles[movie_titles['genres'].str.contains(genre)]
 
 	movie_titles = movie_titles.join(ratings['numRatings'], on = 'movieId')
 	movie_titles = movie_titles.join(ratings['rating'], on = 'movieId')
+	movie_titles['sorter'] = movie_titles['rating'] * movie_titles['numRatings']
 
-	new = movie_titles[movie_titles['numRatings'] > 25].sort_values(by='rating', ascending=False).head(20)
+	new = movie_titles[movie_titles['numRatings'] > 25].sort_values(by='sorter', ascending=False).head(20)
 
 	for index,row in new.iterrows():
 		print(str(row['imdbId']))

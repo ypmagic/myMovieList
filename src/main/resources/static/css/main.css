@@ -124,8 +124,19 @@ html, body {
   bottom: -5px;
 }
 
+.search {
+  position: relative;
+  top: .5em;
+  left: 70%;
+}
+
 .search-box {
   background: #000;
+  outline: none;
+  border: 4px solid white;
+  padding: .5em;
+  color: white;
+  width: 25%;
 }
 
 @media screen and (min-width: 712px) {
