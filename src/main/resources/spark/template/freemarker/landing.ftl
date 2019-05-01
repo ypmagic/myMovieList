@@ -17,7 +17,7 @@ as well as a clickable link to the respective movie link-->
           <#if movie.getImg()??>
             <img class="movie-img ${movie.getImdbID()} colored-border-img" src="${movie.getImg()}"/>
           <#else>
-            <p class="movie-img ${movie.getImdbID()}">${movie.getTitle()}</p>
+            <p class="movie-img ${movie.getImdbID()} colored-border-img">${movie.getTitle()}</p>
           </#if>
         </div>
         <div class="movie-popup colored-border" id="${movie.getImdbID()}">
