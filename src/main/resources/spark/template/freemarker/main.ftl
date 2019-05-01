@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="search">
-      <input class="search-box" type="text" placeholder="Search.." name="search">
+      <input class="search-box" type="text" placeholder="Search.." name="search" id="search-box">
     </div>
 
      ${content}

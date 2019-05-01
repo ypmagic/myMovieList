@@ -68,7 +68,6 @@ public final class Recommender {
       System.out.println(data.size());
       for (int i = 0; i < 5; i++) {
         String id = data.get(i);
-        System.out.println(id);
         Movie m = DatabaseQuery.getMovie(conn, id);
         movies.add(m);
         System.out.println(m.toString());
