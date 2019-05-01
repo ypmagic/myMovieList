@@ -5,12 +5,12 @@ import sys
 first_arg = sys.argv[1]
 
 def sorting(genre):
-	df = pd.read_csv('data/ratings.csv', usecols=['userId','movieId','rating'])
+	df = pd.read_csv('src/main/java/sorter/ratings.csv', usecols=['userId','movieId','rating'])
 
-	movie_titles = pd.read_csv('data/movies.csv', usecols=['movieId','title','genres'])
+	movie_titles = pd.read_csv('src/main/java/sorter/movies.csv', usecols=['movieId','title','genres'])
 	movie_titles = movie_titles[movie_titles['genres'].str.contains(genre)]
 
-	imdb_to_id = pd.read_csv('data/links.csv', usecols=['movieId','imdbId'])
+	imdb_to_id = pd.read_csv('src/main/java/sorter/links.csv', usecols=['movieId','imdbId'])
 
 	ratings = pd.DataFrame(df.groupby('movieId')['rating'].mean())
 	ratings['numRatings'] = pd.DataFrame(df.groupby('movieId')['rating'].count())

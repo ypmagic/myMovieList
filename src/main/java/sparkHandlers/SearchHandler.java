@@ -30,17 +30,19 @@ public class SearchHandler implements Route {
 	
     @Override
     public String handle(Request req, Response res) {
-
+    	  System.out.println("IT SHOULD GET HERE");
       QueryParamsMap qm = req.queryMap();
       String sentence = qm.value("search");
       List<String> imdbIds = new ArrayList<String>();
-      List<Movie> movies = new ArrayList<>();
+      List<Movie> movies = new ArrayList<Movie>();
       // find all titles that contains the search query. 
       // output based on some search criteria
       Map<String, Object> variables;
       
       for (Map.Entry<String, String> movie: movieToIdMap.entrySet()) {
     	  	String movieTitle = movie.getValue();
+    	  	System.out.println(sentence);
+    	  	System.out.println(movieTitle.toLowerCase());
     	  	if (movieTitle.toLowerCase().indexOf(sentence) >= 0) {
     	  		imdbIds.add(imdbIds.size(),movie.getKey());
     	  	} 	  
@@ -50,7 +52,7 @@ public class SearchHandler implements Route {
   	  	Movie m = MovieAPI.searchById(imdbId);
   	  	movies.add(m);
       }
-      variables = ImmutableMap.of("suggestions","");
+      variables = ImmutableMap.of("movies",movies);
       return GSON.toJson(variables);
     }
 
