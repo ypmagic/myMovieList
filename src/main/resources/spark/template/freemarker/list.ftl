@@ -1,6 +1,6 @@
 <#assign content>
   <div class = "container content-align">
-    <#if list??>
+    <#if list.curator??>
       <div class = "row">
         <h1 id = "username">${list.curator}'s List</h1>
       </div>
