@@ -31,3 +31,8 @@ toggleX.addEventListener("click", function() {
   greySite.style.display = "none";
   logo.style.borderBottom = "5px solid rgb(93, 186, 237)";
 });
+
+$("#signout").onclick = function(e) {
+  e.preventDefault();
+  console.log("hello");
+};

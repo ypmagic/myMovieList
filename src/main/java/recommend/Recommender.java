@@ -45,7 +45,7 @@ public final class Recommender {
     try {
       // list of data imdb ids
       List<String> data = new ArrayList<>();
-      ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python.framework/Versions/3.6/bin/python3", "src/"
+      ProcessBuilder pr = new ProcessBuilder("/anaconda3/bin/python", "src/"
           + "main/java/sorter/sorting.py", randomGenre);
       Process p = pr.start();
       p.waitFor();
@@ -68,6 +68,7 @@ public final class Recommender {
       List<Movie> movies = new ArrayList<>();
       System.out.println(data.size());
       for (String id : data) {
+        System.out.println(id);
         Movie m = DatabaseQuery.getMovie(conn, id);
         movies.add(m);
         System.out.println(m.toString());

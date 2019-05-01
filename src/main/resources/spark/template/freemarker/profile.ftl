@@ -26,11 +26,14 @@
         <div class = "flex-row">
           <#list movieList.movies as movie>
             <div class = "flex-col">
+              <form class= "remove-buttons">
               <#if movie.getImg()??>
                 <a href="/m/${movie.getImdbID()}"><img class="movie-img ${movie} colored-border-img" src="${movie.getImg()}"/></a>
               <#else>
                 <p class="movie-img ${movie}">${movie.getTitle()}</p>
               </#if>
+                <button name="${movieList.getId()}" value="${movie.getImdbID()}" type="submit" class = "btn btn-dark">Remove</button>
+              </form>
             </div>
           </#list>
         </div>

@@ -30,8 +30,6 @@ $(".formlst").submit(function(e) {
   let listId = selectVar.value;
   let listName = selectVar[selectVar.selectedIndex].innerHTML;
   let imdbId = selectVar.getAttribute("name");
-  console.log(listId);
-  console.log(imdbId);
   let postParameters = {
     listName: listId,
     movieId: imdbId
@@ -40,6 +38,8 @@ $(".formlst").submit(function(e) {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
       alert("Added this movie to list: " + listName);
+    } else {
+      alert("Movie already in list: " + listName);
     }
   });
 });

@@ -24,12 +24,14 @@ public class LandingHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request request, Response response) {
       String username =  request.session().attribute("username");
-      request.session().invalidate();
-      request.session(true).attribute("username", username);
+//      request.session().invalidate();
+//      request.session(true).attribute("username", username);
       List<Bigram<String, String>> userLists = new ArrayList<>();
+
       if (username == null) {
         // TODO: Redirect to login page if username is null
-        username = "";
+        response.redirect("/login");
+        return null;
       } else {
         List<Bigram<Integer, String>> temp = DatabaseQuery.getListsFromUser(DatabaseHandler
                 .getDatabaseHandler().getConnection(), username);

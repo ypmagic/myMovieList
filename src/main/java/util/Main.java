@@ -90,6 +90,7 @@ public final class Main {
     Spark.get("/", new LoginPageHandler(), freeMarker);
     Spark.post("/moviesearch", new SearchHandler(),freeMarker);
     Spark.post("/addToList", new AddToListHandler());
+    Spark.post("/removeFromList", new RemoveFromListHandler());
     // Setup database
     DatabaseHandler.getDatabaseHandler();
   }

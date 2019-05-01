@@ -24,6 +24,7 @@
         <div class="row">
           <div class="col text-center mx-auto">
             <h3> Join Now!</h3>
+            <br>
             <form action="/register">
               <button type="submit" class="btn btn-dark">Sign Up</button>
             </form>

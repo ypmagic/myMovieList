@@ -12,3 +12,21 @@ $("#newList").submit(function(e) {
     }
   });
 });
+
+$(".remove-buttons").submit(function(e) {
+  e.preventDefault();
+  let imdbId = this.childNodes[3].value;
+  let listId = this.childNodes[3].name;
+  let postParameters = {
+    movieId: imdbId,
+    listId: listId
+  };
+  console.log(imdbId);
+  console.log(listId);
+  $.post("/removeFromList", postParameters, responseJSON => {
+    let responseObject = JSON.parse(responseJSON);
+    if (responseObject.success) {
+      window.location.reload();
+    }
+  });
+});
