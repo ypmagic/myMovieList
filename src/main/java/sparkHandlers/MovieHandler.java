@@ -32,8 +32,8 @@ public class MovieHandler implements TemplateViewRoute {
   public ModelAndView handle(Request req, Response res) {
     // user stuff
     String username =  req.session().attribute("username");
-    req.session().invalidate();
-    req.session(true).attribute("username", username);
+//    req.session().invalidate();
+//    req.session(true).attribute("username", username);
     List<Bigram<String, String>> userLists = new ArrayList<>();
     System.out.println(username);
     if (username != null) {

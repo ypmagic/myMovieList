@@ -432,6 +432,44 @@ public final class DatabaseQuery {
     }
     return ret;
   }
+  
+  public static void insertIntoWatchLater(Connection conn, String username,
+      String id) {
+    String query = "INSERT INTO userMovies VALUES (?, ?)";
+    try {
+        PreparedStatement prep = conn.prepareStatement(query);
+        prep.setString(1, username);
+        prep.setString(2, id);
+        prep.execute();
+        prep.close();
+    } catch (SQLException e) {
+        System.out.println("ERROR: Inserting movie into listMovies error");
+    }
+  }
+  
+  public static boolean watchLaterContains(Connection conn, String username,
+      String id) {
+    String query = "SELECT COUNT(*) FROM userMovies WHERE login = ? "
+        + "AND imdbId = ?";
+    boolean contains = true;
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setString(1, username);
+      prep.setString(2, id);
+      ResultSet rs = prep.executeQuery();
+      while(rs.next()) {
+        int num = rs.getInt(1);
+        if (num == 0) {
+          contains = false;
+        }
+      }
+      rs.close();
+      prep.close();
+    } catch (SQLException e) {
+        System.out.println("ERROR: Inserting movie into listMovies error");
+    }
+    return contains;
+  }
 
   public static void removeFromList(Connection conn, String id, int listId) {
     String query = "DELETE FROM listMovies WHERE listId = ? AND imdbId = ?";
@@ -444,6 +482,25 @@ public final class DatabaseQuery {
     } catch (SQLException e) {
       System.out.println("ERROR: Removing movie from listMovies error");
     }
+  }
+  
+  public static List<String> getWatchLaterList(Connection conn, 
+      String username) {
+    String query = "SELECT imdbId FROM userMovies WHERE login = ?";
+    List<String> ids = new ArrayList<>();
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setString(1, username);
+      ResultSet rs = prep.executeQuery();
+      while (rs.next()) {
+        ids.add(rs.getString(1));
+      }
+      rs.close();
+      prep.close();
+    } catch (SQLException e) {
+        System.out.println("ERROR: Getting curator, name fatal.");
+    }
+    return ids;
   }
 
   public static Bigram<String, String> getCuratorNameList(

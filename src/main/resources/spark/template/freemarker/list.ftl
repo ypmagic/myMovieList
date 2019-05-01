@@ -2,7 +2,7 @@
   <div class = "container content-align">
     <#if list.curator??>
       <div class = "row">
-        <h1 id = "username">${list.curator}'s List</h1>
+        <h1 id = "username"><a class="boldless-link" href="/u/${list.curator}">${list.curator}</a>'s List</h1>
       </div>
       <div class = "row">
         <h2 class="contrast-color">${list.name}</h2>

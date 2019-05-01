@@ -22,9 +22,6 @@ import spark.TemplateViewRoute;
 
 public class SearchHandler implements TemplateViewRoute {
 	
-	private HashMap<String,String> movieToIdMap;
-	private final Gson GSON = new Gson();
-	
     @Override
     public ModelAndView handle(Request req, Response res) {
       QueryParamsMap qm = req.queryMap();

@@ -10,9 +10,9 @@ import spark.Response;
 import spark.TemplateViewRoute;
 
 public class ListViewHandler implements TemplateViewRoute {
+  
     @Override
     public ModelAndView handle(Request request, Response response) throws Exception {
-        System.out.println("REACHED");
         int listId = Integer.parseInt(request.params("listId"));
         MovieList list = new MovieList(listId);
         // return all the information
@@ -21,5 +21,4 @@ public class ListViewHandler implements TemplateViewRoute {
                 .put("list", list).build();
         return new ModelAndView(variables, "list.ftl");
     }
-
 }

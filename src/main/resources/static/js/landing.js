@@ -43,3 +43,19 @@ $(".formlst").submit(function(e) {
     }
   });
 });
+
+$(".formWatchLater").submit(function(e) {
+  e.preventDefault();
+  let imdbId = document.querySelector(".movie-img").classList[1]
+  let postParameters = {
+    imdbId: imdbId
+  }
+  $.post("/addWatchLater", postParameters, responseJSON => {
+    let responseObject = JSON.parse(responseJSON);
+    if (responseObject.success) {
+      alert("Added to Watch Later")
+    } else {
+      alert("Movie already in Watch Later")
+    }
+  });
+});

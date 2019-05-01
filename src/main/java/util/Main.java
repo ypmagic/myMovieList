@@ -91,6 +91,8 @@ public final class Main {
     Spark.post("/moviesearch", new SearchHandler(),freeMarker);
     Spark.post("/addToList", new AddToListHandler());
     Spark.post("/removeFromList", new RemoveFromListHandler());
+    Spark.post("/addWatchLater", new AddWatchLaterHandler());
+    Spark.get("/watchlater", new WatchLaterHandler(), freeMarker);
     // Setup database
     DatabaseHandler.getDatabaseHandler();
   }

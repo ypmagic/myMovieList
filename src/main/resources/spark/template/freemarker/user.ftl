@@ -12,13 +12,15 @@
       </div>
       <div class="flex-row-cont">
         <div class = "flex-row">
-          <#list movieList.getMovies() as movie>
+          <#list movieList.movies as movie>
             <div class = "flex-col">
-              <#if movie.getRight().getImg()??>
-                <a href="/m/${movie.getLeft()}"><img class="movie-img ${movie.getLeft()} colored-border-img" src="${movie.getRight().getImg()}"/></a>
+              <form class= "remove-buttons">
+              <#if movie.getImg()??>
+                <a href="/m/${movie.getImdbID()}"><img class="movie-img ${movie} colored-border-img" src="${movie.getImg()}"/></a>
               <#else>
-                <p class="movie-img ${movie.getLeft()}">${movie.getRight().getTitle()}</p>
+                <p class="movie-img ${movie}">${movie.getTitle()}</p>
               </#if>
+              </form>
             </div>
           </#list>
         </div>

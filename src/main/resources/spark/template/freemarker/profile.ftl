@@ -20,7 +20,7 @@
     </div>
     <#list lists as movieList>
       <div class = "row">
-        <h4> ${movieList.getName()} </h4>
+        <h4><a class="boldless-link" href="/l/${movieList.getId()}">${movieList.getName()}</a></h4>
       </div>
       <div class="flex-row-cont">
         <div class = "flex-row">

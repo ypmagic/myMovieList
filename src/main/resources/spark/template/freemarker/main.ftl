@@ -37,6 +37,7 @@
         <ul class="menu">
             <li><a href="/home" class="boldless-link">Home</a></li>
             <li><a href="/profile" class="boldless-link">Profile</a></li>
+            <li><a href="/watchlater" class="boldless-link">Watch Later</a></li>
             <li><a href="/login" class="boldless-link">Sign Out</a></li>
         </ul>
       </div>
@@ -56,8 +57,8 @@
      <script src="/js/login.js"></script>
      <script src="/js/landing.js"></script>
      <script src="/js/main.js"></script>
-     <script src="js/profile.js"></script>
-     <script src="js/movie_search.js"></script>
+     <script src="/js/profile.js"></script>
+     <script src="/js/movie_search.js"></script>
      <!-- Bootstrap! -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
