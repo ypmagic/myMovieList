@@ -126,8 +126,8 @@ html, body {
 
 .search {
   position: relative;
-  top: .5em;
-  left: 70%;
+  top: 3.5em;
+  left: 35%;
 }
 
 .search-box {
@@ -217,5 +217,14 @@ html, body {
 
   .logo-text-mob {
     display: none;
+  }
+
+  .search {
+    top: 1.8em;
+    left: 70%;
+  }
+
+  .search-box {
+    width: 25%;
   }
 }

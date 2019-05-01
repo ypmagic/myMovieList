@@ -26,3 +26,11 @@
   margin: 0 auto;
   display: block!important;
 }
+
+.btn-dark {
+  background-color: rgb(87, 183, 235)!important;
+}
+
+.btn-dark:hover {
+  background-color: rgb(53, 128, 168)!important;
+}
