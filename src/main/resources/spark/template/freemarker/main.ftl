@@ -39,7 +39,9 @@
       </div>
     </div>
     <div class="search">
+      <form method="POST" action="/moviesearch" id="searchForm">
       <input class="search" type="text" placeholder="Search.." name="search" id="search">
+    </form>
     </div>
 
      ${content}

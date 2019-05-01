@@ -13,47 +13,29 @@ import api.MovieAPI;
 import database.DatabaseHandler;
 import database.DatabaseQuery;
 import movie.Movie;
+import spark.ModelAndView;
 import spark.QueryParamsMap;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+import spark.TemplateViewRoute;
 
-public class SearchHandler implements Route {
+public class SearchHandler implements TemplateViewRoute {
 	
 	private HashMap<String,String> movieToIdMap;
 	private final Gson GSON = new Gson();
 	
-	public SearchHandler() {
-		Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
-		movieToIdMap = DatabaseQuery.getMovieToImdb(conn);
-	}
-	
     @Override
-    public String handle(Request req, Response res) {
-    	  System.out.println("IT SHOULD GET HERE");
+    public ModelAndView handle(Request req, Response res) {
       QueryParamsMap qm = req.queryMap();
       String sentence = qm.value("search");
-      List<String> imdbIds = new ArrayList<String>();
-      List<Movie> movies = new ArrayList<Movie>();
+      List<Movie> movies = MovieAPI.search(sentence);
       // find all titles that contains the search query. 
       // output based on some search criteria
       Map<String, Object> variables;
-      
-      for (Map.Entry<String, String> movie: movieToIdMap.entrySet()) {
-    	  	String movieTitle = movie.getValue();
-    	  	System.out.println(sentence);
-    	  	System.out.println(movieTitle.toLowerCase());
-    	  	if (movieTitle.toLowerCase().indexOf(sentence) >= 0) {
-    	  		imdbIds.add(imdbIds.size(),movie.getKey());
-    	  	} 	  
-      }
-      
-      for (String imdbId : imdbIds) {
-  	  	Movie m = MovieAPI.searchById(imdbId);
-  	  	movies.add(m);
-      }
+      System.out.println("HELLO");
       variables = ImmutableMap.of("movies",movies);
-      return GSON.toJson(variables);
+      return new ModelAndView(variables,"movie_search.ftl");
     }
 
 }
