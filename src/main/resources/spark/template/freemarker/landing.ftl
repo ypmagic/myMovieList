@@ -37,7 +37,7 @@ as well as a clickable link to the respective movie link-->
               <h4>Rating: ${movie.imdbRating}</h4>
               <br/>
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
-              <form id = "formlst">
+              <form class= "formlst">
                 <div class="form-group">
                   <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
                     <#list userLists as lst>
@@ -86,7 +86,7 @@ as well as a clickable link to the respective movie link-->
               <h4>Rating: ${movie.imdbRating}</h4>
               <br/>
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
-              <form id="formlst">
+              <form class="formlst">
                 <div class="form-group">
                   <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
                     <#list userLists as lst>
@@ -135,7 +135,7 @@ as well as a clickable link to the respective movie link-->
               <h4>Rating: ${movie.imdbRating}</h4>
               <br/>
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
-              <form id="formlst">
+              <form class="formlst">
                 <div class="form-group">
                   <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
                     <#list userLists as lst>
@@ -184,7 +184,7 @@ as well as a clickable link to the respective movie link-->
               <h4>Rating: ${movie.imdbRating}</h4>
               <br/>
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
-              <form id="formlst">
+              <form class="formlst">
                 <div class="form-group">
                   <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
                     <#list userLists as lst>

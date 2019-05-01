@@ -78,7 +78,7 @@ html, body {
 
 .boldless-link {
   text-decoration:none!important;
-  color: #fff;
+  color: #fff!important;
 }
 
 .boldless-link:hover {

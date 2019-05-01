@@ -362,10 +362,50 @@ public final class DatabaseQuery {
 		  }
 		  rs.close();
 		  prep.close();
-		  return toReturn;
 	  } catch (SQLException e) {
-		  return toReturn;
+		  System.out.println("ERROR: Getting lists fatal.");
 	  }
+	  return toReturn;
+  }
+  
+  public static int findListId(Connection conn, 
+      String listName, String user) {
+    String query = "SELECT id FROM lists WHERE curator = ? AND name = ?";
+    int listId = 0;
+    try {
+        PreparedStatement prep = conn.prepareStatement(query);
+        prep.setString(1, user);
+        prep.setString(2, listName);
+        ResultSet rs = prep.executeQuery();
+        if (rs.next()) {
+          listId = rs.getInt(1);
+        }
+        rs.close();
+        prep.close();
+    } catch (SQLException e) {
+        System.out.println("ERROR: Getting lists fatal.");
+    }
+    return listId;
+}
+  
+  /**
+   * Given a userid returns all the list ids and list names associated with
+   * that user.
+   * @param conn
+   * @param login
+   * @return
+   */
+  public static void insertIntoList(Connection conn, String id, int listId) {
+      String query = "INSERT INTO listMovies VALUES (?, ?)";
+      try {
+          PreparedStatement prep = conn.prepareStatement(query);
+          prep.setInt(1, listId);
+          prep.setString(2, id);
+          prep.execute();
+          prep.close();
+      } catch (SQLException e) {
+          System.out.println("ERROR: Inserting movie into listMovies error");
+      }
   }
 
 

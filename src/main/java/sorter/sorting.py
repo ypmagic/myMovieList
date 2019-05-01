@@ -26,3 +26,4 @@ def sorting(genre):
 	for index,row in new.iterrows():
 		print(str(row['imdbId']))
 	return
+print(sorting(first_arg))

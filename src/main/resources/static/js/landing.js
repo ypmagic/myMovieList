@@ -24,20 +24,22 @@ for (let j = 0; j < movies.length; j++) {
   })
 }
 
-$("#formlst").submit(function(e) {
+$(".formlst").submit(function(e) {
   e.preventDefault();
-  let listName = $("#optionlst").val();
-  let imdbId = $("#optionlst")[0].getAttribute("name");
-  console.log(listName);
+  let selectVar = this.childNodes[1].childNodes[1];
+  let listId = selectVar.value;
+  let listName = selectVar[selectVar.selectedIndex].innerHTML;
+  let imdbId = selectVar.getAttribute("name");
+  console.log(listId);
   console.log(imdbId);
   let postParameters = {
-    listName: listName,
+    listName: listId,
+    movieId: imdbId
   };
-  // $.post("/list", postParameters, responseJSON => {
-  //   let responseObject = JSON.parse(responseJSON);
-  //   if (responseObject.success) {
-  //     alert("List added.");
-  //     window.location.reload();
-  //   }
-  // });
+  $.post("/addToList", postParameters, responseJSON => {
+    let responseObject = JSON.parse(responseJSON);
+    if (responseObject.success) {
+      alert("Added this movie to list: " + listName);
+    }
+  });
 });

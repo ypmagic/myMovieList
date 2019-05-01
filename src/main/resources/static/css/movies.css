@@ -1,0 +1,7 @@
+.movie-list {
+  list-style: none;
+}
+
+#num-results {
+  color: rgb(87, 183, 235);
+}
