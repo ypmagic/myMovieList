@@ -34,7 +34,7 @@ public class SearchHandler implements TemplateViewRoute {
       // output based on some search criteria
       Map<String, Object> variables;
       System.out.println("HELLO");
-      variables = ImmutableMap.of("movies",movies);
+      variables = ImmutableMap.of("title", "Search Results", "movies",movies);
       return new ModelAndView(variables,"movie_search.ftl");
     }
 

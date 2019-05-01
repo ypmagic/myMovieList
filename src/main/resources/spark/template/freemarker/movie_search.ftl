@@ -2,7 +2,7 @@
 
 <div class="container content-align">
   <#list movies as movie>
-    <p>${movie.getTitle()}</p>
+    <a href="/m/${movie.getImdbID()}">${movie.getTitle()}</a><br>
   </#list>
 </div>
 </#assign>
