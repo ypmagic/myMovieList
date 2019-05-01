@@ -33,11 +33,11 @@ public class MovieList {
 		return name;
 	}
 	
-	public List<Bigram<String, String>> getMovies() {
-		List<Bigram<String, String>> l = new ArrayList<>();
+	public List<Bigram<String, Movie>> getMovies() {
+		List<Bigram<String, Movie>> l = new ArrayList<>();
 		Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
 		for (String movieId : movies) {
-			l.add(new Bigram<String, String>(movieId, DatabaseQuery.getMovie(conn, movieId).getTitle()));
+			l.add(new Bigram<String, Movie>(movieId, DatabaseQuery.getMovie(conn, movieId)));
 		}
 		return l;
 	}

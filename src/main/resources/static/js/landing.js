@@ -23,3 +23,21 @@ for (let j = 0; j < movies.length; j++) {
     });
   })
 }
+
+$("#formlst").submit(function(e) {
+  e.preventDefault();
+  let listName = $("#optionlst").val();
+  let imdbId = $("#optionlst")[0].getAttribute("name");
+  console.log(listName);
+  console.log(imdbId);
+  let postParameters = {
+    listName: listName,
+  };
+  // $.post("/list", postParameters, responseJSON => {
+  //   let responseObject = JSON.parse(responseJSON);
+  //   if (responseObject.success) {
+  //     alert("List added.");
+  //     window.location.reload();
+  //   }
+  // });
+});

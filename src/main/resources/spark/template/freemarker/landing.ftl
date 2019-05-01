@@ -37,6 +37,16 @@ as well as a clickable link to the respective movie link-->
               <h4>Rating: ${movie.imdbRating}</h4>
               <br/>
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
+              <form id = "formlst">
+                <div class="form-group">
+                  <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
+                    <#list userLists as lst>
+                      <option value=${lst.getLeft()}>${lst.getRight()}</option>
+                    </#list>
+                  </select>
+                </div>
+                <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
+              </form>
             </div>
           </div>
         </div>
@@ -76,6 +86,16 @@ as well as a clickable link to the respective movie link-->
               <h4>Rating: ${movie.imdbRating}</h4>
               <br/>
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
+              <form id="formlst">
+                <div class="form-group">
+                  <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
+                    <#list userLists as lst>
+                      <option value=${lst.getLeft()}>${lst.getRight()}</option>
+                    </#list>
+                  </select>
+                </div>
+                <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
+              </form>
             </div>
           </div>
         </div>
@@ -115,6 +135,16 @@ as well as a clickable link to the respective movie link-->
               <h4>Rating: ${movie.imdbRating}</h4>
               <br/>
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
+              <form id="formlst">
+                <div class="form-group">
+                  <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
+                    <#list userLists as lst>
+                      <option value=${lst.getLeft()}>${lst.getRight()}</option>
+                    </#list>
+                  </select>
+                </div>
+                <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
+              </form>
             </div>
           </div>
         </div>
@@ -154,6 +184,16 @@ as well as a clickable link to the respective movie link-->
               <h4>Rating: ${movie.imdbRating}</h4>
               <br/>
               <p><a href="/m/${movie.getImdbID()}">More information on this movie...</a></p>
+              <form id="formlst">
+                <div class="form-group">
+                  <select class="form-control" id="optionlst" name="${movie.getImdbID()}">
+                    <#list userLists as lst>
+                      <option value=${lst.getLeft()}>${lst.getRight()}</option>
+                    </#list>
+                  </select>
+                </div>
+                <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
+              </form>
             </div>
           </div>
         </div>
