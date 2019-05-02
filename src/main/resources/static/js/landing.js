@@ -5,7 +5,6 @@ let movies = document.getElementsByClassName("movie-img");
 for (let j = 0; j < movies.length; j++) {
   movies[j].addEventListener("click", function() {
     let imdbId = this.classList[1];
-    console.log(imdbId);
     let infoBox = document.querySelector("#" + imdbId);
     let greySite = document.querySelector(".mobile-overlay")
     infoBox.style.display = "block";
@@ -47,6 +46,22 @@ $(".formlst").submit(function(e) {
 $(".formWatchLater").submit(function(e) {
   e.preventDefault();
   let imdbId = document.querySelector(".movie-img").classList[1]
+  let postParameters = {
+    imdbId: imdbId
+  }
+  $.post("/addWatchLater", postParameters, responseJSON => {
+    let responseObject = JSON.parse(responseJSON);
+    if (responseObject.success) {
+      alert("Added to Watch Later")
+    } else {
+      alert("Movie already in Watch Later")
+    }
+  });
+});
+
+$(".formWatchLaterHome").submit(function(e) {
+  e.preventDefault();
+  let imdbId = this.offsetParent.id;
   let postParameters = {
     imdbId: imdbId
   }
