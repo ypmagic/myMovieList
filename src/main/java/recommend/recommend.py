@@ -1,10 +1,15 @@
 import pandas as pd
 import numpy as np
 import warnings
+import sys
 warnings.filterwarnings('ignore')
 
-print(pd.__file__)
-print(np.__file__)
+first_arg = sys.argv[1]
+second_arg = sys.argv[2]
+third_arg = sys.argv[3]
+
+ids = first_arg.split(",")
+ratings = second_args.split(",")
 
 # input list of imdbIds and ratings as two arrays
 
@@ -20,9 +25,9 @@ def recommend(imdbIds,imdbRatings, num) :
 
 	movie_matrix = df.pivot_table(index='userId', columns='movieId', values='rating')
 
-	for i in range(len(imdbIds)): 
+	for i in range(len(imdbIds)):
 		id = imdb_to_id.loc[imdb_to_id.loc[:,'imdbId'] == imdbIds[i],:]['movieId'].values[0]
-		movie = movie_matrix[id] ## the rating correlations between this movie and the other movies 
+		movie = movie_matrix[id] ## the rating correlations between this movie and the other movies
 
 		similar_to_movie = movie_matrix.corrwith(movie)
 
@@ -33,21 +38,19 @@ def recommend(imdbIds,imdbRatings, num) :
 		#corr_movie.join(imdb_to_id, on = 'movieId', how = 'left')
 		corr_movie = pd.merge(corr_movie,imdb_to_id, left_on = 'movieId', right_on = 'movieId')
 
-		if (imdbRatings[i] > 5): 
+		if (imdbRatings[i] > 5):
 		  	new = corr_movie[corr_movie['numRatings'] > 50].sort_values(by='correlation', ascending=False).head(num + 1)
-		else: 
+		else:
 			new = corr_movie[corr_movie['numRatings'] > 50].sort_values(by='correlation', ascending=True).head(num + 1)
 
 		for index,row in new.iterrows():
-			if int(row['imdbId']) in output.keys(): 
+			if int(row['imdbId']) in output.keys():
 				output[int(row['imdbId'])] += imdbRatings[i]*abs(row['correlation'])
 			else:
 				output[int(row['imdbId'])] = imdbRatings[i]*abs(row['correlation'])
 
 	recs = sorted(output, key=output.get, reverse=True)[:num+1]
-	file = open("recommendations.txt","w")
-	for j in range(1,len(recs)): 
-		file.write(str(recs[j]))
-		file.write("\n") 
-	file.close()
-	return sorted(output, key=output.get, reverse=True)[:num]
+	for j in range(1,len(recs)):
+		print(str(recs[j]))
+	return
+recommend(ids, ratings, int(third_arg))
