@@ -60,19 +60,36 @@ public class LandingHandler implements TemplateViewRoute {
       MoviesByGenre movies2 = movies.get(1);
       MoviesByGenre movies3 = movies.get(2);
       MoviesByGenre movies4 = movies.get(3);
+      Map<Object, Object> variables;
+      if (DatabaseQuery.getRatings(DatabaseHandler
+                .getDatabaseHandler().getConnection(), username).size() == 0) {
       
-      Map<Object, Object> variables = new ImmutableMap.Builder<>()
-              .put("title", "Home")
-              .put("moviesTop", movies1.getMovies())
-              .put("moviesTopGenre", movies1.getGenre() + " Movies")
-              .put("moviesTopMid", movies2.getMovies())
-              .put("moviesTopMidGenre", movies2.getGenre() + " Movies")
-              .put("moviesBotMid", movies3.getMovies())
-              .put("moviesBotMidGenre", movies3.getGenre() + " Movies")
-              .put("moviesBot", movies4.getMovies())
-              .put("moviesBotGenre", movies4.getGenre() + " Movies")
-              .put("username", username)
-              .put("userLists", userLists).build();
+	      variables = new ImmutableMap.Builder<>()
+	              .put("title", "Home")
+	              .put("moviesTop", movies1.getMovies())
+	              .put("moviesTopGenre", movies1.getGenre() + " Movies")
+	              .put("moviesTopMid", movies2.getMovies())
+	              .put("moviesTopMidGenre", movies2.getGenre() + " Movies")
+	              .put("moviesBotMid", movies3.getMovies())
+	              .put("moviesBotMidGenre", movies3.getGenre() + " Movies")
+	              .put("moviesBot", movies4.getMovies())
+	              .put("moviesBotGenre", movies4.getGenre() + " Movies")
+	              .put("username", username)
+	              .put("userLists", userLists).build();
+      } else {
+    	  	variables = new ImmutableMap.Builder<>()
+	              .put("title", "Home")
+	              .put("moviesTop", movies1.getMovies())
+	              .put("moviesTopGenre", "Recommended for You")
+	              .put("moviesTopMid", movies2.getMovies())
+	              .put("moviesTopMidGenre", movies2.getGenre() + " Movies")
+	              .put("moviesBotMid", movies3.getMovies())
+	              .put("moviesBotMidGenre", movies3.getGenre() + " Movies")
+	              .put("moviesBot", movies4.getMovies())
+	              .put("moviesBotGenre", movies4.getGenre() + " Movies")
+	              .put("username", username)
+	              .put("userLists", userLists).build();
+      }
       return new ModelAndView(variables, "landing.ftl");
     }
 }
