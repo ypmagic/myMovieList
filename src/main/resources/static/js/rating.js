@@ -12,7 +12,6 @@ $("#ratingForm").submit(function(e) {
   $.post("/insertrating", postParameters, responseJSON => {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
-      alert("List added.");
       window.location.reload();
     }
   });
