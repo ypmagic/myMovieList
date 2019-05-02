@@ -94,6 +94,7 @@ public final class Main {
     Spark.post("/addWatchLater", new AddWatchLaterHandler());
     Spark.get("/watchlater", new WatchLaterHandler(), freeMarker);
     Spark.post("/insertrating", new InsertRatingHandler());
+    Spark.post("/deleteList", new DeleteListHandler());
     // Setup database
     DatabaseHandler.getDatabaseHandler();
   }

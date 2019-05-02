@@ -599,4 +599,26 @@ public final class DatabaseQuery {
     }
     return ret;
   }
+
+  public static void deleteList(Connection conn, int listId) {
+    String query = "DELETE FROM listMovies WHERE listId = ?";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setInt(1, listId);
+      prep.executeUpdate();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Removing movie from listMovies error");
+    }
+
+    String query2 = "DELETE FROM lists WHERE id = ?";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query2);
+      prep.setInt(1, listId);
+      prep.executeUpdate();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Removing movie from listMovies error");
+    }
+  }
 }
