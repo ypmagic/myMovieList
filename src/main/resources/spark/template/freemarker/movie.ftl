@@ -11,7 +11,7 @@
                 <div class="flex-col">
                   <form class= "formlst">
                     <div class="form-group">
-                      <select class="form-control" name="${movie.getImdbID()}">
+                      <select id="lol" lass="form-control" name="${movie.getImdbID()}">
                         <#list userLists as lst>
                           <option value=${lst.getLeft()}>${lst.getRight()}</option>
                         </#list>
@@ -25,6 +25,11 @@
                   <form class= "formWatchLater">
                     <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
                   </form>
+                  <form id= "ratingForm">
+                    <input type="number" id="rating1" min="1" max="10">
+                    <button type="submit" class = "btn btn-dark" id = "rating">Add Rating</button>
+                  </form>
+
                 </div>
               </div>
             </div>

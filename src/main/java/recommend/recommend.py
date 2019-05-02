@@ -51,5 +51,3 @@ def recommend(imdbIds,imdbRatings, num) :
 		file.write("\n") 
 	file.close()
 	return sorted(output, key=output.get, reverse=True)[:num]
-
-recommend([110357],[10], 5)

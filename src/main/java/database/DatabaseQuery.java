@@ -25,6 +25,95 @@ public final class DatabaseQuery {
   }
   
   /**
+   * Get all rated movies for a specific login.
+   * @param conn
+   */
+  public static List<Bigram<String,String>> getRatings(Connection conn, String userId) {
+	  String query = "SELECT imdbId, rating FROM userRatings WHERE userId = ?;";
+	  List<Bigram<String,String>> output = new ArrayList<Bigram<String,String>>();
+	  try {
+		  PreparedStatement prep;
+		  prep = conn.prepareStatement(query);
+		  prep.setString(1, userId);
+		  ResultSet rs = prep.executeQuery();
+		  while(rs.next()) {
+			  output.add(new Bigram<String,String>(rs.getString(1),rs.getString(2)));
+		  }
+		  rs.close();
+		  prep.close();
+	  } catch (SQLException e) {
+	      System.out.println("ERROR: Something wrong with updating rating.");
+	  }
+	  return output;
+  }
+  
+  /**
+   * Used to update a rating to the ratings table.
+   * @param conn
+   */
+  public static boolean checkRating(Connection conn, String userId, String movieId) {
+	  String query = "SELECT COUNT(*) FROM userRatings WHERE userId = ? AND imdbId = ?;";
+	  try {
+		  PreparedStatement prep;
+		  prep = conn.prepareStatement(query);
+		  prep.setString(1, userId);
+		  prep.setString(2, movieId);
+		  ResultSet rs = prep.executeQuery();
+		  while(rs.next()) {
+			  if (rs.getInt(1) > 0) {
+				  return true;
+			  } else {
+				  return false;
+			  }
+		  }
+		  prep.close();
+	  } catch (SQLException e) {
+	      System.out.println("ERROR: Something wrong with updating rating.");
+	  }
+	  return false;
+  }
+  
+  /**
+   * Used to update a rating to the ratings table.
+   * @param conn
+   */
+  public static void updateRating(Connection conn, String userId, String movieId, int rating) {
+	  String query = "UPDATE userRatings SET rating = ? WHERE userId = ? AND imdbId = ?;";
+	  try {
+		  PreparedStatement prep;
+		  prep = conn.prepareStatement(query);
+		  prep.setInt(1, rating);
+		  prep.setString(2, userId);
+		  prep.setString(3, movieId);
+		  prep.executeUpdate();
+		  prep.close();
+	  } catch (SQLException e) {
+	      System.out.println("ERROR: Something wrong with updating rating.");
+	  }
+	  return;
+  }
+
+  /**
+   * Used to add a rating to the ratings table.
+   * @param conn
+   */
+  public static void insertRating(Connection conn, String userId, String movieId, int rating) {
+	  String query = "INSERT INTO userRatings VALUES (?, ?, ?);";
+	  try {
+		  PreparedStatement prep;
+		  prep = conn.prepareStatement(query);
+		  prep.setString(1, userId);
+		  prep.setString(2, movieId);
+		  prep.setInt(3, rating);
+		  prep.execute();
+		  prep.close();
+	  } catch (SQLException e) {
+	      System.out.println("ERROR: Something wrong with inserting rating.");
+	  }
+	  return;
+  }
+  
+  /**
    * Used to return a mapping from imdbId's to the movie titles.
    * @param conn
    * @return a hashmap with a mapping from imdbIds to the movie titles

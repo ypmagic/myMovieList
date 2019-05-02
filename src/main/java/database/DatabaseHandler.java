@@ -138,6 +138,22 @@ public final class DatabaseHandler {
       System.out.println("ERROR: Creating user movie table failed.");
     }
   }
+  
+  private static void makeUserRatingsTable() {
+	    String query = "CREATE TABLE IF NOT EXISTS userRatings ("
+	            + " userId TEXT,"
+	            + " imdbId TEXT,"
+	            + " rating INTEGER);"
+	            + " FOREIGN KEY (\"userId\") REFERENCES users(login));";
+	    try {
+	      PreparedStatement prep = conn.prepareStatement(query);
+	      prep.executeUpdate();
+	      prep.close();
+	    } catch (SQLException e) {
+	      System.out.println("ERROR: Creating ratings table failed.");
+	    }
+	  }
+	  
 
   /**
    * Static method that will initialize the database handler.
@@ -166,6 +182,7 @@ public final class DatabaseHandler {
       makeMovieGenreTable();
       makeListTable();
       makeListMoviesTable();
+      makeUserRatingsTable();
     }
     return DatabaseHandler.movie;
   }
