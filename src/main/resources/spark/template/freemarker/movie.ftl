@@ -71,5 +71,35 @@
     <h3>Invalid movie.</h3>
   </#if>
 </div>
+<#if !username.username??>
+  <div class="flex-container content-align">
+    <div class="row">
+      <div class="flex-col">
+        <form class= "formlst">
+          <div class="form-group">
+            <select class="form-control" name="${movie.getImdbID()}">
+              <#list userLists as lst>
+                <option value=${lst.getLeft()}>${lst.getRight()}</option>
+              </#list>
+            </select>
+          </div>
+          <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
+        </form>
+      </div>
+      <div class="flex-col">
+        <!-- WATCH LATER BUTTON HERE -->
+        <form class= "formWatchLater">
+          <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
+        </form>
+      </div>
+      <div class="flex-col">
+        <form id= "ratingForm">
+          <input type="number" id="rating1" min="1" max="10">
+          <button type="submit" class = "btn btn-dark" id = "rating">Add Rating</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</#if>
 </#assign>
 <#include "main.ftl">
