@@ -282,25 +282,6 @@ public final class DatabaseQuery {
     }
   }
 
-  public static String getUsername(Connection conn, int id) {
-	  String query = "SELECT login FROM users WHERE id = ?;";
-	  String toReturn = "";
-	  try {
-		  PreparedStatement prep = conn.prepareStatement(query);
-		  prep.setInt(1, id);
-		  ResultSet rs = prep.executeQuery();
-		  while (rs.next()) {
-			  toReturn = rs.getString(1);
-		  }
-		  rs.close();
-		  prep.close();
-		  return toReturn;
-	  } catch (SQLException e) {
-		  System.out.println("this userid doesn't exist");
-		  return toReturn;
-	  }
-  }
-
   /**
    * inserts a new list into the list table.
    * @param conn
@@ -370,26 +351,6 @@ public final class DatabaseQuery {
 		  System.out.println("ERROR: Getting lists fatal.");
 	  }
 	  return toReturn;
-  }
-  
-  public static int findListId(Connection conn, 
-      String listName, String user) {
-    String query = "SELECT id FROM lists WHERE curator = ? AND name = ?";
-    int listId = 0;
-    try {
-        PreparedStatement prep = conn.prepareStatement(query);
-        prep.setString(1, user);
-        prep.setString(2, listName);
-        ResultSet rs = prep.executeQuery();
-        if (rs.next()) {
-          listId = rs.getInt(1);
-        }
-        rs.close();
-        prep.close();
-    } catch (SQLException e) {
-        System.out.println("ERROR: Getting list ID fatal.");
-    }
-    return listId;
   }
   
   /**
@@ -547,18 +508,4 @@ public final class DatabaseQuery {
     }
     return ret;
   }
-
-//  public static void insertGenre(Connection conn, String genre) {
-//    String query = "INSERT INTO genres VALUES(?, ?);";
-//    try {
-//      PreparedStatement prep = conn.prepareStatement(query);
-//      int hash = Objects.hash(genre);
-//      prep.setInt(1, hash);
-//      prep.setString(2, genre);
-//      prep.execute();
-//      prep.close();
-//    } catch (SQLException e) {
-//      System.out.println("ERROR: Something wrong with inserting genre.");
-//    }
-//  }
 }
