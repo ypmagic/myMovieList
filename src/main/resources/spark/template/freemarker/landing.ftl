@@ -47,7 +47,7 @@ as well as a clickable link to the respective movie link-->
                 </div>
                 <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
               </form>
-              <form class= "formWatchLater">
+              <form class= "formWatchLaterHome">
                 <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
               </form>
             </div>
@@ -99,7 +99,7 @@ as well as a clickable link to the respective movie link-->
                 </div>
                 <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
               </form>
-              <form class= "formWatchLater">
+              <form class= "formWatchLaterHome">
                 <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
               </form>
             </div>
@@ -151,7 +151,7 @@ as well as a clickable link to the respective movie link-->
                 </div>
                 <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
               </form>
-              <form class= "formWatchLater">
+              <form class= "formWatchLaterHome">
                 <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
               </form>
             </div>
@@ -203,7 +203,7 @@ as well as a clickable link to the respective movie link-->
                 </div>
                 <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
               </form>
-              <form class= "formWatchLater">
+              <form class= "formWatchLaterHome">
                 <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
               </form>
             </div>
