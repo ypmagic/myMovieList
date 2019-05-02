@@ -83,19 +83,19 @@ public final class Recommender {
   
   public static List<Movie> recommend(List<String> inputMovies, 
       List<Integer> ratings) {
+	  System.out.println("should be recommending");
     String inputMoviesString = inputMovies.toString();
     inputMoviesString = inputMoviesString.substring(1, 
         inputMoviesString.length() - 1);
     String ratingsString = ratings.toString();
     ratingsString = ratingsString.substring(1,
         ratingsString.length() - 1);
-    int num = 20;
-    
     ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python."
         + "framework/Versions/3.6/bin/python3", "src/"
         + "main/java/recommend/recommend.py", inputMoviesString,
-        ratingsString, "" + num);
+        ratingsString);
     List<String> data = new ArrayList<>();
+    List<Movie> movies = new ArrayList<>();
     try {
       Process p = pr.start();
       p.waitFor();
@@ -114,9 +114,9 @@ public final class Recommender {
         }
       }
       // go through the new data list and get the relevant movie
+      System.out.println("DATA SIZE: " + data.size());
       Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
-      List<Movie> movies = new ArrayList<>();
-      System.out.println(data.size());
+      //System.out.println(data.size());
       for (String id : data) {
         System.out.println(id);
         Movie m = DatabaseQuery.getMovie(conn, id);
@@ -126,6 +126,6 @@ public final class Recommender {
     } catch (IOException | InterruptedException e) {
       System.out.println("ERROR: Something wrong with executing script.");
     }
-    return null;
+    return movies;
   }
 }

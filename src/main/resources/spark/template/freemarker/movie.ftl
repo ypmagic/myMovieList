@@ -31,24 +31,6 @@
                   </form>
 
                 </div>
-            <div class="row">
-              <div class="flex-col">
-                <form class= "formlst">
-                  <div class="form-group">
-                    <select class="form-control" name="${movie.getImdbID()}">
-                      <#list userLists as lst>
-                        <option value=${lst.getLeft()}>${lst.getRight()}</option>
-                      </#list>
-                    </select>
-                  </div>
-                  <button type="submit" class = "btn btn-dark" id = "add">Add To List</button>
-                </form>
-                <!-- WATCH LATER BUTTON HERE -->
-                <form class= "formWatchLater">
-                  <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
-                </form>
-              </div>
-            </div>
           </#if>
         </div>
       </#if>

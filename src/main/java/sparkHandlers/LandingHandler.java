@@ -11,6 +11,7 @@ import java.util.Set;
 import com.google.common.collect.ImmutableMap;
 import database.DatabaseHandler;
 import database.DatabaseQuery;
+import movie.Movie;
 import recommend.MoviesByGenre;
 import recommend.Recommender;
 import spark.ModelAndView;
@@ -24,6 +25,7 @@ public class LandingHandler implements TemplateViewRoute {
     @Override
     public ModelAndView handle(Request request, Response response) {
       String username =  request.session().attribute("username");
+      System.out.println("USERNAME: " + username);
 //      request.session().invalidate();
 //      request.session(true).attribute("username", username);
 
@@ -62,8 +64,7 @@ public class LandingHandler implements TemplateViewRoute {
       MoviesByGenre movies4 = movies.get(3);
       Map<Object, Object> variables;
       if (DatabaseQuery.getRatings(DatabaseHandler
-                .getDatabaseHandler().getConnection(), username).size() == 0) {
-      
+                .getDatabaseHandler().getConnection(), request.session().attribute("username")).size() == 0) {   
 	      variables = new ImmutableMap.Builder<>()
 	              .put("title", "Home")
 	              .put("moviesTop", movies1.getMovies())
@@ -77,9 +78,24 @@ public class LandingHandler implements TemplateViewRoute {
 	              .put("username", username)
 	              .put("userLists", userLists).build();
       } else {
+    	  System.out.println("it should get here");
+    	    List<Bigram<String, String>> l = DatabaseQuery.getRatings(DatabaseHandler
+                    .getDatabaseHandler().getConnection(), request.session().attribute("username"));
+    	    List<String> imdbIds = new ArrayList<>();
+    	    List<Integer> ratings = new ArrayList<>();
+    	    for (Bigram<String, String> b : l) {
+    	    		String imdbId = b.getLeft();
+    	    		if (imdbId.indexOf("tt00") > -1) {
+    	    			imdbIds.add(b.getLeft().substring(4, imdbId.length()));
+    	    		} else {
+    	    			imdbIds.add(b.getLeft().substring(3, imdbId.length()));
+    	    		}
+    	    		ratings.add(Integer.parseInt(b.getRight()));
+    	    }
+    	    List<Movie> recommendedMovies = Recommender.recommend(imdbIds, ratings);
     	  	variables = new ImmutableMap.Builder<>()
 	              .put("title", "Home")
-	              .put("moviesTop", movies1.getMovies())
+	              .put("moviesTop", recommendedMovies)
 	              .put("moviesTopGenre", "Recommended for You")
 	              .put("moviesTopMid", movies2.getMovies())
 	              .put("moviesTopMidGenre", movies2.getGenre() + " Movies")

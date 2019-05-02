@@ -29,6 +29,7 @@ public final class DatabaseQuery {
    * @param conn
    */
   public static List<Bigram<String,String>> getRatings(Connection conn, String userId) {
+	  System.out.println(userId);
 	  String query = "SELECT imdbId, rating FROM userRatings WHERE userId = ?;";
 	  List<Bigram<String,String>> output = new ArrayList<Bigram<String,String>>();
 	  try {
@@ -37,6 +38,7 @@ public final class DatabaseQuery {
 		  prep.setString(1, userId);
 		  ResultSet rs = prep.executeQuery();
 		  while(rs.next()) {
+			  System.out.println("INSERTED ENTRY");
 			  output.add(new Bigram<String,String>(rs.getString(1),rs.getString(2)));
 		  }
 		  rs.close();
