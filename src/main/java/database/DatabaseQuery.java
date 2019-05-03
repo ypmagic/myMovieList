@@ -444,6 +444,24 @@ public final class DatabaseQuery {
 	  return toReturn;
   }
   
+  public static List<String> getRatedMovies(Connection conn, String login) {
+	  String query = "SELECT imdbId FROM userRatings WHERE userId = ?;";
+	  List<String> toReturn = new ArrayList<>();
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.setString(1, login);
+		  ResultSet rs = prep.executeQuery();
+		  while (rs.next()) {
+			  toReturn.add(rs.getString(1));
+		  }
+		  rs.close();
+		  prep.close();
+	  } catch (SQLException e) {
+		  System.out.println("something went wrong getting rated movies");
+	  }
+	  return toReturn;
+  }
+  
   /**
    * Given a userid returns all the list ids and list names associated with
    * that user.
@@ -598,5 +616,27 @@ public final class DatabaseQuery {
       System.out.println("ERROR: Searching users failed.");
     }
     return ret;
+  }
+
+  public static void deleteList(Connection conn, int listId) {
+    String query = "DELETE FROM listMovies WHERE listId = ?";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setInt(1, listId);
+      prep.executeUpdate();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Removing movie from listMovies error");
+    }
+
+    String query2 = "DELETE FROM lists WHERE id = ?";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query2);
+      prep.setInt(1, listId);
+      prep.executeUpdate();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Removing movie from listMovies error");
+    }
   }
 }

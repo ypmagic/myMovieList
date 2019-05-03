@@ -7,7 +7,7 @@ $("#newList").submit(function(e) {
   $.post("/list", postParameters, responseJSON => {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
-      alert("List added.");
+      alert("List added");
       window.location.reload();
     }
   });
@@ -26,6 +26,22 @@ $(".remove-buttons").submit(function(e) {
   $.post("/removeFromList", postParameters, responseJSON => {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
+      window.location.reload();
+    }
+  });
+});
+
+$("#delList").submit(function(e) {
+  e.preventDefault();
+  let selectVar = this.childNodes[1].childNodes[1];
+  let listId = selectVar.value;
+  let postParameters = {
+    listId: listId,
+  };
+  $.post("/deleteList", postParameters, responseJSON => {
+    let responseObject = JSON.parse(responseJSON);
+    if (responseObject.success) {
+      alert("List removed");
       window.location.reload();
     }
   });

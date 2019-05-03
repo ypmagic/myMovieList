@@ -5,15 +5,34 @@
       <h1 id = "username">${username}'s Profile</h1>
     </div>
     <div class = "row">
-      <h2 class="contrast-color"> Create a new list</h2>
+      <div class = "col">
+        <h2 class="contrast-color"> Create a new list</h2>
+      </div>
+      <div class = "col">
+        <h2 class="contrast-color"> Delete a list</h2>
+      </div>
     </div>
     <div class = "row">
-      <form id="newList">
-        <div class="form-group form-inline">
-          <input type="text" class="form-control" name="listName" placeholder="List Name">
-          <button type="submit" class = "btn btn-dark">Add</button>
-        </div>
-      </form>
+      <div class = "col">
+        <form id="newList">
+          <div class="form-group form-inline">
+            <input type="text" class="form-control" name="listName" placeholder="List Name">
+            <button type="submit" class = "btn btn-dark">Add List</button>
+          </div>
+        </form>
+      </div>
+      <div class = "col">
+        <form id= "delList">
+          <div class="form-group form-inline">
+            <select class="form-control">
+              <#list lists as movieList>
+                <option value=${movieList.getId()}>${movieList.getName()}</option>
+              </#list>
+            </select>
+            <button type="submit" class = "btn btn-dark">Delete List</button>
+          </div>
+        </form>
+      </div>
     </div>
     <div class = "row">
       <h2 class="contrast-color"> Current Lists </h2>

@@ -7,7 +7,6 @@ import java.io.StringWriter;
 
 import cli.CommandProcessor;
 import database.DatabaseHandler;
-import sparkHandlers.*;
 import freemarker.template.Configuration;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -16,6 +15,24 @@ import spark.Request;
 import spark.Response;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
+import sparkHandlers.AddToListHandler;
+import sparkHandlers.AddWatchLaterHandler;
+import sparkHandlers.DeleteListHandler;
+import sparkHandlers.InsertRatingHandler;
+import sparkHandlers.LandingHandler;
+import sparkHandlers.ListHandler;
+import sparkHandlers.ListViewHandler;
+import sparkHandlers.LoginAttemptHandler;
+import sparkHandlers.LoginPageHandler;
+import sparkHandlers.MovieHandler;
+import sparkHandlers.ProfilePageHandler;
+import sparkHandlers.RatedHandler;
+import sparkHandlers.RegisterHandler;
+import sparkHandlers.RegisterPageHandler;
+import sparkHandlers.RemoveFromListHandler;
+import sparkHandlers.SearchHandler;
+import sparkHandlers.UserPageHandler;
+import sparkHandlers.WatchLaterHandler;
 
 /*
  * The Main class of our project. This is where execution begins.
@@ -94,6 +111,8 @@ public final class Main {
     Spark.post("/addWatchLater", new AddWatchLaterHandler());
     Spark.get("/watchlater", new WatchLaterHandler(), freeMarker);
     Spark.post("/insertrating", new InsertRatingHandler());
+    Spark.post("/deleteList", new DeleteListHandler());
+    Spark.get("/rated", new RatedHandler(), freeMarker);
     // Setup database
     DatabaseHandler.getDatabaseHandler();
   }
