@@ -2,7 +2,7 @@ $("#ratingForm").submit(function(e) {
   e.preventDefault();
   console.log('hi')
   let rating = $("#rating1").val();
-  let id = $("#lol").attr("name")
+  let id = $("#movie-id").attr("class")
   console.log(rating)
   console.log(id)
   let postParameters = {
