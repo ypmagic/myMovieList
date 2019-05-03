@@ -444,6 +444,24 @@ public final class DatabaseQuery {
 	  return toReturn;
   }
   
+  public static List<String> getRatedMovies(Connection conn, String login) {
+	  String query = "SELECT imdbId FROM userRatings WHERE userId = ?;";
+	  List<String> toReturn = new ArrayList<>();
+	  try {
+		  PreparedStatement prep = conn.prepareStatement(query);
+		  prep.setString(1, login);
+		  ResultSet rs = prep.executeQuery();
+		  while (rs.next()) {
+			  toReturn.add(rs.getString(1));
+		  }
+		  rs.close();
+		  prep.close();
+	  } catch (SQLException e) {
+		  System.out.println("something went wrong getting rated movies");
+	  }
+	  return toReturn;
+  }
+  
   /**
    * Given a userid returns all the list ids and list names associated with
    * that user.

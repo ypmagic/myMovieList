@@ -22,7 +22,7 @@ public class InsertRatingHandler implements Route {
 		QueryParamsMap qm = request.queryMap();
 		String login = request.session().attribute("username");
 		String imdbId = qm.value("id");
-		Integer rating = Integer.parseInt(qm.value("rating"));
+		int rating = Integer.parseInt(qm.value("rating"));
 		Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
 		if (DatabaseQuery.checkRating(conn, login, imdbId)) {
 			DatabaseQuery.updateRating(conn, login, imdbId, rating);
