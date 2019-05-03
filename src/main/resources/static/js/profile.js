@@ -21,8 +21,7 @@ $(".remove-buttons").submit(function(e) {
     movieId: imdbId,
     listId: listId
   };
-  console.log(imdbId);
-  console.log(listId);
+
   $.post("/removeFromList", postParameters, responseJSON => {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {

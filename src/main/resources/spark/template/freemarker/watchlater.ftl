@@ -7,11 +7,14 @@
       <div class = "flex-row">
         <#list list as movie>
           <div class = "flex-col">
-            <#if movie.getImg()??>
-              <a href="/m/${movie.getImdbID()}"><img class="movie-img ${movie} colored-border-img" src="${movie.getImg()}"/></a>
-            <#else>
-              <p class="movie-img ${movie}">${movie.getTitle()}</p>
-            </#if>
+            <form class = "remove-watchlater">
+              <#if movie.getImg()??>
+                <a href="/m/${movie.getImdbID()}"><img class="movie-img ${movie} colored-border-img" src="${movie.getImg()}"/></a>
+              <#else>
+                <p class="movie-img ${movie}">${movie.getTitle()}</p>
+              </#if>
+              <button value="${movie.getImdbID()}" type="submit" class = "btn-pad btn btn-dark">Remove</button>
+            </form>
           </div>
         </#list>
       </div>

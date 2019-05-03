@@ -516,6 +516,19 @@ public final class DatabaseQuery {
         System.out.println("ERROR: Inserting movie into listMovies error");
     }
   }
+
+  public static void deleteFromWatchLater(Connection conn, String username, String id) {
+    String query = "DELETE FROM userMovies WHERE login = ? AND imdbId = ?";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setString(1, username);
+      prep.setString(2, id);
+      prep.executeUpdate();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Removing movie from userMovies error");
+    }
+  }
   
   public static boolean watchLaterContains(Connection conn, String username,
       String id) {
