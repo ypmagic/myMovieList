@@ -7,11 +7,12 @@
       <div class = "flex-row">
         <#list list as movie>
           <div class = "flex-col">
-            <#if movie.getImg()??>
-              <a href="/m/${movie.getImdbID()}"><img class="movie-img ${movie} colored-border-img" src="${movie.getImg()}"/></a>
+            <#if movie.getLeft().getImg()??>
+              <a href="/m/${movie.getLeft().getImdbID()}"><img class="movie-img ${movie} colored-border-img" src="${movie.getLeft().getImg()}"/></a>
             <#else>
-              <p class="movie-img ${movie}">${movie.getTitle()}</p>
+              <p class="movie-img ${movie}">${movie.getLeft().getTitle()}</p>
             </#if>
+            <p> ${movie.getRight()}</p>
           </div>
         </#list>
       </div>

@@ -40,13 +40,12 @@ public final class Recommender {
   
   public static MoviesByGenre moviesByGenre(int genre) {
     MoviesByGenre moviesAndGenre = null;
-    // get the corresponding genre and run script on command line
+    // get the correspondiwng genre and run script on command line
     String randomGenre = genres.get(genre).toString();
     try {
       // list of data imdb ids
       List<String> data = new ArrayList<>();
-      ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python."
-          + "framework/Versions/3.6/bin/python3", "src/"
+      ProcessBuilder pr = new ProcessBuilder("/anaconda3/bin/python", "src/"
           + "main/java/sorter/sorting.py", randomGenre);
       Process p = pr.start();
       p.waitFor();
@@ -91,8 +90,7 @@ public final class Recommender {
     String ratingsString = ratings.toString();
     ratingsString = ratingsString.substring(1,
         ratingsString.length() - 1);
-    ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python."
-        + "framework/Versions/3.6/bin/python3", "src/"
+    ProcessBuilder pr = new ProcessBuilder("/anaconda3/bin/python", "src/"
         + "main/java/recommend/recommend.py", inputMoviesString,
         ratingsString);
     List<String> data = new ArrayList<>();

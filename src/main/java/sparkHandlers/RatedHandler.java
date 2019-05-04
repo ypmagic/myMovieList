@@ -14,6 +14,7 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.TemplateViewRoute;
+import util.Bigram;
 
 public class RatedHandler implements TemplateViewRoute {
 
@@ -25,11 +26,11 @@ public class RatedHandler implements TemplateViewRoute {
 	        return null;
 	      }
 	      Connection conn = DatabaseHandler.getDatabaseHandler().getConnection();
-	      List<String> imdbIds = DatabaseQuery.getRatedMovies(conn, username);
-	      List<Movie> movies = new ArrayList<>();
-	      for (String id : imdbIds) {
-	        Movie m = DatabaseQuery.getMovie(conn, id);
-	        movies.add(m);
+	      List<Bigram<String, String>> imdbIds = DatabaseQuery.getRatings(conn, username);
+	      List<Bigram<Movie, String>> movies = new ArrayList<>();
+	      for (Bigram id : imdbIds) {
+	        Movie m = DatabaseQuery.getMovie(conn, (String) id.getLeft());
+	        movies.add(new Bigram<>(m, (String) id.getRight()));
 	      }
 	      // return all the information
 	      Map<String, Object> variables = new ImmutableMap.Builder<String, Object>()

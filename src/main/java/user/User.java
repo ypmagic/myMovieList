@@ -30,7 +30,7 @@ public class User {
   public int hashCode() {
     return Objects.hash(this.login);
   }
-  
+
   @Override
   public boolean equals(Object o) {
     User u2 = (User) o;
@@ -42,7 +42,7 @@ public class User {
     }
     return this.hashCode() == u2.hashCode();
   }
-  
+
   @Override
   public String toString() {
     return "{username: " + this.login + ", password: " + this.password + "}";
