@@ -47,7 +47,7 @@ public class LandingHandler implements TemplateViewRoute {
       // use movies by genre
       Set<Integer> randoms = new HashSet<>();
       while (randoms.size() < 4) {
-        // first get a random genre
+        // first get MovieTests random genre
         Random r = new Random();
         int random = r.nextInt(18);
         randoms.add(random);

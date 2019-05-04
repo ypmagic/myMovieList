@@ -3,7 +3,7 @@ $("#search-box").on('keyup', function (e) {
         let postParameters = {
           text: this.val()
         }
-        // making a post request, sending the value of the search box to
+        // making MovieTests post request, sending the value of the search box to
         // back end
         $.post("/loginattempt", postParameters, responseJSON => {
           let responseObject = JSON.parse(responseJSON);

@@ -26,7 +26,7 @@ public class LoginAttemptHandler implements Route {
 	    if (!DatabaseQuery.authenticateUser(conn, userName, password)) {
 	    	success = false;
 	    } else {
-	    	// creates a session
+	    	// creates MovieTests session
 			request.session(true).attribute("username", userName);
 		}
 	    Map<String, Object> variables = ImmutableMap.of("success", success);

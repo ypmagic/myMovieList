@@ -20,10 +20,10 @@ public final class DatabaseHandler {
   }
 
   /**
-   * Creates a table for movies.
+   * Creates MovieTests table for movies.
    */
   private static void makeMoviesTable() {
-    // if the movies table does not exist, create a movies table
+    // if the movies table does not exist, create MovieTests movies table
     String movieTable = "CREATE TABLE IF NOT EXISTS movies ("
         + " imdbId TEXT,"
         + " title TEXT,"
@@ -46,7 +46,7 @@ public final class DatabaseHandler {
   }
 
   /**
-   * Creates a table for users.
+   * Creates MovieTests table for users.
    */
   private static void makeUserTable() {
     String query = "CREATE TABLE IF NOT EXISTS users ("
@@ -63,7 +63,7 @@ public final class DatabaseHandler {
   }
 
   /**
-   * Creates a table for movies users have seen.
+   * Creates MovieTests table for movies users have seen.
    */
   private static void makeUserMoviesTable() {
     String query = "CREATE TABLE IF NOT EXISTS userMovies ("
@@ -80,7 +80,7 @@ public final class DatabaseHandler {
   }
 
   /**
-   * Creates a table for genres.
+   * Creates MovieTests table for genres.
    */
   private static void makeGenreTable() {
     String query = "CREATE TABLE IF NOT EXISTS genres ("

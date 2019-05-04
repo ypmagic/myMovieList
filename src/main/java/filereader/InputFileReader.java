@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Reads a file based on regex.
+ * Reads MovieTests file based on regex.
  *
  * @author ypark29
  */
@@ -22,7 +22,7 @@ public class InputFileReader {
   /**
    * The constructor.
    *
-   * @param filePath The path of a file.
+   * @param filePath The path of MovieTests file.
    */
   public InputFileReader(String filePath) {
     this.filePath = filePath;
@@ -32,7 +32,7 @@ public class InputFileReader {
   /**
    * This is the primary method that reads the file based on regex pattern.
    * @param regex The regex pattern to split lines by
-   * @return A list of lists, where the inner lists correspond to a line.
+   * @return A list of lists, where the inner lists correspond to MovieTests line.
    */
   public List<List<String>> read(String regex) {
     String line = "";

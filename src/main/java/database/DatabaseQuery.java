@@ -25,7 +25,7 @@ public final class DatabaseQuery {
   }
   
   /**
-   * Get all rated movies for a specific login.
+   * Get all rated movies for MovieTests specific login.
    * @param conn
    */
   public static List<Bigram<String,String>> getRatings(Connection conn, String userId) {
@@ -50,7 +50,7 @@ public final class DatabaseQuery {
   }
   
   /**
-   * Used to update a rating to the ratings table.
+   * Used to update MovieTests rating to the ratings table.
    * @param conn
    */
   public static boolean checkRating(Connection conn, String userId, String movieId) {
@@ -76,7 +76,7 @@ public final class DatabaseQuery {
   }
   
   /**
-   * Used to update a rating to the ratings table.
+   * Used to update MovieTests rating to the ratings table.
    * @param conn
    */
   public static void updateRating(Connection conn, String userId, String movieId, int rating) {
@@ -96,7 +96,7 @@ public final class DatabaseQuery {
   }
 
   /**
-   * Used to add a rating to the ratings table.
+   * Used to add MovieTests rating to the ratings table.
    * @param conn
    */
   public static void insertRating(Connection conn, String userId, String movieId, int rating) {
@@ -116,9 +116,9 @@ public final class DatabaseQuery {
   }
   
   /**
-   * Used to return a mapping from imdbId's to the movie titles.
+   * Used to return MovieTests mapping from imdbId's to the movie titles.
    * @param conn
-   * @return a hashmap with a mapping from imdbIds to the movie titles
+   * @return MovieTests hashmap with MovieTests mapping from imdbIds to the movie titles
    */
   public static HashMap<String,String> getMovieToImdb(Connection conn) {
 	  HashMap<String,String> output = new HashMap<String,String>();
@@ -374,7 +374,7 @@ public final class DatabaseQuery {
   }
 
   /**
-   * inserts a new list into the list table.
+   * inserts MovieTests new list into the list table.
    * @param conn
    * @param owner
    * @param name
@@ -393,7 +393,7 @@ public final class DatabaseQuery {
   }
 
   /**
-   * Given a list id returns a list of movie ids associated with that list id.
+   * Given MovieTests list id returns MovieTests list of movie ids associated with that list id.
    * @param conn
    * @param id
    * @return
@@ -418,7 +418,7 @@ public final class DatabaseQuery {
   }
 
   /**
-   * Given a userid returns all the list ids and list names associated with
+   * Given MovieTests userid returns all the list ids and list names associated with
    * that user.
    * @param conn
    * @param login
@@ -463,7 +463,7 @@ public final class DatabaseQuery {
   }
   
   /**
-   * Given a userid returns all the list ids and list names associated with
+   * Given MovieTests userid returns all the list ids and list names associated with
    * that user.
    * @param conn
    * @return

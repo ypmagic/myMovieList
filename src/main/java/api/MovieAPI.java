@@ -80,7 +80,7 @@ public class MovieAPI {
     // search request
     String init = sendRequest("?s=" + encodedReq);
     JsonObject initRes = (JsonObject) parser.parse(init);
-    // first check if there was a valid response
+    // first check if there was MovieTests valid response
     if (initRes.get("Response").getAsString().equals("True")) {
       numResults = initRes.get("totalResults").getAsInt();
       // if there are more than 10 results, there must be additional pages
@@ -145,7 +145,7 @@ public class MovieAPI {
     Movie m = null;
     String res = sendRequest("?t=" + encodedReq);
     JsonObject resObj = (JsonObject) parser.parse(res);
-    // check if there was a valid response
+    // check if there was MovieTests valid response
     if (resObj.get("Response").getAsString().equals("True")) {
       String imdbId = resObj.get("imdbID").getAsString();
       String title = resObj.get("Title").getAsString();
@@ -159,7 +159,7 @@ public class MovieAPI {
       String rated = resObj.get("Rated").getAsString();
       String runTime = resObj.get("Runtime").getAsString();
       String genre = resObj.get("Genre").getAsString();
-      // split genre into an array and create a list from it
+      // split genre into an array and create MovieTests list from it
       List<String> genreList = Arrays.asList(genre.split(", "));
       String plot = resObj.get("Plot").getAsString();
       String awards = resObj.get("Awards").getAsString();
@@ -167,7 +167,7 @@ public class MovieAPI {
       String imdbVotes = resObj.get("imdbVotes").getAsString();
       // get poster url
       String posterURL = PosterAPI.getImage(imdbId);
-      // creating a new movie from this
+      // creating MovieTests new movie from this
       m = new Movie(imdbId, title, year, rated, runTime, genreList, plot,
           awards, imdbRating, imdbVotes, posterURL);
     }
@@ -178,7 +178,7 @@ public class MovieAPI {
     Movie m = null;
     String res = sendRequest("?i=" + req);
     JsonObject resObj = (JsonObject) parser.parse(res);
-    // check if there was a valid response
+    // check if there was MovieTests valid response
     if (resObj.get("Response").getAsString().equals("True")) {
       String imdbId = resObj.get("imdbID").getAsString();
       String title = resObj.get("Title").getAsString();
@@ -192,7 +192,7 @@ public class MovieAPI {
       String rated = resObj.get("Rated").getAsString();
       String runTime = resObj.get("Runtime").getAsString();
       String genre = resObj.get("Genre").getAsString();
-      // split genre into an array and create a list from it
+      // split genre into an array and create MovieTests list from it
       List<String> genreList = Arrays.asList(genre.split(", "));
       String plot = resObj.get("Plot").getAsString();
       String awards = resObj.get("Awards").getAsString();
@@ -200,7 +200,7 @@ public class MovieAPI {
       String imdbVotes = resObj.get("imdbVotes").getAsString();
       // get poster url
       String posterURL = PosterAPI.getImage(imdbId);
-      // creating a new movie from this
+      // creating MovieTests new movie from this
       m = new Movie(imdbId, title, year, rated, runTime, genreList, plot,
           awards, imdbRating, imdbVotes, posterURL);
     }

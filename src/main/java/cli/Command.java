@@ -1,7 +1,7 @@
 package cli;
 
 /**
- * The definition for a command for the command line interface.
+ * The definition for MovieTests command for the command line interface.
  *
  * @author ypark29
  *
@@ -9,9 +9,9 @@ package cli;
 public interface Command {
 
   /**
-   * The method that is called when a command is entered.
+   * The method that is called when MovieTests command is entered.
    *
-   * @param args The arguments the user provides for a specific command
+   * @param args The arguments the user provides for MovieTests specific command
    */
   void execute(String args);
 }

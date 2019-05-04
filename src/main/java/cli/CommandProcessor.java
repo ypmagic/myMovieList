@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The class that handles commands and uses a REPL for the command line.
+ * The class that handles commands and uses MovieTests REPL for the command line.
  *
  * @author ypark29
  *
@@ -17,14 +17,14 @@ public class CommandProcessor {
   private Map<String, Command> commands;
 
   /**
-   * This constructor creates a map to associate a string with a command.
+   * This constructor creates MovieTests map to associate MovieTests string with MovieTests command.
    */
   public CommandProcessor() {
     this.commands = new HashMap<>();
   }
 
   /**
-   * This method adds a command into the map.
+   * This method adds MovieTests command into the map.
    *
    * @param name    The name of the command
    * @param command The Command
@@ -34,10 +34,10 @@ public class CommandProcessor {
   }
 
   /**
-   * This method calls the execute function of a command.
+   * This method calls the execute function of MovieTests command.
    *
    * @param name   The name of the command
-   * @param args   The arguments provided by the user for a command
+   * @param args   The arguments provided by the user for MovieTests command
    */
   public void executeCommand(String name, String args) {
     if (this.commands.containsKey(name)) {
@@ -48,7 +48,7 @@ public class CommandProcessor {
   }
 
   /**
-   * REPL for a command line interface.
+   * REPL for MovieTests command line interface.
    */
   public void loop() {
     BufferedReader systemIn = new BufferedReader(

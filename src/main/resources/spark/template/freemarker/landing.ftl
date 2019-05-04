@@ -1,6 +1,6 @@
 <#assign content>
-<!-- Each of these flex containers should contain a row of movie poster images,
-as well as a clickable link to the respective movie link-->
+<!-- Each of these flex containers should contain MovieTests row of movie poster images,
+as well as MovieTests clickable link to the respective movie link-->
 <div class="flex-container content-align" id="top-movie-container">
   <div class="user-welcome">
     <h3>${username}</h3>
