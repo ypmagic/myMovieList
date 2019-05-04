@@ -1,15 +1,10 @@
 package user;
 
-import java.util.List;
 import java.util.Objects;
-
-import movie.Movie;
-import movie.MovieList;
 
 public class User {
   private String password;
   private String login;
-  private List<MovieList> movieLists;
 
   public User(String login, String password) {
     this.password = password;
