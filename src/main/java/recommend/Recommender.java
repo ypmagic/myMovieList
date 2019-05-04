@@ -45,7 +45,7 @@ public final class Recommender {
     try {
       // list of data imdb ids
       List<String> data = new ArrayList<>();
-      ProcessBuilder pr = new ProcessBuilder("/anaconda3/bin/python", "src/"
+      ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python.framework/Versions/3.6/bin/python3", "src/"
           + "main/java/sorter/sorting.py", randomGenre);
       Process p = pr.start();
       p.waitFor();
