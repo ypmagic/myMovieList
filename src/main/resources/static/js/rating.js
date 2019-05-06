@@ -46,3 +46,20 @@ $(".ratingChange").submit(function(e) {
     }
   });
 });
+
+$(".ratingChangeLanding").submit(function(e) {
+  e.preventDefault();
+  let rating = this.childNodes[1].value;
+  let id = this.childNodes[3].value;
+
+  let postParameters = {
+    rating: rating,
+    id: id
+  };
+  $.post("/insertrating", postParameters, responseJSON => {
+    let responseObject = JSON.parse(responseJSON);
+    if (responseObject.success) {
+      window.alert("rating added");
+    }
+  });
+});
