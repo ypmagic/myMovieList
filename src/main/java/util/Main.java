@@ -97,6 +97,7 @@ public final class Main {
     Spark.post("/deleteList", new DeleteListHandler());
     Spark.get("/rated", new RatedHandler(), freeMarker);
     Spark.post("/removeWatchLater", new RemoveWatchLaterHandler());
+    Spark.post("/removeRatedMovie", new RemoveRatedMovieHandler());
     // Setup database
     DatabaseHandler.getDatabaseHandler();
   }

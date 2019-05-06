@@ -114,6 +114,19 @@ public final class DatabaseQuery {
 	  }
 	  return;
   }
+
+  public static void deleteRating(Connection conn, String userId, String movieId) {
+    String query = "DELETE FROM userRatings WHERE userId = ? AND imdbId = ?";
+    try {
+      PreparedStatement prep = conn.prepareStatement(query);
+      prep.setString(1, userId);
+      prep.setString(2, movieId);
+      prep.executeUpdate();
+      prep.close();
+    } catch (SQLException e) {
+      System.out.println("ERROR: Removing movie from listMovies error");
+    }
+  }
   
   /**
    * Used to return MovieTests mapping from imdbId's to the movie titles.

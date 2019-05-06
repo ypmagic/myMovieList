@@ -7,12 +7,16 @@
       <div class = "flex-row">
         <#list list as movie>
           <div class = "flex-col">
-            <#if movie.getLeft().getImg()??>
-              <a href="/m/${movie.getLeft().getImdbID()}"><img class="movie-img ${movie} colored-border-img" src="${movie.getLeft().getImg()}"/></a>
-            <#else>
-              <p class="movie-img ${movie}">${movie.getLeft().getTitle()}</p>
-            </#if>
-            <p> ${movie.getRight()}</p>
+            <#assign id>${movie.getLeft().getImdbID()}</#assign>
+            <form class = "remove-rated">
+              <#if movie.getLeft().getImg()??>
+                <a href="/m/${id}"><img class="movie-img ${movie} colored-border-img" src="${movie.getLeft().getImg()}"/></a>
+              <#else>
+                <p class="movie-img ${movie}">${movie.getLeft().getTitle()}</p>
+              </#if>
+              <button value="${id}" type="submit" class = "btn-pad btn btn-dark">Remove</button>
+              <p><strong>${movie.getRight()}</strong></p>
+            </form>
           </div>
         </#list>
       </div>

@@ -1,10 +1,7 @@
 $("#ratingForm").submit(function(e) {
   e.preventDefault();
-  console.log('hi')
   let rating = $("#rating1").val();
   let id = document.querySelector("#movie-id").classList[0];
-  console.log(rating)
-  console.log(id)
   let postParameters = {
     rating: rating,
     id: id
@@ -13,6 +10,22 @@ $("#ratingForm").submit(function(e) {
     let responseObject = JSON.parse(responseJSON);
     if (responseObject.success) {
       window.location.reload();
+    }
+  });
+});
+
+$(".remove-rated").submit(function(e) {
+  e.preventDefault();
+  let imdbId = this.childNodes[3].value;
+  console.log(imdbId);
+  let postParameters = {
+    movieId: imdbId,
+  };
+
+  $.post("/removeRatedMovie", postParameters, responseJSON => {
+    let responseObject = JSON.parse(responseJSON);
+    if (responseObject.success) {
+      //window.location.reload();
     }
   });
 });
