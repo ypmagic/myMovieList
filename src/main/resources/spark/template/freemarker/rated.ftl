@@ -17,6 +17,10 @@
               <button value="${id}" type="submit" class = "btn-pad btn btn-dark">Remove</button>
               <p><strong>${movie.getRight()}</strong></p>
             </form>
+            <form class= "ratingChange">
+              <input type="number" min="1" max="10">
+              <button value="${id}" type="submit" class = "btn btn-dark">Change Rating</button>
+            </form>
           </div>
         </#list>
       </div>
