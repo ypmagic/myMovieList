@@ -24,18 +24,13 @@ public final class Recommender {
       .put(3, "Children")
       .put(4, "Comedy")
       .put(5, "Crime")
-      .put(6, "Documentary")
-      .put(7, "Drama")
-      .put(8, "Fantasy")
-      .put(9, "Film-Noir")
-      .put(10, "Horror")
-      .put(11, "Musical")
-      .put(12, "Mystery")
-      .put(13, "Romance")
-      .put(14, "Sci-Fi")
-      .put(15, "Thriller")
-      .put(16, "War")
-      .put(17, "Western")
+      .put(6, "Drama")
+      .put(7, "Fantasy")
+      .put(8, "Mystery")
+      .put(9, "Romance")
+      .put(10, "Sci-Fi")
+      .put(11, "Thriller")
+      .put(12, "War")
       .build();
   
   public static MoviesByGenre moviesByGenre(int genre) {
@@ -45,7 +40,7 @@ public final class Recommender {
     try {
       // list of data imdb ids
       List<String> data = new ArrayList<>();
-      ProcessBuilder pr = new ProcessBuilder("/anaconda3/bin/python", "src/"
+      ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python.framework/Versions/3.6/bin/python3", "src/"
           + "main/java/sorter/sorting.py", randomGenre);
       Process p = pr.start();
       p.waitFor();
@@ -82,7 +77,7 @@ public final class Recommender {
   }
   
   public static List<Movie> recommend(List<String> inputMovies, 
-      List<Integer> ratings) {
+      List<Integer> ratings, String genre) {
 	  System.out.println("should be recommending");
     String inputMoviesString = inputMovies.toString();
     inputMoviesString = inputMoviesString.substring(1, 
@@ -90,9 +85,9 @@ public final class Recommender {
     String ratingsString = ratings.toString();
     ratingsString = ratingsString.substring(1,
         ratingsString.length() - 1);
-    ProcessBuilder pr = new ProcessBuilder("/anaconda3/bin/python", "src/"
+    ProcessBuilder pr = new ProcessBuilder("/Library/Frameworks/Python.framework/Versions/3.6/bin/python3", "src/"
         + "main/java/recommend/recommend.py", inputMoviesString,
-        ratingsString);
+        ratingsString, genre);
     List<String> data = new ArrayList<>();
     List<Movie> movies = new ArrayList<>();
     try {

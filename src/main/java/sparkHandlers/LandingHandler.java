@@ -49,7 +49,7 @@ public class LandingHandler implements TemplateViewRoute {
       while (randoms.size() < 4) {
         // first get MovieTests random genre
         Random r = new Random();
-        int random = r.nextInt(18);
+        int random = r.nextInt(12);
         randoms.add(random);
       }
       Iterator<Integer> i = randoms.iterator();
@@ -78,7 +78,6 @@ public class LandingHandler implements TemplateViewRoute {
 	              .put("username", username)
 	              .put("userLists", userLists).build();
       } else {
-    	  System.out.println("it should get here");
     	    List<Bigram<String, String>> l = DatabaseQuery.getRatings(DatabaseHandler
                     .getDatabaseHandler().getConnection(), request.session().attribute("username"));
     	    List<String> imdbIds = new ArrayList<>();
@@ -92,17 +91,17 @@ public class LandingHandler implements TemplateViewRoute {
     	    		}
     	    		ratings.add(Integer.parseInt(b.getRight()));
     	    }
-    	    List<Movie> recommendedMovies = Recommender.recommend(imdbIds, ratings);
+    	    List<Movie> recommendedMovies = Recommender.recommend(imdbIds, ratings,"");
     	  	variables = new ImmutableMap.Builder<>()
 	              .put("title", "Home")
 	              .put("moviesTop", recommendedMovies)
 	              .put("moviesTopGenre", "Recommended for You")
-	              .put("moviesTopMid", movies2.getMovies())
-	              .put("moviesTopMidGenre", movies2.getGenre() + " Movies")
-	              .put("moviesBotMid", movies3.getMovies())
-	              .put("moviesBotMidGenre", movies3.getGenre() + " Movies")
-	              .put("moviesBot", movies4.getMovies())
-	              .put("moviesBotGenre", movies4.getGenre() + " Movies")
+	              .put("moviesTopMid", Recommender.recommend(imdbIds, ratings, movies.get(0).getGenre()))
+	              .put("moviesTopMidGenre", movies.get(0).getGenre() + " Movies For You")
+	              .put("moviesBotMid", Recommender.recommend(imdbIds, ratings, movies.get(1).getGenre()))
+	              .put("moviesBotMidGenre", movies.get(1).getGenre() + " Movies For You")
+	              .put("moviesBot", Recommender.recommend(imdbIds, ratings, movies.get(2).getGenre()))
+	              .put("moviesBotGenre", movies.get(2).getGenre() + " Movies For You")
 	              .put("username", username)
 	              .put("userLists", userLists).build();
       }

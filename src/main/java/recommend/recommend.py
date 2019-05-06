@@ -6,10 +6,11 @@ warnings.filterwarnings('ignore')
 
 first_arg = sys.argv[1]
 second_arg = sys.argv[2]
+genre = sys.argv[3]
 
 # input list of imdbIds and ratings as two arrays
 
-def recommend(first_arg,second_arg) :
+def recommend(first_arg,second_arg,genre) :
 
 	imdbIds = first_arg.split(", ")
 	imdbRatings = second_arg.split(", ")
@@ -17,7 +18,7 @@ def recommend(first_arg,second_arg) :
 	output = {}
 	df = pd.read_csv('src/main/java/recommend/ratings.csv', usecols=['userId','movieId','rating'])
 
-	movie_titles = pd.read_csv('src/main/java/recommend/movies.csv', usecols=['movieId','title'])
+	movie_titles = pd.read_csv('src/main/java/recommend/movies.csv', usecols=['movieId','title','genres'])
 	imdb_to_id = pd.read_csv('src/main/java/recommend/links.csv', usecols=['movieId','imdbId'])
 
 	ratings = pd.DataFrame(df.groupby('movieId')['rating'].mean())
@@ -37,11 +38,15 @@ def recommend(first_arg,second_arg) :
 
 		#corr_movie.join(imdb_to_id, on = 'movieId', how = 'left')
 		corr_movie = pd.merge(corr_movie,imdb_to_id, left_on = 'movieId', right_on = 'movieId')
+		corr_movie = pd.merge(corr_movie,movie_titles, left_on = 'movieId', right_on = 'movieId')
+
+		if genre != "": 
+			corr_movie = corr_movie[corr_movie['genres'].str.contains(genre)]
 
 		if (int(imdbRatings[i]) > 5):
-		  	new = corr_movie[corr_movie['numRatings'] > 50].sort_values(by='correlation', ascending=False).head(21)
+		  	new = corr_movie[corr_movie['numRatings'] > 80].sort_values(by='correlation', ascending=False).head(21)
 		else:
-			new = corr_movie[corr_movie['numRatings'] > 50].sort_values(by='correlation', ascending=True).head(21)
+			new = corr_movie[corr_movie['numRatings'] > 80].sort_values(by='correlation', ascending=True).head(21)
 
 		for index,row in new.iterrows():
 			if int(row['imdbId']) in output.keys():
@@ -50,8 +55,8 @@ def recommend(first_arg,second_arg) :
 				output[int(row['imdbId'])] = int(imdbRatings[i])*abs(row['correlation'])
 
 	recs = sorted(output, key=output.get, reverse=True)[:21]
-	for j in range(1,len(recs)):
+	for j in range(len(imdbIds),len(recs)):
 		print(str(recs[j]))
 	return
-recommend(first_arg, second_arg)
+recommend(first_arg, second_arg, genre)
 #recommend(["114709"],["10"])
