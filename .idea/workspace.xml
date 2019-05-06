@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="122c6881-2afd-4178-83f3-6069eae35b4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/rated.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/rated.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/rating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/rating.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -14,39 +14,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1161">
+              <caret line="223" column="21" selection-start-line="223" selection-start-column="21" selection-end-line="223" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/rating.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/rated.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/movie.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2">
-              <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/watchlater.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/rating.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="35" column="28" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+            <state relative-caret-position="255">
+              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -127,7 +118,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/movie_search.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/movies.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/main.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/movie.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/sparkHandlers/DeleteListHandler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/profile.ftl" />
@@ -145,9 +135,10 @@
         <option value="$PROJECT_DIR$/src/main/java/database/DatabaseQuery.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/sparkHandlers/RemoveRatedMovieHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/watchlater.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/rated.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/watchlater.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/rating.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl" />
       </list>
     </option>
   </component>
@@ -176,8 +167,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -378,18 +369,19 @@
       <workItem from="1556984510611" duration="1634000" />
       <workItem from="1556987538107" duration="1673000" />
       <workItem from="1557098896789" duration="2666000" />
-      <workItem from="1557104541207" duration="2198000" />
+      <workItem from="1557104541207" duration="2292000" />
+      <workItem from="1557114349216" duration="795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68330000" />
+    <option name="totallyTimeSpent" value="69219000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30533117" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3101777" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -650,13 +642,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/register.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/profile.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
@@ -722,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="38" column="33" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/watchlater.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -773,8 +751,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/watchlater.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="135">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -785,17 +763,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/profile.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/rated.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="52" lean-forward="true" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        <state relative-caret-position="255">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/rating.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="35" column="28" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+        <state relative-caret-position="533">
+          <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spark/template/freemarker/landing.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1161">
+          <caret line="223" column="21" selection-start-line="223" selection-start-column="21" selection-end-line="223" selection-end-column="21" />
         </state>
       </provider>
     </entry>

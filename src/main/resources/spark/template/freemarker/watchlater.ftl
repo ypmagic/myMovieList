@@ -8,7 +8,6 @@
         <#list list as movie>
           <div class = "flex-col">
             <form class = "remove-watchlater">
-
               <#if movie.getImg()??>
                 <a href="/m/${movie.getImdbID()}"><img class="movie-img ${movie} colored-border-img" src="${movie.getImg()}"/></a>
               <#else>

@@ -50,6 +50,10 @@ as well as MovieTests clickable link to the respective movie link-->
               <form class= "formWatchLaterHome">
                 <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
               </form>
+              <form class= "ratingChangeLanding">
+                <input type="number" min="1" max="10">
+                <button value="${movie.getImdbID()}" type="submit" class = "btn btn-dark">Add Rating</button>
+              </form>
             </div>
           </div>
         </div>
@@ -101,6 +105,10 @@ as well as MovieTests clickable link to the respective movie link-->
               </form>
               <form class= "formWatchLaterHome">
                 <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
+              </form>
+              <form class= "ratingChangeLanding">
+                <input type="number" min="1" max="10">
+                <button value="${movie.getImdbID()}" type="submit" class = "btn btn-dark">Add Rating</button>
               </form>
             </div>
           </div>
@@ -154,6 +162,10 @@ as well as MovieTests clickable link to the respective movie link-->
               <form class= "formWatchLaterHome">
                 <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
               </form>
+              <form class= "ratingChangeLanding">
+                <input type="number" min="1" max="10">
+                <button value="${movie.getImdbID()}" type="submit" class = "btn btn-dark">Add Rating</button>
+              </form>
             </div>
           </div>
         </div>
@@ -205,6 +217,10 @@ as well as MovieTests clickable link to the respective movie link-->
               </form>
               <form class= "formWatchLaterHome">
                 <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
+              </form>
+              <form class= "ratingChangeLanding">
+                <input type="number" min="1" max="10">
+                <button value="${movie.getImdbID()}" type="submit" class = "btn btn-dark">Add Rating</button>
               </form>
             </div>
           </div>
