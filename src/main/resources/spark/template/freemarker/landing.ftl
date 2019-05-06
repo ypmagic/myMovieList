@@ -50,6 +50,10 @@ as well as MovieTests clickable link to the respective movie link-->
               <form class= "formWatchLaterHome">
                 <button type="submit" class = "btn btn-dark" id = "watchLater">Watch Later</button>
               </form>
+              <form class= "ratingChange">
+                <input type="number" min="1" max="10">
+                <button value="${id}" type="submit" class = "btn btn-dark">Change Rating</button>
+              </form>
             </div>
           </div>
         </div>
