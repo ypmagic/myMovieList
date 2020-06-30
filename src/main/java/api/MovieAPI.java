@@ -22,7 +22,7 @@ import movie.Movie;
 public class MovieAPI {
   
   private static final String url = "http://private.omdbapi.com/";
-  private static final String key = "&apikey=5ac72dbc";
+  private static final String key = "&apikey=ae6125f5";
   private static final JsonParser parser = new JsonParser();
   
   public static void main(String[] args) {

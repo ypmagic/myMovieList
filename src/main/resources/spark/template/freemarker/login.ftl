@@ -7,7 +7,6 @@
     <div class = "jumbotron">
       <div class = "row">
         <div class = "col text-center mx-auto">
-          <img src="https://i.imgur.com/5gKsLLp.png" class = "img-fluid">
           <h3> Browse Movies </h3>
         </div>
         <div class = "col text-center mx-auto">
@@ -15,7 +14,6 @@
           <h3> Rate and Recommend </h3>
         </div>
         <div class = "col text-center mx-auto">
-          <img src="https://i.ibb.co/B4MV8Gq/checkboard.png" class = "img-fluid">
           <h3> Create and Share Lists </h3>
         </div>
       </div>

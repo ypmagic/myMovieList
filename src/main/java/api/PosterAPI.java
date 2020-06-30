@@ -7,7 +7,7 @@ import java.net.URL;
 public class PosterAPI {
 
   private static final String url = "http://img.omdbapi.com/";
-  private static final String key = "&apikey=5ac72dbc";
+  private static final String key = "&apikey=ae6125f5";
   
   public static String getImage(String imdbId) {
     String fullUrl =  url + "?i=" + imdbId + "&h=600" + key;
